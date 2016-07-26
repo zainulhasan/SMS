@@ -1,8 +1,10 @@
-@extends('layout.master')
+@extends('../layout.master')
 @section('title','Session')
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2_metro.css"/>
-    <link rel="stylesheet" href="assets/plugins/data-tables/DT_bootstrap.css"/>
+
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/plugins/select2/select2_metro.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/plugins/data-tables/DT_bootstrap.css')}}"/>
+
 
 @stop
 
@@ -785,11 +787,14 @@
 @section('scripts')
 
     <!--Session.blage.php-->
-    <script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/data-tables/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/data-tables/DT_bootstrap.js"></script>
-    <script src="assets/scripts/app.js"></script>
-    <script src="assets/scripts/table-advanced.js"></script>
+    <script src="{{URL::asset('assets/plugins/select2/select2.min.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/data-tables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/data-tables/DT_bootstrap.js')}}"></script>
+    <script src="{{URL::asset('assets/scripts/app.js')}}"></script>
+    <script src="{{URL::asset('assets/scripts/table-advanced.js')}}"></script>
+
+
+
     <script>
         jQuery(document).ready(function() {
             App.init();

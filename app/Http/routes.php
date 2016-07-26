@@ -20,4 +20,14 @@ Route::get('/test', function () {
     return view('test');
 });
 
+Route::get('/create','AcademicsController@getSession');
+
+
+Route::group(['prefix' => 'Academic'], function()
+{
+    Route::get('session','AcademicsController@session');
+
+});
+
+
 Route::get('/session','AcademicsController@session');

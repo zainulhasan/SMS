@@ -13,11 +13,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!--<![endif]-->
 <!-- BEGIN HEAD -->
 @include('layout.head')
-@section('styles')
-    <link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2_metro.css"/>
-    <link rel="stylesheet" href="assets/plugins/data-tables/DT_bootstrap.css"/>
-    <h1>jj</h1>
-@stop
+
 <!-- BEGIN BODY -->
 <body class="page-header-fixed">
 <!-- BEGIN HEADER -->
@@ -26,12 +22,12 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <div class="header-inner">
         <!-- BEGIN LOGO -->
         <a class="navbar-brand" href="/">
-            <img src="assets/img/logo.png" alt="logo" class="img-responsive"/>
+            <img src="{{URL::asset('assets/img/logo.png')}}" alt="logo" class="img-responsive"/>
         </a>
         <!-- END LOGO -->
         <!-- BEGIN RESPONSIVE MENU TOGGLER -->
         <a href="javascript:;" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <img src="assets/img/menu-toggler.png" alt=""/>
+            <img src="{{URL::asset('assets/img/menu-toggler.png')}}" alt=""/>
         </a>
         <!-- END RESPONSIVE MENU TOGGLER -->
         <!-- BEGIN TOP NAVIGATION MENU -->
@@ -178,7 +174,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                             <li>
                                 <a href="inbox.html?a=view">
 								<span class="photo">
-									<img src="./assets/img/avatar2.jpg" alt=""/>
+									<img src="{{URL::asset('./assets/img/avatar2.jpg')}}" alt=""/>
 								</span>
                                     <span class="subject">
 									<span class="from">
@@ -196,7 +192,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                             <li>
                                 <a href="inbox.html?a=view">
 								<span class="photo">
-									<img src="./assets/img/avatar3.jpg" alt=""/>
+									<img src="{{URL::asset('../assets/img/avatar3.jpg')}}" alt=""/>
 								</span>
                                     <span class="subject">
 									<span class="from">
@@ -214,7 +210,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                             <li>
                                 <a href="inbox.html?a=view">
 								<span class="photo">
-									<img src="./assets/img/avatar1.jpg" alt=""/>
+									<img src="{{URL::asset('../assets/img/avatar1.jpg')}}" alt=""/>
 								</span>
                                     <span class="subject">
 									<span class="from">
@@ -232,7 +228,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                             <li>
                                 <a href="inbox.html?a=view">
 								<span class="photo">
-									<img src="./assets/img/avatar2.jpg" alt=""/>
+
+                                    <img src="{{URL::asset('../assets/img/avatar2.jpg')}}" alt=""/>
 								</span>
                                     <span class="subject">
 									<span class="from">
@@ -250,7 +247,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                             <li>
                                 <a href="inbox.html?a=view">
 								<span class="photo">
-									<img src="./assets/img/avatar3.jpg" alt=""/>
+									<img src="{{URL::asset('../assets/img/avatar3.jpg')}}" alt=""/>
 								</span>
                                     <span class="subject">
 									<span class="from">
@@ -433,7 +430,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <!-- BEGIN USER LOGIN DROPDOWN -->
             <li class="dropdown user">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                    <img alt="" src="assets/img/avatar1_small.jpg"/>
+                    <img alt="" src="{{URL::asset('assets/img/avatar1_small.jpg')}}"/>
                     <span class="username">
 					Bob Nilson
 				</span>
@@ -630,17 +627,31 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 <!-- BEGIN CORE PLUGINS -->
 <!--[if lt IE 9]>
-<script src="assets/plugins/respond.min.js"></script>
-<script src="assets/plugins/excanvas.min.js"></script>
+
+<script src="{{URL::asset('assets/plugins/respond.min.js')}}"></script>
+<script src="{{URL::asset('assets/plugins/excanvas.min.js')}}"></script>
 <![endif]-->
-<script src="assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
-<script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
-<script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-<script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-<script src="assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-<script src="assets/plugins/jquery.cokie.min.js" type="text/javascript"></script>
-<script src="assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+
+
+<script src="{{URL::asset('assets/plugins/jquery-1.10.2.min.js')}}"></script>
+
+<script src="{{URL::asset('assets/plugins/jquery-migrate-1.2.1.min.js')}}"></script>
+
+<script src="{{URL::asset('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
+
+<script src="{{URL::asset('assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js')}}"></script>
+
+<script src="{{URL::asset('assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
+
+<script src="{{URL::asset('assets/plugins/jquery.blockui.min.js')}}"></script>
+
+<script src="{{URL::asset('assets/plugins/jquery.cokie.min.js')}}"></script>
+
+<script src="{{URL::asset('assets/plugins/uniform/jquery.uniform.min.js')}}"></script>
+
+
+
+
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 @yield('scripts')
