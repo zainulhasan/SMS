@@ -1,9 +1,11 @@
 @extends('../layout.master')
 @section('title','Add Session')
 @section('styles')
-    <link rel="stylesheet" type="text/css" href="assets/plugins/select2/select2_metro.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css"/>
-    <link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css">
+
+    <link href="{{URL::asset('assets/plugins/select2/select2_metro.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::asset('assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::asset('assets/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css')}}" rel="stylesheet" type="text/css"/>
+
 
 
 
@@ -20,12 +22,7 @@
                     <div class="caption">
                         <i class="fa fa-reorder"></i>Basic Validation
                     </div>
-                    <div class="tools">
-                        <a href="javascript:;" class="collapse"></a>
-                        <a href="#portlet-config" data-toggle="modal" class="config"></a>
-                        <a href="javascript:;" class="reload"></a>
-                        <a href="javascript:;" class="remove"></a>
-                    </div>
+
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
@@ -147,18 +144,25 @@
 
 @section('scripts')
 
-    <script type="text/javascript" src="assets/plugins/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/jquery-validation/dist/additional-methods.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/select2/select2.min.js"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
-    <script type="text/javascript" src="assets/plugins/ckeditor/ckeditor.js"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-markdown/js/bootstrap-markdown.js"></script>
-    <script type="text/javascript" src="assets/plugins/bootstrap-markdown/lib/markdown.js"></script>
-    <!-- END PAGE LEVEL PLUGINS -->
-    <!-- BEGIN PAGE LEVEL STYLES -->
-    <script src="assets/scripts/app.js"></script>
-    <script src="assets/scripts/form-validation.js"></script>
+
+    <script src="{{URL::asset('assets/plugins/jquery-validation/dist/jquery.validate.min.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/jquery-validation/dist/additional-methods.min.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/select2/select2.min.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js')}}"></script>
+
+
+    <script src="{{URL::asset('assets/plugins/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/bootstrap-markdown/js/bootstrap-markdown.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/bootstrap-markdown/lib/markdown.js')}}"></script>
+
+
+
+
+    <script src="{{URL::asset('assets/scripts/app.js')}}"></script>
+    <script src="{{URL::asset('assets/scripts/form-validation.js')}}"></script>
+
+
     <!-- END PAGE LEVEL STYLES -->
     <script>
         jQuery(document).ready(function() {

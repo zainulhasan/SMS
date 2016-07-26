@@ -591,11 +591,7 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
                         Advanced Datatables <small>advanced datatables</small>
                     </h3>
                     <ul class="page-breadcrumb breadcrumb">
-                        <li class="btn-group">
-                            <a  style="color:#fff;" herf="http://google.com" class="btn blue" >
-                                Add Seassion
-                            </a>
-                        </li>
+                        @yield('top-option')
                         <li>
                             <i class="fa fa-home"></i>
                             <a href="/">Home</a>

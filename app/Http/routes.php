@@ -17,14 +17,19 @@ Route::get('/', function () {
 
 
 
-Route::get('/create','AcademicsController@getSession');
 
 
 Route::group(['prefix' => 'Academic'], function()
 {
     Route::get('session','AcademicsController@session');
 
-});
+    Route::group(['prefix' => 'session'], function() {
+
+        Route::get('/create',['uses'=>'AcademicsController@getSession','as'=>'createSeassion']);
+
+    }); #end seassions
+
+    });#end Academic
 
 
 Route::get('/session','AcademicsController@session');
