@@ -49,13 +49,13 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-reorder"></i>Create Seassion
+                        <i class="fa fa-reorder"></i>Create Teacher
                     </div>
 
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    <form action="{{route('storeClass')}}"  method="post" id="form_sample_1" class="form-horizontal">
+                    <form action="{{route('storeTeachers')}}" method="post" id="form_sample_1" class="form-horizontal">
                         <div class="form-body">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>
@@ -64,76 +64,51 @@
 
 
                             <br/>
-                            <input type="hidden" name="sessionId" value="{{$id}}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
                                 <label class="control-label col-md-3">Name</label>
                                 <div class="col-md-4">
-                                    <input  type="text" class="form-control" minlength="1" maxlength="25" name="className"
+                                    <input type="text" class="form-control" minlength="1" maxlength="25"
+                                           name="name"
                                            id="maxlength_defaultconfig">
 
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Section</label>
+                                <label class="control-label col-md-3">CNIC</label>
                                 <div class="col-md-4">
-                                    <select name="section" class="form-control select2me" data-placeholder="Select...">
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="C">C</option>
-                                        <option value="D">D</option>
+                                    <input type="text" class="form-control" minlength="15" maxlength="25"
+                                           name="cnic"
+                                           id="maxlength_defaultconfig">
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Phone</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" minlength="11" maxlength="25"
+                                           name="phone"
+                                           id="maxlength_defaultconfig">
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3"> Designation</label>
+                                <div class="col-md-4">
+                                    <select name="designation" class="form-control select2me"
+                                            data-placeholder="Select...">
+
+                                        <option value="Teacher">Teacher</option>
+
                                     </select>
 
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Capacity</label>
-                                <div class="col-md-9">
-                                    <div id="spinner1">
-                                        <div class="input-group input-small">
-                                            <input type="text" name="capacity" class="spinner-input form-control" maxlength="3" >
-                                            <div class="spinner-buttons input-group-btn btn-group-vertical">
-                                                <button type="button" class="btn spinner-up btn-xs blue">
-                                                    <i class="fa fa-angle-up"></i>
-                                                </button>
-                                                <button type="button" class="btn spinner-down btn-xs blue">
-                                                    <i class="fa fa-angle-down"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3"> Teacher</label>
-                                <div class="col-md-4">
-                                    <select name="teacherName" class="form-control select2me" data-placeholder="Select...">
-                                        @foreach($teachers as $teacher)
-                                            <option value="{{$teacher->id}}">{{$teacher->name}}</option>
-                                            @endforeach
-                                    </select>
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Session</label>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" maxlength="25" name="session"
-                                           id="maxlength_defaultconfig" readonly value="{{$session['startingDate']}} - {{$session['startingDate']}}">
-
-                                </div>
-                            </div>
-
-
-
-
-
-
-
-
 
                         </div>
+
+
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn green">Submit</button>

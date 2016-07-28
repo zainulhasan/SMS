@@ -1,35 +1,60 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
 
 Route::get('/', function () {
     return view('index');
 });
 
 
+Route::group(['prefix' => 'Academic'], function () {
+
+    Route::get('session', ['as' => 'seassions', 'uses' => 'AcademicsController@session']);
+
+    Route::group(['prefix' => 'session'], function () {
+
+        Route::get('/create', ['uses' => 'AcademicsController@getSession', 'as' => 'createSeassion']);
+        Route::post('/store', ['uses' => 'AcademicsController@storeSession', 'as' => 'storeSeassion']);
+
+
+        Route::group(['prefix' => '{id}/classes'], function () {
+
+            Route::get('/', ['as' => 'classes', 'uses' => 'ClassesController@classes']);
+            Route::get('/create', ['as' => 'createClass', 'uses' => 'ClassesController@getClass']);
 
 
 
-Route::group(['prefix' => 'Academic'], function()
-{
-    Route::get('session','AcademicsController@session');
+            Route::group(['prefix' => '{class_id}/subjects'], function () {
 
-    Route::group(['prefix' => 'session'], function() {
 
-        Route::get('/create',['uses'=>'AcademicsController@getSession','as'=>'createSeassion']);
+            Route::get('/', ['as' => 'subjects', 'uses' => 'SubjectsController@index']);
+            Route::get('/create', ['as' => 'createSubject', 'uses' => 'SubjectsController@getSubject']);
+
+                Route::group(['prefix' => '{sub_id}/terms'], function () {
+
+                    Route::get('/', ['as' => 'terms', 'uses' => 'SubjectsController@index']);
+                });
+
+
+            });
+
+
+        });
+
 
     }); #end seassions
 
-    });#end Academic
+
+});#end Academic
 
 
-Route::get('/session','AcademicsController@session');
+Route::post('/store', ['as' => 'storeClass', 'uses' => 'ClassesController@storeClass']);
+Route::post('/storeSubject', ['as' => 'storeSubject', 'uses' => 'SubjectsController@storeSubject']);
+Route::get('/teachers', ['as' => 'teachers', 'uses' => 'TeachersController@index']);
+Route::get('/teachers/create', ['as' => 'createTeachers', 'uses' => 'TeachersController@create']);
+Route::post('/teachers/store', ['as' => 'storeTeachers', 'uses' => 'TeachersController@store']);
+
+Route::get('/test', 'AcademicsController@test');
+
+
+
+

@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Seassion;
+use App\Session;
 
-class SeassionsTableSeeder extends Seeder
+class SessionsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class SeassionsTableSeeder extends Seeder
     {
        for($i=0;$i<10;$i++)
        {
-           Seassion::create([
+           Session::create([
 
                'startingDate' => '27/07/2016',
                'endingDate' => '27/07/2017'

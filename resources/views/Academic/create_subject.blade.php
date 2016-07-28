@@ -49,13 +49,13 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-reorder"></i>Create Seassion
+                        <i class="fa fa-reorder"></i>Create Teacher
                     </div>
 
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    <form action="{{route('storeSeassion')}}"  method="post" id="form_sample_1" class="form-horizontal">
+                    <form action="{{route('storeSubject')}}" method="post" id="form_sample_1" class="form-horizontal">
                         <div class="form-body">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>
@@ -64,34 +64,39 @@
 
 
                             <br/>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="classId" value="{{ $class_id }}">
+                            <input type="hidden" name="id" value="{{ $id }}">
                             <div class="form-group">
-                                <label class="control-label col-md-3">Date Range</label>
+                                <label class="control-label col-md-3">Name</label>
                                 <div class="col-md-4">
-                                    <div class="input-group input-large date-picker input-daterange"
-                                         data-date="{{getSessionDate()}}" data-date-format="dd/mm/yyyy">
-                                        <input type="text" class="form-control" name="startingDate" value="{{getSessionDate()}}">
-                                        <span class="input-group-addon">
-													to
-												</span>
+                                    <input type="text" class="form-control" minlength="3" maxlength="25"
+                                           name="name"
+                                           id="maxlength_defaultconfig">
 
-
-                                        <input type="text" class="form-control" name="endingDate" value="{{getNextSessionDate()}}">
-                                    </div>
-                                    <!-- /input-group -->
-                                    <span class="help-block">
-												Select date range
-											</span>
                                 </div>
                             </div>
 
 
+                            <div class="form-group">
+                                <label class="control-label col-md-3"> Teacher</label>
+                                <div class="col-md-4">
+                                    <select name="teacherId" class="form-control select2me"
+                                            data-placeholder="Select...">
 
+                                        @foreach($teachers as $teacher)
+                                        <option value="{{$teacher->id}}">{{$teacher->name}}</option>
+                                            @endforeach
 
+                                    </select>
 
-
+                                </div>
+                            </div>
 
 
                         </div>
+
+
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn green">Submit</button>
@@ -99,7 +104,7 @@
                             </div>
                         </div>
 
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
                     </form>
                     <!-- END FORM-->
                 </div>

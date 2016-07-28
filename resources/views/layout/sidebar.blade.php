@@ -46,7 +46,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="/session">
+                        <a href="{{route("seassions")}}">
 
                             Session </a>
                     </li>
@@ -58,6 +58,10 @@
                     <li>
                         <a href="layout_language_bar.html">
                             Subjects</a>
+                    </li>
+                    <li>
+                        <a href="layout_language_bar.html">
+                            Teacher</a>
                     </li>
                 </ul>
             </li>

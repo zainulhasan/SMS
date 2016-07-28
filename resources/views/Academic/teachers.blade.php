@@ -14,13 +14,12 @@
 
 
 
-
 @section("top-option")
 
     <li class="btn-group">
 
-        <a  style="color:#fff;" href="{{route("createSeassion")}}" class="btn blue" >
-           <i class="fa fa-plus"></i> Add Session
+        <a  style="color:#fff;" href="{{----}}" class="btn blue" >
+           <i class="fa fa-plus"></i> Add Teacher
         </a>
     </li>
 
@@ -40,7 +39,7 @@
             <div class="portlet box blue">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-globe"></i>Sessions
+                        <i class="fa fa-globe"></i>Classes
                     </div>
 
                 </div>
@@ -51,32 +50,60 @@
                             <th class="col-md-1 text-center">
                                #
                             </th>
-                            <th  class="col-md-6 text-center">
-                                Session
+                            <th  class="col-md-1 text-center">
+                                Name
                             </th>
-                            <th  class="col-md-3 text-center">
-                               Actions
+
+                            <th  class="col-md-1 text-center">
+                               Cnic
+
                             </th>
+
+
+                            <th  class="col-md-1 text-center">
+                               Phone
+
+                            </th>
+                            <th  class="col-md-1 text-center">
+                                Designation
+
+                            </th>
+
+                            <th  class="col-md-1 text-center">
+                                Action
+
+                            </th>
+
 
                         </tr>
                         </thead>
                         <tbody>
 
 
-                        @foreach($sessions as $session)
+                        @foreach($teachers as $teacher)
                             <tr>
                                 <td class="text-center">
-                                    {{$session->id}}
+                                    {{$teacher->id}}
+                                </td>
+                                <td class="">
+                                    {{$teacher->name}}
                                 </td>
                                 <td class="text-center">
-                                    <span>{{$session->startingDate}} - {{$session->endingDate}}</span>
+                                    {{$teacher->cnic}}
                                 </td>
+                                <td class="text-center">
+                                    {{$teacher->phone}}
+                                </td>
+                                <td class="text-center">
+                                    {{$teacher->designation}}
+                                </td>
+
                                 <td class="text-center">
 
 
-                                    <a href="{{route('classes',['id'=>$session->id])}}" class="btn btn-xs "><i class="fa fa-edit"></i> Details </a>
-                                    <a href="{{route('classes',['id'=>$session->id])}}" class="btn btn-xs "><i class="fa fa-edit"></i> Edit </a>
-                                    <a href="{{route('classes',['id'=>$session->id])}}" class="btn btn-xs "><i class="fa fa-edit"></i> Delete </a>
+                                    <a href="#" class="btn btn-xs "><i class="fa fa-edit"></i> Details </a>
+                                    <a href="#" class="btn btn-xs "><i class="fa fa-edit"></i> Edit </a>
+                                    <a href="#" class="btn btn-xs "><i class="fa fa-edit"></i> Delete </a>
                                 </td>
 
                             </tr>

@@ -43,6 +43,18 @@ var FormValidation = function () {
                     },
                     category: {
                         required: true
+                    },
+
+                    /*****Custom Validation***/
+                    startingDate: {
+                        required: true
+                    },
+                    endingDate: {
+                        required: true
+                    },
+
+                    className: {
+                        required: true
                     }
                 },
 
@@ -65,11 +77,19 @@ var FormValidation = function () {
                 success: function (label) {
                     label
                         .closest('.form-group').removeClass('has-error'); // set success class to the control group
+
+
+
+
                 },
 
                 submitHandler: function (form) {
                     success1.show();
                     error1.hide();
+                    if(form1.valid()) {
+                        form.submit();
+                    }
+
                 }
             });
 

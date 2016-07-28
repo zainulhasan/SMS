@@ -18,8 +18,8 @@
 
     <li class="btn-group">
 
-        <a  style="color:#fff;" href="{{route("createSeassion")}}" class="btn blue" >
-           <i class="fa fa-plus"></i> Add Seassion
+        <a  style="color:#fff;" href="{{route('createClass',$id)}}" class="btn blue" >
+           <i class="fa fa-plus"></i> Add Class
         </a>
     </li>
 
@@ -39,7 +39,7 @@
             <div class="portlet box blue">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-globe"></i>Seassions
+                        <i class="fa fa-globe"></i>Classes
                     </div>
 
                 </div>
@@ -50,25 +50,58 @@
                             <th class="col-md-1 text-center">
                                #
                             </th>
-                            <th  class="col-md-6 text-center">
+                            <th  class="col-md-1 text-center">
+                                Name
+                            </th>
+
+                            <th  class="col-md-1 text-center">
+                               Section
+
+                            </th>
+
+
+                            <th  class="col-md-1 text-center">
+                               Capacity
+
+                            </th>
+                            <th  class="col-md-1 text-center">
+                                Teacher
+
+                            </th>
+                            <th  class="col-md-1 text-center">
                                 Session
+
                             </th>
-                            <th  class="col-md-3 text-center">
-                               Actions
+                            <th  class="col-md-1 text-center">
+                                Action
+
                             </th>
+
 
                         </tr>
                         </thead>
                         <tbody>
 
 
-                        @foreach($seassions as $seasson)
+                        @foreach($classes as $class)
                             <tr>
                                 <td class="text-center">
-                                    {{$seasson->id}}
+                                    {{$class->id}}
                                 </td>
                                 <td class="text-center">
-                                    {{$seasson->startingDate}} - {{$seasson->endingDate}}
+                                    {{$class->name}}
+                                </td>
+                                <td class="text-center">
+                                    {{$class->section}}
+                                </td>
+                                <td class="text-center">
+                                    {{$class->capacity}}
+                                </td>
+                                <td class="text-center">
+                                {{$class->teacher->name}}
+                                </td>
+                                <td class="text-center">
+                                    {{$class->session->id}}
                                 </td>
                                 <td class="text-center">
 
