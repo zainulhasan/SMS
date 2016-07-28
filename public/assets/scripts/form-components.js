@@ -76,6 +76,11 @@ var FormComponents = function () {
     }
 
     var handleSpinners = function () {
+       /**Custom Scripts*/
+       $('#chapterSpinner').spinner();
+       $('#pageSpinner').spinner();
+       /**End Custom Scripts*/
+
         $('#spinner1').spinner();
         $('#spinner2').spinner({disabled: true});
         $('#spinner3').spinner({value:0, min: 0, max: 10});

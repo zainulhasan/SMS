@@ -18,5 +18,16 @@ function getNextSessionDate()
 }
 
 
+function getNextTermDate()
+{
+    $day=date('d');
+    $month=date('m');
+    $year=date('Y');
+
+    $month+=3;
+    $d=$day.'/'.$month.'/'.$year;
+    return $d;
+}
+
 
 ?>

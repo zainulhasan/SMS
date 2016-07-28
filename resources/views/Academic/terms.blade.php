@@ -18,8 +18,8 @@
 
     <li class="btn-group">
 
-        <a  style="color:#fff;" href="{{route('createSubject',['id'=>$id,'class_id'=>$class_id])}}" class="btn blue" >
-           <i class="fa fa-plus"></i> Add Subjects
+        <a  style="color:#fff;" href="{{route('createTerms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id])}}" class="btn blue" >
+           <i class="fa fa-plus"></i> Add Term
         </a>
     </li>
 
@@ -51,17 +51,27 @@
                                 #
                             </th>
                             <th  class="col-md-1 text-center">
-                                Title
+                                Term
                             </th>
 
                             <th  class="col-md-1 text-center">
-                                Class
+                                Chapter
 
                             </th>
 
 
                             <th  class="col-md-1 text-center">
-                                Teacher
+                                Page
+
+                            </th>
+
+
+                            <th  class="col-md-1 text-center">
+                                Subject
+
+                            </th>
+                            <th  class="col-md-1 text-center">
+                                Status
 
                             </th>
 
@@ -76,23 +86,31 @@
                         <tbody>
 
 
-                        @foreach($subjects as $subject)
+                        @foreach($terms as $term)
 
                             <tr>
                                 <td class="text-center">
-                                    {{$subject->id}}
-                                </td>
-                                <td>
-
-                                    {{$subject->title}}
+                                    {{$term->id}}
                                 </td>
                                 <td class="text-center">
 
-                                    {{$subject->classes->name}}{{$subject->classes->section}}
+                                    {{$term->startingDate}} - {{$term->endingDate}}
+                                </td>
+                                <td class="text-center">
+                                    {{$term->chapter}}
                                 </td>
                                 <td class="text-center">
 
-                                    {{$subject->teacher->name}}
+                                    {{$term->page}}
+                                </td>
+
+                                <td class="text-center">
+
+                                    {{$term->subject->title}}
+                                </td>
+                                <td class="text-center">
+
+                                    {{$term->status}}
                                 </td>
 
                                 <td class="text-center">

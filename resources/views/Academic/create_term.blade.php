@@ -49,13 +49,13 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-reorder"></i>Create Seassion
+                        <i class="fa fa-reorder"></i>Create Term
                     </div>
 
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    <form action="{{route('storeSeassion')}}"  method="post" id="form_sample_1" class="form-horizontal">
+                    <form action="{{route('storeTerm')}}"  method="post" id="form_sample_1" class="form-horizontal">
                         <div class="form-body">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>
@@ -64,6 +64,7 @@
 
 
                             <br/>
+
                             <div class="form-group">
                                 <label class="control-label col-md-3">Date Range</label>
                                 <div class="col-md-4">
@@ -75,7 +76,7 @@
 												</span>
 
 
-                                        <input type="text" class="form-control" name="endingDate" value="{{getNextSessionDate()}}">
+                                        <input type="text" class="form-control" name="endingDate" value="{{getNextTermDate()    }}">
                                     </div>
                                     <!-- /input-group -->
                                     <span class="help-block">
@@ -83,6 +84,49 @@
 											</span>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Capacity</label>
+                                <div class="col-md-9">
+                                    <div id="chapterSpinner">
+                                        <div class="input-group input-small">
+                                            <input type="text" name="chapter" class="spinner-input form-control" maxlength="3" >
+                                            <div class="spinner-buttons input-group-btn btn-group-vertical">
+                                                <button type="button" class="btn spinner-up btn-xs blue">
+                                                    <i class="fa fa-angle-up"></i>
+                                                </button>
+                                                <button type="button" class="btn spinner-down btn-xs blue">
+                                                    <i class="fa fa-angle-down"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Capacity</label>
+                                <div class="col-md-9">
+                                    <div id="pageSpinner">
+                                        <div class="input-group input-small">
+                                            <input type="text" name="page" class="spinner-input form-control" maxlength="3" >
+                                            <div class="spinner-buttons input-group-btn btn-group-vertical">
+                                                <button type="button" class="btn spinner-up btn-xs blue">
+                                                    <i class="fa fa-angle-up"></i>
+                                                </button>
+                                                <button type="button" class="btn spinner-down btn-xs blue">
+                                                    <i class="fa fa-angle-down"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            </div>
+
 
 
 
@@ -99,6 +143,9 @@
                             </div>
                         </div>
 
+                        <input type="hidden" name="subject_id" value="{{$sub_id}}">
+                        <input type="hidden" name="session_id" value="{{$id}}">
+                        <input type="hidden" name="class_id" value="{{$class_id}}">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     </form>
                     <!-- END FORM-->
