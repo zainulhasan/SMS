@@ -60,6 +60,7 @@ Route::post('/storeTerm', ['as' => 'storeTerm', 'uses' => 'TermController@storeT
 
 Route::get('/teachers', ['as' => 'teachers', 'uses' => 'TeachersController@index']);
 Route::get('/teachers/create', ['as' => 'createTeachers', 'uses' => 'TeachersController@create']);
+Route::get('/teachers/{teacher_id}/delete', ['as' => 'deleteTeachers', 'uses' => 'TeachersController@delete']);
 Route::post('/teachers/store', ['as' => 'storeTeachers', 'uses' => 'TeachersController@store']);
 
 

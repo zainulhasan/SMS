@@ -60,7 +60,7 @@
                             Subjects</a>
                     </li>
                     <li>
-                        <a href="layout_language_bar.html">
+                        <a href="{{route('teachers')}}">
                             Teacher</a>
                     </li>
                 </ul>

@@ -18,7 +18,7 @@
 
     <li class="btn-group">
 
-        <a  style="color:#fff;" href="{{----}}" class="btn blue" >
+        <a  style="color:#fff;" href="{{route('createTeachers')}}" class="btn blue" >
            <i class="fa fa-plus"></i> Add Teacher
         </a>
     </li>
@@ -101,9 +101,9 @@
                                 <td class="text-center">
 
 
-                                    <a href="#" class="btn btn-xs "><i class="fa fa-edit"></i> Details </a>
+                                    <a href="{{route('teachers')}}" class="btn btn-xs "><i class="fa fa-edit"></i> Details </a>
                                     <a href="#" class="btn btn-xs "><i class="fa fa-edit"></i> Edit </a>
-                                    <a href="#" class="btn btn-xs "><i class="fa fa-edit"></i> Delete </a>
+                                    <a href="{{route('deleteTeachers',['teacher_id'=>$teacher->id])}}" class="btn btn-xs "><i class="fa fa-edit"></i> Delete </a>
                                 </td>
 
                             </tr>

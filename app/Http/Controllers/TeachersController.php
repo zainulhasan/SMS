@@ -5,14 +5,12 @@ namespace App\Http\Controllers;
 use App\Teacher;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-
 class TeachersController extends Controller
 {
     public function index()
     {
-        $teachers=Teacher::all();
-        return view('Academic/teachers',compact('teachers'));
+        $teachers = Teacher::all();
+        return view('Academic/teachers', compact('teachers'));
     }
 
     public function create()
@@ -26,12 +24,24 @@ class TeachersController extends Controller
     {
 
         Teacher::create([
-           'name'=>$request->get('name'),
-           'cnic' =>$request->get('cnic'),
-           'phone' =>$request->get('phone'),
-           'designation' =>$request->get('designation'),
-       ]);
+            'name' => $request->get('name'),
+            'cnic' => $request->get('cnic'),
+            'phone' => $request->get('phone'),
+            'designation' => $request->get('designation'),
+        ]);
 
         return redirect()->route('teachers');
     }
+
+
+
+
+    public function delete($teacher_id)
+    {
+
+        Teacher::destroy($teacher_id);
+
+        return redirect()->route('teachers');
+    }
+
 }
