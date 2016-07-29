@@ -67,10 +67,10 @@ class AcademicsController extends Controller
          return view('Test/index',compact('id','title'));
     }
 
-    public function sessionDelete($id)
+    public function sessionDelete($del_id)
     {
-        $title="Delete";
-         return view('Test/index',compact('id','title'));
+        Session::destroy($del_id);
+        return redirect()->route('seassions');
     }
 
 

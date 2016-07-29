@@ -78,12 +78,13 @@ class ClassesController extends Controller
         #;#view('Test/index',compact('id','title'));
     }
 
-    public function sessionDelete($id)
+    public function classDelete($id,$class_id)
     {
-        $title="Delete";
-         return "Detaild  of classes";
-        #view('Test/index',compact('id','title'));
-        #view('Test/index',compact('id','title'));
+
+
+        Classes::destroy($class_id);
+        return redirect()->route('classes',['id'=>$id]);
+
     }
 
 

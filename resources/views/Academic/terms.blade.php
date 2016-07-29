@@ -18,12 +18,13 @@
 
     <li class="btn-group">
 
-        <a  style="color:#fff;" href="{{route('createTerms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id])}}" class="btn blue" >
-           <i class="fa fa-plus"></i> Add Term
+        <a style="color:#fff;" href="{{route('createTerms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id])}}"
+           class="btn blue">
+            <i class="fa fa-plus"></i> Add Term
         </a>
     </li>
 
-    @stop
+@stop
 
 
 
@@ -50,32 +51,32 @@
                             <th class="col-md-1 text-center">
                                 #
                             </th>
-                            <th  class="col-md-1 text-center">
+                            <th class="col-md-1 text-center">
                                 Term
                             </th>
 
-                            <th  class="col-md-1 text-center">
+                            <th class="col-md-1 text-center">
                                 Chapter
 
                             </th>
 
 
-                            <th  class="col-md-1 text-center">
+                            <th class="col-md-1 text-center">
                                 Page
 
                             </th>
 
 
-                            <th  class="col-md-1 text-center">
+                            <th class="col-md-1 text-center">
                                 Subject
 
                             </th>
-                            <th  class="col-md-1 text-center">
+                            <th class="col-md-1 text-center">
                                 Status
 
                             </th>
 
-                            <th  class="col-md-1 text-center">
+                            <th class="col-md-1 text-center">
                                 Action
 
                             </th>
@@ -118,13 +119,13 @@
 
                                     <a href="#" class="btn btn-xs "><i class="fa fa-edit"></i> Details </a>
                                     <a href="#" class="btn btn-xs "><i class="fa fa-edit"></i> Edit </a>
-                                    <a href="#" class="btn btn-xs "><i class="fa fa-edit"></i> Delete </a>
+                                    <a href="{{route('deleteTerm',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term->id])}}"
+                                       class="btn btn-xs "><i class="fa fa-edit"></i> Delete </a>
                                 </td>
 
                             </tr>
 
-                            @endforeach
-
+                        @endforeach
 
 
                         </tbody>
@@ -144,13 +145,17 @@
     <script src="{{URL::asset('assets/plugins/data-tables/DT_bootstrap.js')}}"></script>
     <script src="{{URL::asset('assets/scripts/app.js')}}"></script>
     <script src="{{URL::asset('assets/scripts/table-advanced.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/bootbox/bootbox.min.js')}}"></script>
+    <script src="{{URL::asset('assets/scripts/ui-bootbox.js')}}"></script>
+
 
 
 
     <script>
-        jQuery(document).ready(function() {
+        jQuery(document).ready(function () {
             App.init();
             TableAdvanced.init();
+            UIBootbox.init();
         });
     </script>
 

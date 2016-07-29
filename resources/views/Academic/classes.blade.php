@@ -18,12 +18,12 @@
 
     <li class="btn-group">
 
-        <a  style="color:#fff;" href="{{route('createClass',$id)}}" class="btn blue" >
-           <i class="fa fa-plus"></i> Add Class
+        <a style="color:#fff;" href="{{route('createClass',$id)}}" class="btn blue">
+            <i class="fa fa-plus"></i> Add Class
         </a>
     </li>
 
-    @stop
+@stop
 
 
 
@@ -48,31 +48,31 @@
                         <thead>
                         <tr>
                             <th class="col-md-1 text-center">
-                               #
+                                #
                             </th>
-                            <th  class="col-md-1 text-center">
+                            <th class="col-md-1 text-center">
                                 Name
                             </th>
 
-                            <th  class="col-md-1 text-center">
-                               Section
+                            <th class="col-md-1 text-center">
+                                Section
 
                             </th>
 
 
-                            <th  class="col-md-1 text-center">
-                               Capacity
+                            <th class="col-md-1 text-center">
+                                Capacity
 
                             </th>
-                            <th  class="col-md-1 text-center">
+                            <th class="col-md-1 text-center">
                                 Teacher
 
                             </th>
-                            <th  class="col-md-1 text-center">
+                            <th class="col-md-1 text-center">
                                 Session
 
                             </th>
-                            <th  class="col-md-1 text-center">
+                            <th class="col-md-1 text-center">
                                 Action
 
                             </th>
@@ -98,7 +98,7 @@
                                     {{$class->capacity}}
                                 </td>
                                 <td class="text-center">
-                                {{$class->teacher->name}}
+                                    {{$class->teacher->name}}
                                 </td>
                                 <td class="text-center">
                                     {{$class->session->id}}
@@ -106,14 +106,15 @@
                                 <td class="text-center">
 
 
-                                    <a href="#" class="btn btn-xs "><i class="fa fa-edit"></i> Details </a>
+                                    <a href="{{route('subjects',['id'=>$id,'class_id'=>$class->id])}}"
+                                       class="btn btn-xs "><i class="fa fa-edit"></i> Details </a>
                                     <a href="#" class="btn btn-xs "><i class="fa fa-edit"></i> Edit </a>
-                                    <a href="#" class="btn btn-xs "><i class="fa fa-edit"></i> Delete </a>
+                                    <a href="{{route('classDelete',['id'=>$id,'class_id'=>$class->id])}}"
+                                       class="btn btn-xs "><i class="fa fa-edit"></i> Delete </a>
                                 </td>
 
                             </tr>
-                            @endforeach
-
+                        @endforeach
 
 
                         </tbody>
@@ -137,7 +138,7 @@
 
 
     <script>
-        jQuery(document).ready(function() {
+        jQuery(document).ready(function () {
             App.init();
             TableAdvanced.init();
         });

@@ -5,6 +5,21 @@ var UIBootbox = function () {
         //main function to initiate the module
         init: function () {
 
+
+            /**Custom Scripts**/
+
+
+            /**
+            $('#del_btn').click(function(){
+                bootbox.alert("Hello world!");
+            });**/
+
+
+            /**End Custom Scripts**/
+
+
+
+
             $('#demo_1').click(function(){
                 bootbox.alert("Hello world!");    
             });

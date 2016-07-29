@@ -98,9 +98,9 @@
                                 <td class="text-center">
 
 
-                                    <a href="#" class="btn btn-xs "><i class="fa fa-edit"></i> Details </a>
+                                    <a href="{{route('terms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$subject->id])}}" class="btn btn-xs "><i class="fa fa-edit"></i> Details </a>
                                     <a href="#" class="btn btn-xs "><i class="fa fa-edit"></i> Edit </a>
-                                    <a href="#" class="btn btn-xs "><i class="fa fa-edit"></i> Delete </a>
+                                    <a href="{{route('deleteSubject',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$subject->id])}}" class="btn btn-xs "><i class="fa fa-edit"></i> Delete </a>
                                 </td>
 
                             </tr>
@@ -126,6 +126,8 @@
     <script src="{{URL::asset('assets/plugins/data-tables/DT_bootstrap.js')}}"></script>
     <script src="{{URL::asset('assets/scripts/app.js')}}"></script>
     <script src="{{URL::asset('assets/scripts/table-advanced.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/bootbox/bootbox.min.js')}}"></script>
+    <script src="{{URL::asset('assets/scripts/ui-bootbox.js')}}"></script>
 
 
 

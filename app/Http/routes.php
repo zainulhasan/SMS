@@ -9,6 +9,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'Academic'], function () {
 
     Route::get('session', ['as' => 'seassions', 'uses' => 'AcademicsController@session']);
+    Route::get('/sessionDelete/{del_id}', ['as' => 'sessionDelete', 'uses' => 'AcademicsController@sessionDelete']);
 
     Route::group(['prefix' => 'session'], function () {
 
@@ -20,19 +21,21 @@ Route::group(['prefix' => 'Academic'], function () {
 
             Route::get('/', ['as' => 'classes', 'uses' => 'ClassesController@classes']);
             Route::get('/create', ['as' => 'createClass', 'uses' => 'ClassesController@getClass']);
-
+            Route::get('/{class_id}/delete', ['as' => 'classDelete', 'uses' => 'ClassesController@classDelete']);
 
 
             Route::group(['prefix' => '{class_id}/subjects'], function () {
 
 
-            Route::get('/', ['as' => 'subjects', 'uses' => 'SubjectsController@index']);
-            Route::get('/create', ['as' => 'createSubject', 'uses' => 'SubjectsController@getSubject']);
+                Route::get('/', ['as' => 'subjects', 'uses' => 'SubjectsController@index']);
+                Route::get('/create', ['as' => 'createSubject', 'uses' => 'SubjectsController@getSubject']);
+                Route::get('{sub_id}/delete', ['as' => 'deleteSubject', 'uses' => 'SubjectsController@deleteSubject']);
 
                 Route::group(['prefix' => '{sub_id}/terms'], function () {
 
                     Route::get('/', ['as' => 'terms', 'uses' => 'TermController@index']);
                     Route::get('/create', ['as' => 'createTerms', 'uses' => 'TermController@getTerm']);
+                    Route::get('{term_id}/delete', ['as' => 'deleteTerm', 'uses' => 'TermController@deleteTerm']);
                 });
 
 
@@ -54,9 +57,11 @@ Route::post('/storeTerm', ['as' => 'storeTerm', 'uses' => 'TermController@storeT
 
 
 
+
 Route::get('/teachers', ['as' => 'teachers', 'uses' => 'TeachersController@index']);
 Route::get('/teachers/create', ['as' => 'createTeachers', 'uses' => 'TeachersController@create']);
 Route::post('/teachers/store', ['as' => 'storeTeachers', 'uses' => 'TeachersController@store']);
+
 
 Route::get('/test', 'AcademicsController@test');
 

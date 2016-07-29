@@ -19,12 +19,12 @@
 
     <li class="btn-group">
 
-        <a  style="color:#fff;" href="{{route("createSeassion")}}" class="btn blue" >
-           <i class="fa fa-plus"></i> Add Session
+        <a style="color:#fff;" href="{{route("createSeassion")}}" class="btn blue">
+            <i class="fa fa-plus"></i> Add Session
         </a>
     </li>
 
-    @stop
+@stop
 
 
 
@@ -49,13 +49,13 @@
                         <thead>
                         <tr>
                             <th class="col-md-1 text-center">
-                               #
+                                #
                             </th>
-                            <th  class="col-md-6 text-center">
+                            <th class="col-md-6 text-center">
                                 Session
                             </th>
-                            <th  class="col-md-3 text-center">
-                               Actions
+                            <th class="col-md-3 text-center">
+                                Actions
                             </th>
 
                         </tr>
@@ -74,14 +74,17 @@
                                 <td class="text-center">
 
 
-                                    <a href="{{route('classes',['id'=>$session->id])}}" class="btn btn-xs "><i class="fa fa-edit"></i> Details </a>
-                                    <a href="{{route('classes',['id'=>$session->id])}}" class="btn btn-xs "><i class="fa fa-edit"></i> Edit </a>
-                                    <a href="{{route('classes',['id'=>$session->id])}}" class="btn btn-xs "><i class="fa fa-edit"></i> Delete </a>
+                                    <a href="{{route('classes',['id'=>$session->id])}}" class="btn btn-xs "><i
+                                                class="fa fa-edit"></i> Details </a>
+                                    <a href="{{route('classes',['id'=>$session->id])}}" class="btn btn-xs "><i
+                                                class="fa fa-edit"></i> Edit </a>
+                                    <a  href="{{route('sessionDelete',['id'=>$session->id])}}" class="btn btn-xs "><i
+                                                class="fa fa-edit"></i> Delete </a>
+
                                 </td>
 
                             </tr>
-                            @endforeach
-
+                        @endforeach
 
 
                         </tbody>
@@ -101,13 +104,21 @@
     <script src="{{URL::asset('assets/plugins/data-tables/DT_bootstrap.js')}}"></script>
     <script src="{{URL::asset('assets/scripts/app.js')}}"></script>
     <script src="{{URL::asset('assets/scripts/table-advanced.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/bootbox/bootbox.min.js')}}"></script>
+    <script src="{{URL::asset('assets/scripts/ui-bootbox.js')}}"></script>
+
 
 
 
     <script>
-        jQuery(document).ready(function() {
+        jQuery(document).ready(function () {
             App.init();
             TableAdvanced.init();
+            UIBootbox.init();
+
+
+
+
         });
     </script>
 
