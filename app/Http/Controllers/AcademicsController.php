@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Subject;
 use App\Teacher;
 use App\Term;
+use App\User;
 use Illuminate\Http\Request;
 use DebugBar\DebugBar;
 use App\Http\Requests;
@@ -78,10 +79,21 @@ class AcademicsController extends Controller
     {
 
 
-        $tmp=Term::all();
+        $tmp=User::all();
 
 
         return view('Test/index',compact('tmp'));
+    }
+
+
+    public function api()
+    {
+
+
+        $tmp=User::all();
+
+
+         return response()->json($tmp);
     }
 
 

@@ -14,16 +14,56 @@
 
 
 
+
+
 @section("top-option")
 
-    <li class="btn-group">
 
-        <a  style="color:#fff;" href="{{route('createSubject',['id'=>$id,'class_id'=>$class_id])}}" class="btn blue" >
-           <i class="fa fa-plus"></i> Add Subjects
-        </a>
-    </li>
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+            Advanced Datatables
+            <small>advanced datatables</small>
+        </h3>
 
-    @stop
+        <ul class="page-breadcrumb breadcrumb">
+
+
+
+            <li class="btn-group">
+
+                <a  style="color:#fff;" href="{{route('createSubject',['id'=>$id,'class_id'=>$class_id])}}" class="btn blue" >
+                    <i class="fa fa-plus"></i> Add Subjects
+                </a>
+            </li>
+
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/">Home</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="{{route('sessions')}}">Sessions</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="{{route('classes',['id'=>$id])}}">Classes</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Subjects</a>
+            </li>
+        </ul>
+
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+
+
+
+
+
+@stop
+
 
 
 
@@ -48,7 +88,7 @@
                         <thead>
                         <tr>
                             <th class="col-md-1 text-center">
-                                #
+                                Sr.No
                             </th>
                             <th  class="col-md-1 text-center">
                                 Title

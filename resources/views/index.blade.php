@@ -12,6 +12,36 @@
     <link href="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css"/>
 @stop
 
+
+@section("top-option")
+
+
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+            Advanced Datatables <small>advanced datatables</small>
+        </h3>
+
+        <ul class="page-breadcrumb breadcrumb">
+
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/">Home</a>
+
+            </li>
+
+        </ul>
+
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+
+
+
+
+
+@stop
+
+
 @section('content')
 
     <!-- BEGIN DASHBOARD STATS -->

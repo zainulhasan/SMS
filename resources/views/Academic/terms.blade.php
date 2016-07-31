@@ -12,19 +12,57 @@
 
 @stop
 
-
-
 @section("top-option")
 
-    <li class="btn-group">
 
-        <a style="color:#fff;" href="{{route('createTerms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id])}}"
-           class="btn blue">
-            <i class="fa fa-plus"></i> Add Term
-        </a>
-    </li>
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+            Advanced Datatables
+            <small>advanced datatables</small>
+        </h3>
+
+        <ul class="page-breadcrumb breadcrumb">
+
+
+            <li class="btn-group">
+
+                <a style="color:#fff;" href="{{route('createTerms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id])}}"
+                   class="btn blue">
+                    <i class="fa fa-plus"></i> Add Term
+                </a>
+            </li>
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/">Home</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="{{route('sessions')}}">Sessions</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="{{route('classes',['id'=>$id])}}">Classes</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="{{route('subjects',['id'=>$id,'class_id'=>$class_id])}}">Subjects</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Terms</a>
+            </li>
+        </ul>
+
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+
+
+
+
 
 @stop
+
 
 
 
@@ -49,7 +87,7 @@
                         <thead>
                         <tr>
                             <th class="col-md-1 text-center">
-                                #
+                                Sr.No
                             </th>
                             <th class="col-md-1 text-center">
                                 Term
@@ -95,7 +133,8 @@
                                 </td>
                                 <td class="text-center">
 
-                                    {{$term->startingDate}} - {{$term->endingDate}}
+                                    {{date('F-Y',strtotime($term->startingDate))}}
+                                    - {{date('F-Y',strtotime($term->endingDate))}}
                                 </td>
                                 <td class="text-center">
                                     {{$term->chapter}}
@@ -111,7 +150,7 @@
                                 </td>
                                 <td class="text-center">
 
-                                    {{$term->status}}
+                                    {{$term->status==0?'Incomplete':'Complete'}}
                                 </td>
 
                                 <td class="text-center">

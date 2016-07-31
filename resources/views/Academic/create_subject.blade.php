@@ -30,15 +30,57 @@
           type="text/css"/>
 
 
+@stop
 
 
 
+@section("top-option")
+
+
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+            Advanced Datatables
+            <small>advanced datatables</small>
+        </h3>
+
+        <ul class="page-breadcrumb breadcrumb">
+
+
+
+
+
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/">Home</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="{{route('sessions')}}">Sessions</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="{{route('classes',['id'=>$id])}}">Classes</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="{{route('subjects',['id'=>$id,'class_id'=>$class_id])}}">Subjects</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Create</a>
+            </li>
+        </ul>
+
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
 
 
 
 
 
 @stop
+
 
 @section('content')
 

@@ -6,8 +6,10 @@ Author: KeenThemes
 Website: http://www.keenthemes.com/
 Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
 -->
-<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en" class="no-js">
 <!--<![endif]-->
@@ -34,7 +36,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
         <ul class="nav navbar-nav pull-right">
             <!-- BEGIN NOTIFICATION DROPDOWN -->
             <li class="dropdown" id="header_notification_bar">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                   data-close-others="true">
                     <i class="fa fa-warning"></i>
                     <span class="badge">
 					6
@@ -157,7 +160,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <!-- END NOTIFICATION DROPDOWN -->
             <!-- BEGIN INBOX DROPDOWN -->
             <li class="dropdown" id="header_inbox_bar">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                   data-close-others="true">
                     <i class="fa fa-envelope"></i>
                     <span class="badge">
 					5
@@ -272,7 +276,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <!-- END INBOX DROPDOWN -->
             <!-- BEGIN TODO DROPDOWN -->
             <li class="dropdown" id="header_task_bar">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                   data-close-others="true">
                     <i class="fa fa-tasks"></i>
                     <span class="badge">
 					5
@@ -297,7 +302,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 									</span>
 								</span>
                                     <span class="progress">
-									<span style="width: 40%;" class="progress-bar progress-bar-success" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+									<span style="width: 40%;" class="progress-bar progress-bar-success"
+                                          aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
 										<span class="sr-only">
 											40% Complete
 										</span>
@@ -316,7 +322,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 									</span>
 								</span>
                                     <span class="progress progress-striped">
-									<span style="width: 65%;" class="progress-bar progress-bar-danger" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+									<span style="width: 65%;" class="progress-bar progress-bar-danger"
+                                          aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
 										<span class="sr-only">
 											65% Complete
 										</span>
@@ -335,7 +342,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 									</span>
 								</span>
                                     <span class="progress">
-									<span style="width: 98%;" class="progress-bar progress-bar-success" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100">
+									<span style="width: 98%;" class="progress-bar progress-bar-success"
+                                          aria-valuenow="98" aria-valuemin="0" aria-valuemax="100">
 										<span class="sr-only">
 											98% Complete
 										</span>
@@ -354,7 +362,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 									</span>
 								</span>
                                     <span class="progress progress-striped">
-									<span style="width: 10%;" class="progress-bar progress-bar-warning" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+									<span style="width: 10%;" class="progress-bar progress-bar-warning"
+                                          aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
 										<span class="sr-only">
 											10% Complete
 										</span>
@@ -373,7 +382,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 									</span>
 								</span>
                                     <span class="progress progress-striped">
-									<span style="width: 58%;" class="progress-bar progress-bar-info" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100">
+									<span style="width: 58%;" class="progress-bar progress-bar-info" aria-valuenow="58"
+                                          aria-valuemin="0" aria-valuemax="100">
 										<span class="sr-only">
 											58% Complete
 										</span>
@@ -392,7 +402,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 									</span>
 								</span>
                                     <span class="progress progress-striped">
-									<span style="width: 85%;" class="progress-bar progress-bar-success" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
+									<span style="width: 85%;" class="progress-bar progress-bar-success"
+                                          aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
 										<span class="sr-only">
 											85% Complete
 										</span>
@@ -411,7 +422,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 									</span>
 								</span>
                                     <span class="progress progress-striped">
-									<span style="width: 18%;" class="progress-bar progress-bar-important" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100">
+									<span style="width: 18%;" class="progress-bar progress-bar-important"
+                                          aria-valuenow="18" aria-valuemin="0" aria-valuemax="100">
 										<span class="sr-only">
 											18% Complete
 										</span>
@@ -429,7 +441,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <!-- END TODO DROPDOWN -->
             <!-- BEGIN USER LOGIN DROPDOWN -->
             <li class="dropdown user">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                   data-close-others="true">
                     <img alt="" src="{{URL::asset('assets/img/avatar1_small.jpg')}}"/>
                     <span class="username">
 					Bob Nilson
@@ -488,7 +501,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
     <div class="page-content-wrapper">
         <div class="page-content">
             <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
-            <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                 aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -585,33 +599,13 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
             <!-- END STYLE CUSTOMIZER -->
             <!-- BEGIN PAGE HEADER-->
             <div class="row">
-                <div class="col-md-12">
-                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                    <h3 class="page-title">
-                        Advanced Datatables <small>advanced datatables</small>
-                    </h3>
-                    <ul class="page-breadcrumb breadcrumb">
-                        @yield('top-option')
-                        <li>
-                            <i class="fa fa-home"></i>
-                            <a href="/">Home</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                            <a href="#">Data Tables</a>
-                            <i class="fa fa-angle-right"></i>
-                        </li>
-                        <li>
-                            <a href="#">Advanced Datatables</a>
-                        </li>
-                    </ul>
-                    <!-- END PAGE TITLE & BREADCRUMB-->
-                </div>
+                @yield('top-option')
+
             </div>
             <!-- END PAGE HEADER-->
             <!-- BEGIN PAGE CONTENT-->
-           @yield('content')
-            <!-- END PAGE CONTENT-->
+        @yield('content')
+        <!-- END PAGE CONTENT-->
         </div>
     </div>
     <!-- END CONTENT -->
@@ -644,8 +638,6 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <script src="{{URL::asset('assets/plugins/jquery.cokie.min.js')}}"></script>
 
 <script src="{{URL::asset('assets/plugins/uniform/jquery.uniform.min.js')}}"></script>
-
-
 
 
 <!-- END CORE PLUGINS -->

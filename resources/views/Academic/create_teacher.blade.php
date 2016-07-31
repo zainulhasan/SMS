@@ -29,10 +29,50 @@
     <link href="{{URL::asset('assets/plugins/jquery-tags-input/jquery.tagsinput.css')}}" rel="stylesheet"
           type="text/css"/>
 
+@stop
 
 
 
+@section("top-option")
 
+
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+            Advanced Datatables
+            <small>advanced datatables</small>
+        </h3>
+
+        <ul class="page-breadcrumb breadcrumb">
+
+
+
+            <li class="btn-group">
+
+                <a  style="color:#fff;" href="{{route('createTeachers')}}" class="btn blue" >
+                    <i class="fa fa-plus"></i> Add Teacher
+                </a>
+            </li>
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/">Home</a>
+                <i class="fa fa-angle-right"></i>
+
+            </li>
+
+
+            <li>
+                <a href="{{route('teachers')}}">Teachers</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+
+            <li>
+                <a href="#">Create</a>
+            </li>
+        </ul>
+
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
 
 
 

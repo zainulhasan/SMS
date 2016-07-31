@@ -29,10 +29,45 @@
     <link href="{{URL::asset('assets/plugins/jquery-tags-input/jquery.tagsinput.css')}}" rel="stylesheet"
           type="text/css"/>
 
+@stop
+
+
+@section("top-option")
+
+
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+            Advanced Datatables
+            <small>advanced datatables</small>
+        </h3>
+
+        <ul class="page-breadcrumb breadcrumb">
 
 
 
 
+
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/">Home</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="{{route('sessions')}}">Sessions</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="{{route('classes',['id'=>$id])}}">Classes</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Create</a>
+            </li>
+        </ul>
+
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
 
 
 
@@ -49,7 +84,7 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-reorder"></i>Create Seassion
+                        <i class="fa fa-reorder"></i>Create Class
                     </div>
 
                 </div>
@@ -120,7 +155,7 @@
                                 <label class="control-label col-md-3">Session</label>
                                 <div class="col-md-4">
                                     <input type="text" class="form-control" maxlength="25" name="session"
-                                           id="maxlength_defaultconfig" readonly value="{{$session['startingDate']}} - {{$session['startingDate']}}">
+                                           id="maxlength_defaultconfig" readonly value="{{date('F-Y',strtotime($session['startingDate']))}} - {{date('F-Y',strtotime($session['endingDate']))}}">
 
                                 </div>
                             </div>

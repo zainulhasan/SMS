@@ -8,7 +8,7 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'Academic'], function () {
 
-    Route::get('session', ['as' => 'seassions', 'uses' => 'AcademicsController@session']);
+    Route::get('session', ['as' => 'sessions', 'uses' => 'AcademicsController@session']);
     Route::get('/sessionDelete/{del_id}', ['as' => 'sessionDelete', 'uses' => 'AcademicsController@sessionDelete']);
 
     Route::group(['prefix' => 'session'], function () {
@@ -65,6 +65,7 @@ Route::post('/teachers/store', ['as' => 'storeTeachers', 'uses' => 'TeachersCont
 
 
 Route::get('/test', 'AcademicsController@test');
+Route::get('api/session', 'AcademicsController@apic');
 
 
 

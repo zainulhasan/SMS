@@ -46,7 +46,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a href="{{route("seassions")}}">
+                        <a href="{{route("sessions")}}">
 
                             Session </a>
                     </li>

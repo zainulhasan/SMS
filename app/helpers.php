@@ -2,7 +2,7 @@
 
 function getSessionDate()
 {
-    return date('d/m/Y');
+    return date('d-m-Y');
 }
 
 
@@ -13,7 +13,7 @@ function getNextSessionDate()
     $year=date('Y');
 
     $year++;
-    $d=$day.'/'.$month.'/'.$year;
+    $d=$day.'-'.$month.'-'.$year;
     return $d;
 }
 
@@ -25,7 +25,7 @@ function getNextTermDate()
     $year=date('Y');
 
     $month+=3;
-    $d=$day.'/'.$month.'/'.$year;
+    $d=$day.'-'.$month.'-'.$year;
     return $d;
 }
 

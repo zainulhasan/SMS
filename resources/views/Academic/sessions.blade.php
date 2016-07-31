@@ -17,12 +17,40 @@
 
 @section("top-option")
 
-    <li class="btn-group">
 
-        <a style="color:#fff;" href="{{route("createSeassion")}}" class="btn blue">
-            <i class="fa fa-plus"></i> Add Session
-        </a>
-    </li>
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+            Advanced Datatables <small>advanced datatables</small>
+        </h3>
+
+        <ul class="page-breadcrumb breadcrumb">
+            <li class="btn-group">
+
+                <a style="color:#fff;" href="{{route("createSeassion")}}" class="btn blue">
+                    <i class="fa fa-plus"></i> Add Session
+                </a>
+            </li>
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/">Home</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="{{route('sessions')}}">Sessions</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Advanced Datatables</a>
+            </li>
+        </ul>
+
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
+
+
+
+
 
 @stop
 
@@ -45,11 +73,11 @@
 
                 </div>
                 <div class="portlet-body">
-                    <table class="table table-striped table-bordered table-hover table-full-width" id="sample_2">
+                    <table class="table table-striped table-bordered table-hover table-full-width borderless" id="sample_2">
                         <thead>
                         <tr>
                             <th class="col-md-1 text-center">
-                                #
+                                Sr.No
                             </th>
                             <th class="col-md-6 text-center">
                                 Session
@@ -69,7 +97,7 @@
                                     {{$session->id}}
                                 </td>
                                 <td class="text-center">
-                                    <span>{{$session->startingDate}} - {{$session->endingDate}}</span>
+                                    <span>{{date('F-Y',strtotime($session->startingDate))}} - {{date('F-Y',strtotime($session->endingDate))}}</span>
                                 </td>
                                 <td class="text-center">
 
@@ -78,7 +106,7 @@
                                                 class="fa fa-edit"></i> Details </a>
                                     <a href="{{route('classes',['id'=>$session->id])}}" class="btn btn-xs "><i
                                                 class="fa fa-edit"></i> Edit </a>
-                                    <a  href="{{route('sessionDelete',['id'=>$session->id])}}" class="btn btn-xs "><i
+                                    <a href="{{route('sessionDelete',['id'=>$session->id])}}" class="btn btn-xs "><i
                                                 class="fa fa-edit"></i> Delete </a>
 
                                 </td>
@@ -115,8 +143,6 @@
             App.init();
             TableAdvanced.init();
             UIBootbox.init();
-
-
 
 
         });

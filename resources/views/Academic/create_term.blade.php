@@ -30,15 +30,57 @@
           type="text/css"/>
 
 
+@stop
+
+@section("top-option")
+
+
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+            Advanced Datatables
+            <small>advanced datatables</small>
+        </h3>
+
+        <ul class="page-breadcrumb breadcrumb">
 
 
 
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/">Home</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="{{route('sessions')}}">Sessions</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="{{route('classes',['id'=>$id])}}">Classes</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="{{route('subjects',['id'=>$id,'class_id'=>$class_id])}}">Subjects</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="{{route('terms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id])}}">Terms</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Create</a>
+            </li>
+        </ul>
+
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
 
 
 
 
 
 @stop
+
 
 @section('content')
 
@@ -69,7 +111,7 @@
                                 <label class="control-label col-md-3">Date Range</label>
                                 <div class="col-md-4">
                                     <div class="input-group input-large date-picker input-daterange"
-                                         data-date="{{getSessionDate()}}" data-date-format="dd/mm/yyyy">
+                                         data-date="{{getSessionDate()}}" data-date-format="dd-mm-yyyy">
                                         <input type="text" class="form-control" name="startingDate" value="{{getSessionDate()}}">
                                         <span class="input-group-addon">
 													to

@@ -30,9 +30,45 @@
           type="text/css"/>
 
 
+@stop
+
+@section("top-option")
 
 
+    <div class="col-md-12">
+        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+        <h3 class="page-title">
+            Advanced Datatables
+            <small>advanced datatables</small>
+        </h3>
 
+        <ul class="page-breadcrumb breadcrumb">
+
+
+            <li class="btn-group">
+
+                <a style="color:#fff;" href="{{route("createSeassion")}}" class="btn blue">
+                    <i class="fa fa-plus"></i> Add Session
+                </a>
+            </li>
+
+
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="/">Home</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="{{route('sessions')}}">Sessions</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Advanced Datatables</a>
+            </li>
+        </ul>
+
+        <!-- END PAGE TITLE & BREADCRUMB-->
+    </div>
 
 
 
@@ -55,7 +91,7 @@
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    <form action="{{route('storeSeassion')}}"  method="post" id="form_sample_1" class="form-horizontal">
+                    <form action="{{route('storeSeassion')}}" method="post" id="form_sample_1" class="form-horizontal">
                         <div class="form-body">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>
@@ -68,14 +104,16 @@
                                 <label class="control-label col-md-3">Date Range</label>
                                 <div class="col-md-4">
                                     <div class="input-group input-large date-picker input-daterange"
-                                         data-date="{{getSessionDate()}}" data-date-format="dd/mm/yyyy">
-                                        <input type="text" class="form-control" name="startingDate" value="{{getSessionDate()}}">
+                                         data-date="{{getSessionDate()}}" data-date-format="dd-mm-yyyy">
+                                        <input type="text" class="form-control" name="startingDate"
+                                               value="{{getSessionDate()}}">
                                         <span class="input-group-addon">
 													to
 												</span>
 
 
-                                        <input type="text" class="form-control" name="endingDate" value="{{getNextSessionDate()}}">
+                                        <input type="text" class="form-control" name="endingDate"
+                                               value="{{getNextSessionDate()}}">
                                     </div>
                                     <!-- /input-group -->
                                     <span class="help-block">
@@ -83,12 +121,6 @@
 											</span>
                                 </div>
                             </div>
-
-
-
-
-
-
 
 
                         </div>
@@ -177,11 +209,6 @@
             FormValidation.init();
             FormComponents.init();
         });
-
-
-
-
-
 
 
     </script>
