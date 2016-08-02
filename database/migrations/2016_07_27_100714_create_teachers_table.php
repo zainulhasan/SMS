@@ -18,6 +18,7 @@ class CreateTeachersTable extends Migration
             $table->string('cnic','16');
             $table->string('phone','12');
             $table->string('designation');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

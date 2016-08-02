@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     protected $table='subjects';
-    protected $fillable=['title','teacher_id','classes_id'];
+    protected $fillable=['title','teacher_id','classes_id','book_id'];
 
 
     public function classes()
@@ -23,5 +23,11 @@ class Subject extends Model
     public function terms()
     {
         return $this->hasMany('App\Term');
+    }
+
+
+    public function book()
+    {
+        return $this->belongsTo('App\Book');
     }
 }

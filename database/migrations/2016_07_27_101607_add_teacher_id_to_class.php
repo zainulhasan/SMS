@@ -28,7 +28,7 @@ class AddTeacherIdToClass extends Migration
      * @return void
      */
     public function down()
-    {
+  {
         Schema::table('classes', function (Blueprint $table) {
 
             $table->dropForeign('classes_teacher_id_foreign');

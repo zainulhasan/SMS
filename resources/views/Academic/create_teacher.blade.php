@@ -39,8 +39,8 @@
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-            Advanced Datatables
-            <small>advanced datatables</small>
+
+            Create Teaacher
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
@@ -49,7 +49,7 @@
 
             <li class="btn-group">
 
-                <a  style="color:#fff;" href="{{route('createTeachers')}}" class="btn blue" >
+                <a  style="color:#fff;" href="{{route('createTeachers')}}" class="btn purple" >
                     <i class="fa fa-plus"></i> Add Teacher
                 </a>
             </li>
@@ -151,8 +151,8 @@
 
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn green">Submit</button>
-                                <button type="button" class="btn default">Cancel</button>
+                                <button type="submit" class="btn green"><i class="fa fa-check"></i> Submit</button>
+                                <a href="{{route('teachers')}}" class="btn default"><i class="fa fa-times"></i> Cancel</a>
                             </div>
                         </div>
 

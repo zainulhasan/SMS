@@ -38,8 +38,7 @@
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-            Advanced Datatables
-            <small>advanced datatables</small>
+            Create Session
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
@@ -47,7 +46,7 @@
 
             <li class="btn-group">
 
-                <a style="color:#fff;" href="{{route("createSeassion")}}" class="btn blue">
+                <a style="color:#fff;" href="{{route("createSession")}}" class="btn purple">
                     <i class="fa fa-plus"></i> Add Session
                 </a>
             </li>
@@ -85,13 +84,13 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-reorder"></i>Create Seassion
+                        <i class="fa fa-reorder"></i>Create Session
                     </div>
 
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    <form action="{{route('storeSeassion')}}" method="post" id="form_sample_1" class="form-horizontal">
+                    <form action="{{route('storeSession')}}" method="post" id="form_sample_1" class="form-horizontal">
                         <div class="form-body">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>
@@ -101,7 +100,7 @@
 
                             <br/>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Date Range</label>
+                                <label class="control-label col-md-3"> Session Date Range</label>
                                 <div class="col-md-4">
                                     <div class="input-group input-large date-picker input-daterange"
                                          data-date="{{getSessionDate()}}" data-date-format="dd-mm-yyyy">
@@ -116,9 +115,9 @@
                                                value="{{getNextSessionDate()}}">
                                     </div>
                                     <!-- /input-group -->
-                                    <span class="help-block">
-												Select date range
-											</span>
+                                    {{--<span class="help-block">--}}
+												{{--Select date range--}}
+											{{--</span>--}}
                                 </div>
                             </div>
 
@@ -126,8 +125,9 @@
                         </div>
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn green">Submit</button>
-                                <button type="button" class="btn default">Cancel</button>
+
+                                <button type="submit" class="btn green"><i class="fa fa-check"></i> Submit</button>
+                                <a href="{{route('sessions')}}" class="btn default"><i class="fa fa-times"></i> Cancel</a>
                             </div>
                         </div>
 

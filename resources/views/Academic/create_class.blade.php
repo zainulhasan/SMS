@@ -38,8 +38,7 @@
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-            Advanced Datatables
-            <small>advanced datatables</small>
+           Create Class
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
@@ -171,8 +170,8 @@
                         </div>
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn green">Submit</button>
-                                <button type="button" class="btn default">Cancel</button>
+                                <button type="submit" class="btn green"><i class="fa fa-check"></i> Submit</button>
+                                <a href="{{route('classes',['id'=>$id])}}" class="btn default"><i class="fa fa-times"></i> Cancel</a>
                             </div>
                         </div>
 

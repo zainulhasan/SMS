@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddSessionIdToClass extends Migration
+class AddBookKeyToSubjectTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,10 @@ class AddSessionIdToClass extends Migration
      */
     public function up()
     {
-        Schema::table('classes', function (Blueprint $table) {
+        Schema::table('subjects', function (Blueprint $table) {
 
-            $table->foreign('session_id')
-                ->references('id')->on('sessions')
+            $table->foreign('book_id')
+                ->references('id')->on('books')
                 ->onDelete('cascade');
 
 
@@ -29,9 +29,10 @@ class AddSessionIdToClass extends Migration
      */
     public function down()
     {
-        Schema::table('classes', function (Blueprint $table) {
 
-            $table->dropForeign('classes_session_id_foreign');
+        Schema::table('subjects', function (Blueprint $table) {
+
+            $table->dropForeign('subjects_book_id_foreign');
 
 
         });

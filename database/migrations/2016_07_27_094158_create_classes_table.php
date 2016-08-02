@@ -17,10 +17,14 @@ class CreateClassesTable extends Migration
             $table->string('name');
             $table->string('section');
             $table->integer('capacity');
-            $table->integer('teacher_id');
-            $table->integer('session_id');
+            $table->integer('teacher_id')->unsigned();
+            $table->integer('session_id')->unsigned();
+            $table->boolean('status');
             $table->timestamps();
         });
+
+
+
     }
 
     /**
@@ -31,5 +35,6 @@ class CreateClassesTable extends Migration
     public function down()
     {
         Schema::drop('classes');
+
     }
 }

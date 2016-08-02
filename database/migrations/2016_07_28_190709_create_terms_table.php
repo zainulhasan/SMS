@@ -18,8 +18,9 @@ class CreateTermsTable extends Migration
             $table->string('endingDate');
             $table->integer('chapter');
             $table->integer('page');
-            $table->boolean('status');
+            $table->boolean('termStatus');
             $table->integer('subject_id')->unsigned();
+            $table->boolean('status');
             $table->timestamps();
         });
     }

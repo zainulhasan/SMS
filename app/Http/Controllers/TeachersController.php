@@ -9,7 +9,7 @@ class TeachersController extends Controller
 {
     public function index()
     {
-        $teachers = Teacher::all();
+        $teachers = Teacher::where('status',0)->get();
         return view('Academic/teachers', compact('teachers'));
     }
 
@@ -39,7 +39,9 @@ class TeachersController extends Controller
     public function delete($teacher_id)
     {
 
-        Teacher::destroy($teacher_id);
+        $teacher=Teacher::find($teacher_id);
+        $teacher->status=0;
+        $teacher->save();
 
         return redirect()->route('teachers');
     }

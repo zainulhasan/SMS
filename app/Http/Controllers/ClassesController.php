@@ -18,8 +18,15 @@ class ClassesController extends Controller
 
     public function classes($id)
     {
-        $classes=Classes::where('session_id',$id)->get();
+
+        $consations=['session_id'=>$id,'status'=>0];
+
+        $classes=Classes::where($consations)->get();
+
+
         return view('Academic/classes',compact('classes','id'));
+
+
     }
 
 
@@ -82,7 +89,9 @@ class ClassesController extends Controller
     {
 
 
-        Classes::destroy($class_id);
+        $class=Classes::find($class_id);
+        $class->status=1;
+        $class->save();
         return redirect()->route('classes',['id'=>$id]);
 
     }

@@ -13,8 +13,8 @@ Route::group(['prefix' => 'Academic'], function () {
 
     Route::group(['prefix' => 'session'], function () {
 
-        Route::get('/create', ['uses' => 'AcademicsController@getSession', 'as' => 'createSeassion']);
-        Route::post('/store', ['uses' => 'AcademicsController@storeSession', 'as' => 'storeSeassion']);
+        Route::get('/create', ['uses' => 'AcademicsController@getSession', 'as' => 'createSession']);
+        Route::post('/store', ['uses' => 'AcademicsController@storeSession', 'as' => 'storeSession']);
 
 
         Route::group(['prefix' => '{id}/classes'], function () {
@@ -56,17 +56,41 @@ Route::post('/storeSubject', ['as' => 'storeSubject', 'uses' => 'SubjectsControl
 Route::post('/storeTerm', ['as' => 'storeTerm', 'uses' => 'TermController@storeTerm']);
 
 
-
-
 Route::get('/teachers', ['as' => 'teachers', 'uses' => 'TeachersController@index']);
 Route::get('/teachers/create', ['as' => 'createTeachers', 'uses' => 'TeachersController@create']);
 Route::get('/teachers/{teacher_id}/delete', ['as' => 'deleteTeachers', 'uses' => 'TeachersController@delete']);
 Route::post('/teachers/store', ['as' => 'storeTeachers', 'uses' => 'TeachersController@store']);
 
 
-Route::get('/test', 'AcademicsController@test');
-Route::get('api/session', 'AcademicsController@apic');
 
+Route::get('/login', ['as' => 'login', 'uses' => 'AuthController@getLogin']);
+Route::post('/login', 'AuthController@postLogin');
+Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@getLogout']);
+
+
+
+
+
+Route::post('/test',
+    [
+        'uses'=>'AcademicsController@posttest',
+        'as' =>'test'
+    ]);
+
+
+Route::get('/test',
+    [
+        'uses'=>'AcademicsController@test',
+        'as' =>'test'
+    ]);
+
+Route::get('/tlogin', 'AcademicsController@testLogin');
+
+
+
+
+
+Route::get('api/session', 'AcademicsController@apic');
 
 
 

@@ -38,12 +38,10 @@
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-            Advanced Datatables
-            <small>advanced datatables</small>
+            Create Term
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
-
 
 
             <li>
@@ -97,7 +95,7 @@
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    <form action="{{route('storeTerm')}}"  method="post" id="form_sample_1" class="form-horizontal">
+                    <form action="{{route('storeTerm')}}" method="post" id="form_sample_1" class="form-horizontal">
                         <div class="form-body">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>
@@ -108,30 +106,31 @@
                             <br/>
 
                             <div class="form-group">
-                                <label class="control-label col-md-3">Date Range</label>
+                                <label class="control-label col-md-3">Term Date Range</label>
                                 <div class="col-md-4">
                                     <div class="input-group input-large date-picker input-daterange"
                                          data-date="{{getSessionDate()}}" data-date-format="dd-mm-yyyy">
-                                        <input type="text" class="form-control" name="startingDate" value="{{getSessionDate()}}">
+                                        <input type="text" class="form-control" name="startingDate"
+                                               value="{{getSessionDate()}}">
                                         <span class="input-group-addon">
 													to
 												</span>
 
 
-                                        <input type="text" class="form-control" name="endingDate" value="{{getNextTermDate()    }}">
+                                        <input type="text" class="form-control" name="endingDate"
+                                               value="{{getNextTermDate()    }}">
                                     </div>
                                     <!-- /input-group -->
-                                    <span class="help-block">
-												Select date range
-											</span>
+
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Capacity</label>
+                                <label class="control-label col-md-3">Chapter</label>
                                 <div class="col-md-9">
                                     <div id="chapterSpinner">
                                         <div class="input-group input-small">
-                                            <input type="text" name="chapter" class="spinner-input form-control" maxlength="3" >
+                                            <input type="text" name="chapter" class="spinner-input form-control"
+                                                   maxlength="3">
                                             <div class="spinner-buttons input-group-btn btn-group-vertical">
                                                 <button type="button" class="btn spinner-up btn-xs blue">
                                                     <i class="fa fa-angle-up"></i>
@@ -147,11 +146,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="control-label col-md-3">Capacity</label>
+                                <label class="control-label col-md-3">Pages</label>
                                 <div class="col-md-9">
                                     <div id="pageSpinner">
                                         <div class="input-group input-small">
-                                            <input type="text" name="page" class="spinner-input form-control" maxlength="3" >
+                                            <input type="text" name="page" class="spinner-input form-control"
+                                                   maxlength="3">
                                             <div class="spinner-buttons input-group-btn btn-group-vertical">
                                                 <button type="button" class="btn spinner-up btn-xs blue">
                                                     <i class="fa fa-angle-up"></i>
@@ -167,21 +167,13 @@
                             </div>
 
 
-                            </div>
-
-
-
-
-
-
-
-
-
                         </div>
+
+
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn green">Submit</button>
-                                <button type="button" class="btn default">Cancel</button>
+                                <button type="submit" class="btn green"><i class="fa fa-check"></i> Submit</button>
+                                <a href="{{route('terms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id])}}" class="btn default"><i class="fa fa-times"></i> Cancel</a>
                             </div>
                         </div>
 
@@ -266,11 +258,6 @@
             FormValidation.init();
             FormComponents.init();
         });
-
-
-
-
-
 
 
     </script>

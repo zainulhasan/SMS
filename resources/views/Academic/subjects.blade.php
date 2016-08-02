@@ -9,6 +9,10 @@
     <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/plugins/select2/select2_metro.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/plugins/data-tables/DT_bootstrap.css')}}"/>
 
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/plugins/bootstrap-modal/css/bootstrap-modal.css')}}"/>
+
+
 
 @stop
 
@@ -22,17 +26,16 @@
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-            Advanced Datatables
-            <small>advanced datatables</small>
+            Subjects
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
 
 
-
             <li class="btn-group">
 
-                <a  style="color:#fff;" href="{{route('createSubject',['id'=>$id,'class_id'=>$class_id])}}" class="btn blue" >
+                <a style="color:#fff;" href="{{route('createSubject',['id'=>$id,'class_id'=>$class_id])}}"
+                   class="btn purple">
                     <i class="fa fa-plus"></i> Add Subjects
                 </a>
             </li>
@@ -76,36 +79,42 @@
 
 
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
-            <div class="portlet box blue">
+            <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-globe"></i>Classes
+                        <i class="fa fa-globe"></i>Subjects
+                    </div>
+
+                    <div class="actions">
+                        <a style="color:#fff;" href="{{route('classes',['id'=>$id])}}" class="btn blue">
+                            <i class="fa  fa-arrow-left"></i>  Back
+                        </a>
                     </div>
 
                 </div>
                 <div class="portlet-body">
-                    <table class="table table-striped table-bordered table-hover table-full-width" id="sample_2">
+                    <table class="table table-striped table-bordered table-hover table-full-width table-borderless"
+                           id="sample_2">
                         <thead>
                         <tr>
                             <th class="col-md-1 text-center">
                                 Sr.No
                             </th>
-                            <th  class="col-md-1 text-center">
-                                Title
-                            </th>
-
-                            <th  class="col-md-1 text-center">
-                                Class
-
+                            <th class="col-md-1 text-center">
+                                Subject
                             </th>
 
 
-                            <th  class="col-md-1 text-center">
+                            <th class="col-md-1 text-center">
                                 Teacher
 
                             </th>
+                            <th class="col-md-1 text-center">
+                                Book
 
-                            <th  class="col-md-1 text-center">
+                            </th>
+
+                            <th class="col-md-1 text-center">
                                 Action
 
                             </th>
@@ -122,14 +131,11 @@
                                 <td class="text-center">
                                     {{$subject->id}}
                                 </td>
-                                <td>
+                                <td class="text-center">
 
                                     {{$subject->title}}
                                 </td>
-                                <td class="text-center">
 
-                                    {{$subject->classes->name}}{{$subject->classes->section}}
-                                </td>
                                 <td class="text-center">
 
                                     {{$subject->teacher->name}}
@@ -137,16 +143,36 @@
 
                                 <td class="text-center">
 
+                                    {{$subject->book->name}}
+                                </td>
 
-                                    <a href="{{route('terms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$subject->id])}}" class="btn btn-xs "><i class="fa fa-edit"></i> Details </a>
-                                    <a href="#" class="btn btn-xs "><i class="fa fa-edit"></i> Edit </a>
-                                    <a href="{{route('deleteSubject',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$subject->id])}}" class="btn btn-xs "><i class="fa fa-edit"></i> Delete </a>
+                                <td class="text-center">
+
+
+                                    <a href="{{route('terms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$subject->id])}}"
+                                       class="btn btn-xs green"><i class="fa fa-edit"></i> Details </a>
+                                    <a href="#" class="btn btn-xs purple"><i class="fa fa-edit"></i> Edit </a>
+                                    <a class="btn btn-xs red" data-target="#static" data-toggle="modal"><i class="fa fa-times"></i>Delete</a>
                                 </td>
 
                             </tr>
 
-                            @endforeach
 
+
+
+                            <div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+                                <div class="modal-body">
+                                    <p>
+                                        Are you Sure?
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
+                                    <a href="{{route('deleteSubject',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$subject->id])}}" data-dismiss="modal" class="btn blue">Conform</a>
+                                </div>
+                            </div>
+
+                        @endforeach
 
 
                         </tbody>
@@ -171,10 +197,20 @@
 
 
 
+    <script src="{{URL::asset('assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/bootstrap-modal/js/bootstrap-modal.js')}}"></script>
+    <script src="{{URL::asset('assets/scripts/ui-extended-modals.js')}}"></script>
+
+
+
+
+
     <script>
-        jQuery(document).ready(function() {
+        jQuery(document).ready(function () {
             App.init();
             TableAdvanced.init();
+            UIBootbox.init();
+            UIExtendedModals.init();
         });
     </script>
 

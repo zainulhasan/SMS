@@ -9,17 +9,19 @@ use App\User;
 use Illuminate\Http\Request;
 use DebugBar\DebugBar;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use App\Session;
 use App\Classes;
+use App\Book;
 
 class AcademicsController extends Controller
 {
     public function session()
     {
-       $sessions=Session::orderBy('id','asc')->get();
+       $sessions=Session::where('status',0)->get();
 
 
         return view('Academic/sessions',compact('sessions'));
@@ -45,7 +47,7 @@ class AcademicsController extends Controller
         ]);
 
 
-        return redirect()->route('seassions');
+        return redirect()->route('sessions');
     }
 
 
@@ -70,20 +72,55 @@ class AcademicsController extends Controller
 
     public function sessionDelete($del_id)
     {
-        Session::destroy($del_id);
-        return redirect()->route('seassions');
+        $session=Session::find($del_id);
+
+        $session->status=1;
+        $session->save();
+
+        return redirect()->route('sessions');
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /****Testing Actions ****/
+    public function posttest(Request $request)
+    {
+
+
+
+
+
+        return dd($request->all());view('Test/index',compact('tmp'));
+    }
+
 
 
     public function test()
     {
 
 
-        $tmp=User::all();
+        if(Auth::check())
+        {
+            return "Auth found";
+        }
 
 
-        return view('Test/index',compact('tmp'));
+        return "Not found";
     }
+
 
 
     public function api()
@@ -94,6 +131,15 @@ class AcademicsController extends Controller
 
 
          return response()->json($tmp);
+    }
+
+
+    public function  testLogin()
+    {
+        $user=User::find(1);
+        Auth::loginUsingId($user->id);
+
+        return "CHeck now";
     }
 
 

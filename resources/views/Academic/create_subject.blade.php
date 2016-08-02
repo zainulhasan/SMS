@@ -40,8 +40,7 @@
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-            Advanced Datatables
-            <small>advanced datatables</small>
+            Create Subject
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
@@ -91,7 +90,7 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-reorder"></i>Create Teacher
+                        <i class="fa fa-reorder"></i>Create Subject
                     </div>
 
                 </div>
@@ -134,6 +133,20 @@
 
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3"> Book</label>
+                                <div class="col-md-4">
+                                    <select name="bookId" class="form-control select2me"
+                                            data-placeholder="Select...">
+
+                                        @foreach($books as $book)
+                                        <option value="{{$book->id}}">{{$book->name}}</option>
+                                            @endforeach
+
+                                    </select>
+
+                                </div>
+                            </div>
 
 
                         </div>
@@ -141,8 +154,8 @@
 
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn green">Submit</button>
-                                <button type="button" class="btn default">Cancel</button>
+                                <button type="submit" class="btn green"><i class="fa fa-check"></i> Submit</button>
+                                <a href="{{route('subjects',['id'=>$id,'class_id'=>$class_id])}}" class="btn default"><i class="fa fa-times"></i> Cancel</a>
                             </div>
                         </div>
 

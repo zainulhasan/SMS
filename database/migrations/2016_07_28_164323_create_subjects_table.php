@@ -16,7 +16,9 @@ class CreateSubjectsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->integer('teacher_id')->unsigned();
+            $table->integer('book_id')->unsigned();
             $table->integer('classes_id')->unsigned();
+            $table->boolean('status');
 
             $table->timestamps();
         });

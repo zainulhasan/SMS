@@ -9,7 +9,8 @@ class TermController extends Controller
 {
     public function index($id,$class_id,$sub_id)
     {
-        $terms=Term::where('subject_id',$sub_id)->get();
+        $condations=['subject_id'=>$sub_id,'status'=>0];
+        $terms=Term::where($condations)->get();
         return view('Academic/terms',compact('terms','id','class_id','sub_id'));
     }
 
@@ -42,7 +43,9 @@ class TermController extends Controller
     {
 
 
-        Term::destroy($term_id);
+        $term=Term::find($term_id);
+        $term->status=0;
+        $term->save();
         return redirect()->route('terms', ['id' => $id, 'class_id' => $class_id, 'sub_id' => $sub_id]);
     }
 }

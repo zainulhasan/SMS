@@ -28,7 +28,7 @@ class AddSubjectKeyToTermsTable extends Migration
      * @return void
      */
     public function down()
-    {
+  {
         Schema::table('terms', function (Blueprint $table) {
 
             $table->dropForeign('terms_subject_id_foreign');
