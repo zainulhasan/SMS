@@ -19,12 +19,14 @@ class ClassesController extends Controller
     public function classes($id)
     {
 
+        $session=Session::find($id);
+
         $consations=['session_id'=>$id,'status'=>0];
 
         $classes=Classes::where($consations)->get();
 
 
-        return view('Academic/classes',compact('classes','id'));
+        return view('Academic/classes',compact('classes','id','session'));
 
 
     }

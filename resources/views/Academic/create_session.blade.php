@@ -62,7 +62,7 @@
                 <i class="fa fa-angle-right"></i>
             </li>
             <li>
-                <a href="#">Advanced Datatables</a>
+                <a href="#">Create</a>
             </li>
         </ul>
 
@@ -126,8 +126,8 @@
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-9">
 
-                                <button type="submit" class="btn green"><i class="fa fa-check"></i> Submit</button>
-                                <a href="{{route('sessions')}}" class="btn default"><i class="fa fa-times"></i> Cancel</a>
+                                <button type="submit" class="btn purple"><i class="fa fa-check"></i> Submit</button>
+                                <a href="{{route('sessions')}}" class="btn purple"><i class="fa fa-times"></i> Cancel</a>
                             </div>
                         </div>
 

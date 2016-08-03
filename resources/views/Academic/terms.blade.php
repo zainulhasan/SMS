@@ -81,11 +81,13 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-globe"></i>Terms
+                        <i class="fa fa-globe"></i>Session ({{date('F-y',strtotime($session->startingDate))}}
+                        -{{date('F-y',strtotime($session->endingDate))}}) - Class
+                        {{$classes->name}}{{$classes->section}} - {{$subject->title}}
                     </div>
 
                     <div class="actions">
-                        <a style="color:#fff;" href="{{route('classes',['id'=>$id])}}" class="btn blue">
+                        <a style="color:#fff;" href="{{route('subjects',['id'=>$id,'sub_id'=>$subject->id])}}" class="btn purple">
                             <i class="fa  fa-arrow-left"></i>  Back
                         </a>
                     </div>
@@ -175,7 +177,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
-                                    <a href="{{route('deleteTerm',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term->id])}}" data-dismiss="modal" class="btn blue">Conform</a>
+                                    <a href="{{route('deleteTerm',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term->id])}}"  class="btn blue">Conform</a>
                                 </div>
                             </div>
                         @endforeach

@@ -75,7 +75,7 @@
                         <i class="fa fa-globe"></i>Sessions
                     </div>
                     <div class="actions">
-                        <a style="color:#fff;" href="/" class="btn blue">
+                        <a style="color:#fff;" href="/" class="btn purple">
                             <i class="fa  fa-arrow-left"></i> Back
                         </a>
                     </div>
@@ -131,8 +131,8 @@
                                     </p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
-                                    <a href="{{route('sessionDelete',['id'=>$session->id])}}" data-dismiss="modal" class="btn blue">Conform</a>
+                                    <button type="button" data-dismiss="modal" class="btn purple">Cancel</button>
+                                    <a href="{{route('sessionDelete',['id'=>$session->id])}}"  class="btn purple">Conform</a>
                                 </div>
                             </div>
                         @endforeach

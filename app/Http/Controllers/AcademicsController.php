@@ -17,6 +17,8 @@ use App\Session;
 use App\Classes;
 use App\Book;
 
+
+
 class AcademicsController extends Controller
 {
     public function session()
@@ -103,7 +105,7 @@ class AcademicsController extends Controller
 
 
 
-        return dd($request->all());view('Test/index',compact('tmp'));
+        return dd($request->all());
     }
 
 

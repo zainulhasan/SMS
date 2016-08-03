@@ -1,5 +1,5 @@
 @extends('../layout.master')
-@section('title','Add Session')
+@section('title','Add Book')
 @section('styles')
 
     <link href="{{URL::asset('assets/plugins/select2/select2_metro.css')}}" rel="stylesheet" type="text/css"/>
@@ -38,13 +38,10 @@
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-           Create Class
+            Create Class
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
-
-
-
 
 
             <li>
@@ -52,12 +49,9 @@
                 <a href="/">Home</a>
                 <i class="fa fa-angle-right"></i>
             </li>
+
             <li>
-                <a href="{{route('sessions')}}">Sessions</a>
-                <i class="fa fa-angle-right"></i>
-            </li>
-            <li>
-                <a href="{{route('classes',['id'=>$id])}}">Classes</a>
+                <a href="{{route('books')}}">Classes</a>
                 <i class="fa fa-angle-right"></i>
             </li>
             <li>
@@ -83,13 +77,13 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-reorder"></i>Create Class
+                        <i class="fa fa-reorder"></i>Create Book
                     </div>
 
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    <form action="{{route('storeClass')}}"  method="post" id="form_sample_1" class="form-horizontal">
+                    <form action="{{route('storeBook')}}" method="post" id="form_sample_1" class="form-horizontal">
                         <div class="form-body">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>
@@ -98,80 +92,40 @@
 
 
                             <br/>
-                            <input type="hidden" name="sessionId" value="{{$id}}">
+
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+
+
                             <div class="form-group">
                                 <label class="control-label col-md-3">Name</label>
                                 <div class="col-md-4">
-                                    <input  type="text" class="form-control" minlength="1" maxlength="25" name="className"
+                                    <input type="text" class="form-control" minlength="1" maxlength="25"
+                                           name="name"
                                            id="maxlength_defaultconfig">
 
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Section</label>
+                                <label class="control-label col-md-3">Description</label>
                                 <div class="col-md-4">
-                                    <select name="section" class="form-control select2me" data-placeholder="Select...">
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="C">C</option>
-                                        <option value="D">D</option>
-                                    </select>
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Capacity</label>
-                                <div class="col-md-9">
-                                    <div id="spinner1">
-                                        <div class="input-group input-small">
-                                            <input type="text" name="capacity" class="spinner-input form-control" maxlength="3" >
-                                            <div class="spinner-buttons input-group-btn btn-group-vertical">
-                                                <button type="button" class="btn spinner-up btn-xs blue">
-                                                    <i class="fa fa-angle-up"></i>
-                                                </button>
-                                                <button type="button" class="btn spinner-down btn-xs blue">
-                                                    <i class="fa fa-angle-down"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3"> Teacher</label>
-                                <div class="col-md-4">
-                                    <select name="teacherName" class="form-control select2me" data-placeholder="Select...">
-                                        @foreach($teachers as $teacher)
-                                            <option value="{{$teacher->id}}">{{$teacher->name}}</option>
-                                            @endforeach
-                                    </select>
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Session</label>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" maxlength="25" name="session"
-                                           id="maxlength_defaultconfig" readonly value="{{date('F-Y',strtotime($session['startingDate']))}} - {{date('F-Y',strtotime($session['endingDate']))}}">
+                                    <input type="text" class="form-control" minlength="1" maxlength="25"
+                                           name="description"
+                                           id="maxlength_defaultconfig">
 
                                 </div>
                             </div>
 
 
-
-
-
-
-
+                            <input type="hidden" value="0" name="status">
 
 
                         </div>
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn purple"><i class="fa fa-check"></i> Submit</button>
-                                <a href="{{route('classes',['id'=>$id])}}" class="btn purple"><i class="fa fa-times"></i> Cancel</a>
+                                <button type="submit" class="btn green"><i class="fa fa-check"></i> Submit</button>
+                                <a href="{{route('books')}}" class="btn default"><i
+                                            class="fa fa-times"></i> Cancel</a>
                             </div>
                         </div>
 

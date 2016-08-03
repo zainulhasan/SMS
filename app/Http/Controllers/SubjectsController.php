@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use App\Classes;
+use App\Session;
 use App\Subject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,10 +14,12 @@ class SubjectsController extends Controller
     public function index($id, $class_id)
     {
 
+
+        $session=Session::find($id);
         $condations=['classes_id'=>$class_id,'status'=>0];
         $classes=Classes::find($class_id);
         $subjects = Subject::where($condations)->get();
-        return view('Academic/subjects', compact('subjects', 'class_id', 'id','classes'));
+        return view('Academic/subjects', compact('session','subjects', 'class_id', 'id','classes'));
     }
 
 

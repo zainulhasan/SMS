@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes;
+use App\Session;
+use App\Subject;
 use App\Term;
 use Illuminate\Http\Request;
 
@@ -9,9 +12,13 @@ class TermController extends Controller
 {
     public function index($id,$class_id,$sub_id)
     {
+
+        $session=Session::find($id);
+        $classes=Classes::find($class_id);
+        $subject=Subject::find($sub_id);
         $condations=['subject_id'=>$sub_id,'status'=>0];
         $terms=Term::where($condations)->get();
-        return view('Academic/terms',compact('terms','id','class_id','sub_id'));
+        return view('Academic/terms',compact('session','classes','subject','terms','id','class_id','sub_id'));
     }
 
     public function getTerm($id,$class_id,$sub_id)

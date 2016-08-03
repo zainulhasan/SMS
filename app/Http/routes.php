@@ -51,21 +51,51 @@ Route::group(['prefix' => 'Academic'], function () {
 });#end Academic
 
 
+
+
+/********** Class Routes **********/
+
 Route::post('/store', ['as' => 'storeClass', 'uses' => 'ClassesController@storeClass']);
 Route::post('/storeSubject', ['as' => 'storeSubject', 'uses' => 'SubjectsController@storeSubject']);
 Route::post('/storeTerm', ['as' => 'storeTerm', 'uses' => 'TermController@storeTerm']);
 
+/********** End Class Routes **********/
 
+
+
+
+
+/********** Teacher Routes **********/
 Route::get('/teachers', ['as' => 'teachers', 'uses' => 'TeachersController@index']);
 Route::get('/teachers/create', ['as' => 'createTeachers', 'uses' => 'TeachersController@create']);
 Route::get('/teachers/{teacher_id}/delete', ['as' => 'deleteTeachers', 'uses' => 'TeachersController@delete']);
 Route::post('/teachers/store', ['as' => 'storeTeachers', 'uses' => 'TeachersController@store']);
 
+/********** End Teacher Routes **********/
 
 
+
+
+
+/********** Book Routes **********/
+Route::get('/books', ['as' => 'books', 'uses' => 'BooksController@index']);
+Route::get('/books/create', ['as' => 'createBook', 'uses' => 'BooksController@create']);
+Route::get('/books/{book_id}/delete', ['as' => 'deleteBook', 'uses' => 'BooksController@delete']);
+Route::post('/books/store', ['as' => 'storeBook', 'uses' => 'BooksController@store']);
+
+/********** End Book Routes **********/
+
+
+
+
+
+/********** Auth Routes **********/
 Route::get('/login', ['as' => 'login', 'uses' => 'AuthController@getLogin']);
 Route::post('/login', 'AuthController@postLogin');
 Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@getLogout']);
+
+/********** End Routes **********/
+
 
 
 
@@ -73,21 +103,18 @@ Route::get('/logout', ['as' => 'logout', 'uses' => 'AuthController@getLogout']);
 
 Route::post('/test',
     [
-        'uses'=>'AcademicsController@posttest',
-        'as' =>'test'
+        'uses' => 'AcademicsController@posttest',
+        'as' => 'test'
     ]);
 
 
 Route::get('/test',
     [
-        'uses'=>'AcademicsController@test',
-        'as' =>'test'
+        'uses' => 'AcademicsController@test',
+        'as' => 'test'
     ]);
 
 Route::get('/tlogin', 'AcademicsController@testLogin');
-
-
-
 
 
 Route::get('api/session', 'AcademicsController@apic');
