@@ -36,6 +36,21 @@ Route::group(['prefix' => 'Academic'], function () {
                     Route::get('/', ['as' => 'terms', 'uses' => 'TermController@index']);
                     Route::get('/create', ['as' => 'createTerms', 'uses' => 'TermController@getTerm']);
                     Route::get('{term_id}/delete', ['as' => 'deleteTerm', 'uses' => 'TermController@deleteTerm']);
+
+
+                    Route::group(['prefix' => '{term_id}/chapters'], function () {
+
+                        Route::get('/', ['as' => 'chapters', 'uses' => 'ChaptersController@index']);
+                        Route::get('/create', ['as' => 'createChapter', 'uses' => 'ChaptersController@create']);
+                        Route::get('{chapter_id}/delete', ['as' => 'deleteChapter', 'uses' => 'ChaptersController@deleteTerm']);
+
+
+
+
+
+                    });
+
+
                 });
 
 
@@ -50,6 +65,10 @@ Route::group(['prefix' => 'Academic'], function () {
 
 });#end Academic
 
+
+
+
+Route::post('chapter/update/', ['as' => 'updateChapter', 'uses' => 'ChaptersController@update']);
 
 
 
@@ -107,12 +126,12 @@ Route::post('/test',
         'as' => 'test'
     ]);
 
-
-Route::get('/test',
-    [
-        'uses' => 'AcademicsController@test',
-        'as' => 'test'
-    ]);
+//
+//Route::get('/test',
+//    [
+//        'uses' => 'AcademicsController@test',
+//        'as' => 'test'
+//    ]);
 
 Route::get('/tlogin', 'AcademicsController@testLogin');
 

@@ -33,8 +33,6 @@ class TermController extends Controller
         Term::create([
             'startingDate' => $request->input('startingDate'),
             'endingDate' => $request->input('endingDate'),
-            'chapter' => $request->input('chapter'),
-            'page' => $request->input('page'),
             'status' => '0',
             'subject_id' => $request->input('subject_id')
         ]);

@@ -104,17 +104,6 @@
                                 Term
                             </th>
 
-                            <th class="col-md-1 text-center">
-                                Chapter
-
-                            </th>
-
-
-                            <th class="col-md-1 text-center">
-                                Page
-
-                            </th>
-
 
 
                             <th class="col-md-1 text-center">
@@ -144,24 +133,17 @@
                                     {{date('F-Y',strtotime($term->startingDate))}}
                                     - {{date('F-Y',strtotime($term->endingDate))}}
                                 </td>
-                                <td class="text-center">
-                                    {{$term->chapter}}
-                                </td>
-                                <td class="text-center">
-
-                                    {{$term->page}}
-                                </td>
 
 
                                 <td class="text-center">
 
-                                    {{$term->status==0?'Incomplete':'Complete'}}
+                                    {{$term->termStatus==0?'Incomplete':'Complete'}}
                                 </td>
 
                                 <td class="text-center">
 
 
-                                    <a href="#" class="btn btn-xs purple"><i class="fa fa-edit"></i> Details </a>
+                                    <a href="{{route('chapters',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term->id])}}" class="btn btn-xs purple"><i class="fa fa-edit"></i> Details </a>
                                     <a href="#" class="btn btn-xs green"><i class="fa fa-edit"></i> Edit </a>
                                     <button type="button" data-toggle="modal" data-target="#static"
                                        class="btn btn-xs red"><i class="fa fa-edit"></i> Delete </button>
@@ -176,8 +158,8 @@
                                     </p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
-                                    <a href="{{route('deleteTerm',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term->id])}}"  class="btn blue">Conform</a>
+                                    <button type="button" data-dismiss="modal" class="btn purple">Cancel</button>
+                                    <a href="{{route('deleteTerm',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term->id])}}"  class="btn purple">Conform</a>
                                 </div>
                             </div>
                         @endforeach

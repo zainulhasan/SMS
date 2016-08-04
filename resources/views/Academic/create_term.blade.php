@@ -124,47 +124,7 @@
 
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Chapter</label>
-                                <div class="col-md-9">
-                                    <div id="chapterSpinner">
-                                        <div class="input-group input-small">
-                                            <input type="text" name="chapter" class="spinner-input form-control"
-                                                   maxlength="3">
-                                            <div class="spinner-buttons input-group-btn btn-group-vertical">
-                                                <button type="button" class="btn spinner-up btn-xs blue">
-                                                    <i class="fa fa-angle-up"></i>
-                                                </button>
-                                                <button type="button" class="btn spinner-down btn-xs blue">
-                                                    <i class="fa fa-angle-down"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Pages</label>
-                                <div class="col-md-9">
-                                    <div id="pageSpinner">
-                                        <div class="input-group input-small">
-                                            <input type="text" name="page" class="spinner-input form-control"
-                                                   maxlength="3">
-                                            <div class="spinner-buttons input-group-btn btn-group-vertical">
-                                                <button type="button" class="btn spinner-up btn-xs blue">
-                                                    <i class="fa fa-angle-up"></i>
-                                                </button>
-                                                <button type="button" class="btn spinner-down btn-xs blue">
-                                                    <i class="fa fa-angle-down"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
 
 
                         </div>
@@ -172,8 +132,8 @@
 
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn green"><i class="fa fa-check"></i> Submit</button>
-                                <a href="{{route('terms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id])}}" class="btn default"><i class="fa fa-times"></i> Cancel</a>
+                                <button type="submit" class="btn purple"><i class="fa fa-check"></i> Submit</button>
+                                <a href="{{route('terms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id])}}" class="btn purple"><i class="fa fa-times"></i> Cancel</a>
                             </div>
                         </div>
 

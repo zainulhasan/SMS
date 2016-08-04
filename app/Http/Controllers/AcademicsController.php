@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Chapter;
 use App\Subject;
 use App\Teacher;
 use App\Term;
@@ -102,25 +103,49 @@ class AcademicsController extends Controller
     {
 
 
+        $chapters=$request->get('chapters');
+        $fromPages=$request->get('fromPages');
+        $toPages=$request->get('toPages');
+        $term_id=$request->get('term_id');
 
+        for($i=0;$i<count($chapters);$i++)
+        {
+            $chapter=new Chapter();
+            $chapter->chapter=$chapters[$i];
+            $chapter->formPage=$fromPages[$i];
+            $chapter->toPage=$toPages[$i];
+            $chapter->status=0;
+            $chapter->chapterStatus=0;
+            $chapter->term_id=$term_id;
+            $chapter->save();
+        }
 
-
-        return dd($request->all());
+        return 1;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
     public function test()
     {
+        $chapter=Chapter::find(1);
 
 
-        if(Auth::check())
-        {
-            return "Auth found";
-        }
-
-
-        return "Not found";
+        return dd($chapter->term->startingDate);
     }
 
 

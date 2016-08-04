@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTermsTable extends Migration
+class CreateChaptersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,15 @@ class CreateTermsTable extends Migration
      */
     public function up()
     {
-        Schema::create('terms', function (Blueprint $table) {
+        Schema::create('chapters', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('startingDate');
-            $table->string('endingDate');
-            $table->boolean('termStatus');
-            $table->integer('subject_id')->unsigned();
+            $table->string('chapter');
+            $table->string('formPage');
+            $table->string('toPage');
             $table->boolean('status');
+            $table->boolean('chapterStatus');
+            $table->integer('term_id')->unsigned();
+
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateTermsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('terms');
+        Schema::drop('chapters');
     }
 }

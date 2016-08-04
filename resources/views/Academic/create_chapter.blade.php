@@ -1,8 +1,9 @@
 @extends('../layout.master')
-@section('title','Add Session')
+@section('title','Add Chapter')
 @section('styles')
 
-    <link href="{{URL::asset('assets/plugins/select2/select2_metro.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::asset('assets/plugins/select2/select2_metro.css')}}" rel="stylesheet" type="text/css"
+          xmlns="http://www.w3.org/1999/html"/>
     <link href="{{URL::asset('assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.css')}}" rel="stylesheet"
           type="text/css"/>
     <link href="{{URL::asset('assets/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css')}}" rel="stylesheet"
@@ -32,21 +33,16 @@
 
 @stop
 
-
-
 @section("top-option")
 
 
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-            Create Subject
+            Create Chapter
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
-
-
-
 
 
             <li>
@@ -66,6 +62,17 @@
                 <a href="{{route('subjects',['id'=>$id,'class_id'=>$class_id])}}">Subjects</a>
                 <i class="fa fa-angle-right"></i>
             </li>
+            <li>
+                <a href="{{route('terms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id])}}">Terms</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+
+
+            <li>
+                <a href="{{route('chapters',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term_id])}}">Chapters</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+
             <li>
                 <a href="#">Create</a>
             </li>
@@ -90,60 +97,64 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-reorder"></i>Create Subject
+                        <i class="fa fa-reorder"></i>Create Chapter
                     </div>
 
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    <form action="{{route('storeSubject')}}" method="post" id="form_sample_1" class="form-horizontal">
-                        <div class="form-body">
-                            <div class="alert alert-danger display-hide">
+                    <form id="mForm" action="{{route('storeTerm')}}" method="post" id="form_sample_1"
+                          class="form-horizontal">
+                        <div id="fBody" class="form-body">
+                            <div class="alertalert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>
                                 You have some form errors. Please check below.
                             </div>
 
 
                             <br/>
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" name="classId" value="{{ $class_id }}">
-                            <input type="hidden" name="id" value="{{ $id }}">
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Name</label>
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" minlength="3" maxlength="25"
-                                           name="name"
-                                           id="maxlength_defaultconfig">
 
-                                </div>
-                            </div>
+                            <div id="box">
+                                <div class="row">
+
+                                    <div class="dup">
+
+                                        <div class="col-md-2">
+                                            <div class="input-group">
+                                            </div>
+                                        </div>
 
 
-                            <div class="form-group">
-                                <label class="control-label col-md-3"> Teacher</label>
-                                <div class="col-md-4">
-                                    <select name="teacherId" class="form-control select2me"
-                                            data-placeholder="Select...">
+                                        <div class="col-md-1">
+                                            <div class="input-group">
+                                                <label class="control-label">Chapter</label>
+                                            </div>
+                                        </div>
 
-                                        @foreach($teachers as $teacher)
-                                        <option value="{{$teacher->id}}">{{$teacher->name}}</option>
-                                            @endforeach
+                                        <div class="col-md-1">
+                                            <div class="input-group">
+                                                <input type="text" name="chapter" class="form-control">
+                                            </div>
+                                        </div>
 
-                                    </select>
+                                        <div class="col-md-3">
+                                            <div class="input-group">
+                                                <span class="input-group-addon">From</span>
+                                                <input type="text" class="form-control" name="fromPage">
+                                                <span class="input-group-addon">to</span>
+                                                <input type="text" class="form-control" name="toPage">
 
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3"> Book</label>
-                                <div class="col-md-4">
-                                    <select name="bookId" class="form-control select2me"
-                                            data-placeholder="Select...">
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                        @foreach($books as $book)
-                                        <option value="{{$book->id}}">{{$book->name}}</option>
-                                            @endforeach
+                                    <div class="col-md-1">
+                                        <div class="input-group">
 
-                                    </select>
+                                            <button type="button" id="add_btn" class="btn purple"><i class="fa fa-plus"></i> Add</button>
+                                        </div>
+                                    </div>
+
 
                                 </div>
                             </div>
@@ -154,12 +165,20 @@
 
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn purple"><i class="fa fa-check"></i> Submit</button>
-                                <a href="{{route('subjects',['id'=>$id,'class_id'=>$class_id])}}" class="btn purple"><i class="fa fa-times"></i> Cancel</a>
+                                <button id="submit_btn" type="submit" class="btn purple"><i class="fa fa-check"></i>
+                                    Submit
+                                </button>
+                                <a id="link" href="{{route('chapters',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term_id])}}"
+                                   class="btn purple"><i class="fa fa-times"></i> Cancel</a>
                             </div>
                         </div>
 
-
+                        <input type="hidden" name="subject_id" value="{{$sub_id}}">
+                        <input type="hidden" name="session_id" value="{{$id}}">
+                        <input type="hidden" name="class_id" value="{{$class_id}}">
+                        <input id="term_id" type="hidden" name="term_id" value="{{$term_id}}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <meta name="csrf-token" content="{{ csrf_token() }}"/>
                     </form>
                     <!-- END FORM-->
                 </div>
@@ -239,9 +258,103 @@
         });
 
 
+        var myRow = '<br/><div class="row">' +
+                '' +
+                '' +
+                '    <div class="col-md-1">' +
+                '        <div class="input-group">' +
+                '        </div>' +
+                '    </div>' +
+                '' +
+                '' +
+                '    <div class="col-md-1">' +
+                '        <div class="input-group">' +
+                '            <label class="control-label">Chapter</label>' +
+                '        </div>' +
+                '    </div>' +
+                '' +
+                '    <div class="col-md-2">' +
+                '        <div class="input-group">' +
+                '            <input type="text" name="chapter" class="form-control">' +
+                '        </div>' +
+                '    </div>' +
+                '' +
+                '    <div class="col-md-3">' +
+                '        <div class="input-group">' +
+                '            <span class="input-group-addon">From</span>' +
+                '            <input type="text" class="form-control" name="fromPage">' +
+                '            <span class="input-group-addon">to</span>' +
+                '            <input type="text" class="form-control" name="toPage">' +
+                '' +
+                '        </div>' +
+                '    </div>' +
+                '</div>';
 
 
+        $('#add_btn').click(function () {
 
+            $('#box').append(myRow);
+
+
+        });
+
+
+        $('#submit_btn').click(function (e) {
+
+            var chapters = [];
+            var formPages = [];
+            var toPages = [];
+            var term_id=$('#term_id').val();
+            e.preventDefault();
+
+            $.each($("input[name='chapter']"), function () {
+                chapters.push($(this).val());
+            });
+
+
+            $.each($("input[name='fromPage']"), function () {
+                formPages.push($(this).val());
+            });
+
+
+            $.each($("input[name='toPage']"), function () {
+                toPages.push($(this).val());
+            });
+
+
+            for (var i = 0; i < chapters.length; i++) {
+                alert('Chapter ' + chapters[i] + ' Page ' + formPages[i] + ' to ' + toPages[i]);
+            }
+
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                method: "POST",
+                url: "http://laravel.dev/test",
+                data: {
+
+
+                    'chapters': chapters,
+                    'fromPages': formPages,
+                    'toPages': toPages,
+                    'term_id':term_id
+
+                },
+                success: function (result) {
+                    if(result==1)
+                    {
+                        window.location.href=$('#link').attr("href");
+                    }
+                }
+            });
+
+
+        });
 
 
     </script>

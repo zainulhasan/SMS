@@ -31,7 +31,7 @@
     <link href="{{URL::asset('assets/css/pages/tasks.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{URL::asset('assets/css/themes/default.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{URL::asset('assets/css/custom.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{URL::asset('assets/css/mStyles.css')}}" rel="stylesheet" type="text/css"/>
+
 
 
     <link rel="shortcut icon" href="favicon.ico"/>
