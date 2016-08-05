@@ -1,5 +1,5 @@
 @extends('../layout.master')
-@section('title','Session')
+@section('title','Terms')
 
 
 
@@ -81,8 +81,8 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-globe"></i>Session ({{date('F-y',strtotime($session->startingDate))}}
-                        -{{date('F-y',strtotime($session->endingDate))}}) - Class
+                        <i class="fa fa-globe"></i>Session ({{date('M-y',strtotime($session->startingDate))}}
+                        -{{date('M-y',strtotime($session->endingDate))}}) - Class
                         {{$classes->name}}{{$classes->section}} - {{$subject->title}}
                     </div>
 
@@ -122,11 +122,11 @@
                         <tbody>
 
 
-                        @foreach($terms as $term)
+                        @foreach($terms as $index => $term)
 
                             <tr>
                                 <td class="text-center">
-                                    {{$term->id}}
+                                    {{++$index}}
                                 </td>
                                 <td class="text-center">
 
@@ -158,8 +158,11 @@
                                     </p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" data-dismiss="modal" class="btn purple">Cancel</button>
-                                    <a href="{{route('deleteTerm',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term->id])}}"  class="btn purple">Conform</a>
+                                    <button type="button" data-dismiss="modal" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
+                                    <button type="button" onclick="delete_term({{$term->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
+
+                                    <input id="{{$term->id}}" type="hidden" value="{{route('deleteTerm',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term->id])}}">
+
                                 </div>
                             </div>
                         @endforeach
@@ -203,6 +206,14 @@
             UIBootbox.init();
             UIExtendedModals.init();
         });
+
+
+
+        function delete_term(id) {
+
+            window.location.href=$('#'+id).val();
+
+        }
     </script>
 
 @stop

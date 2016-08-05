@@ -150,8 +150,9 @@
                                     </p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
-                                    <a href="{{route('deleteTeachers',['teacher_id'=>$teacher->id])}}" data-dismiss="modal" class="btn blue">Conform</a>
+                                    <button type="button" data-dismiss="modal" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
+                                    <button type="button" onclick="delete_teacher({{$teacher->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
+                                    <input id="{{$teacher->id}}" type="hidden" value="{{route('deleteTeachers',['teacher_id'=>$teacher->id])}}">
                                 </div>
                             </div>
                             @endforeach
@@ -191,6 +192,13 @@
             UIBootbox.init();
             UIExtendedModals.init();
         });
+
+
+        function delete_teacher(id) {
+
+            window.location.href=$('#'+id).val();
+
+        }
     </script>
 
 @stop

@@ -1,5 +1,5 @@
 @extends('../layout.master')
-@section('title','Session')
+@section('title','Chapter')
 
 
 
@@ -139,10 +139,10 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-globe"></i>Session ({{date('F-y',strtotime($session->startingDate))}}
-                        -{{date('F-y',strtotime($session->endingDate))}}) - Class
+                        <i class="fa fa-globe"></i>Session ({{date('M-y',strtotime($session->startingDate))}}
+                        -{{date('M-y',strtotime($session->endingDate))}}) - Class
                         {{$classes->name}}{{$classes->section}} - {{$subject->title}} -
-                        Term({{date('F-y',strtotime($term->startingDate))}}-{{date('F-y',strtotime($term->endingDate))}}
+                        Term({{date('M-y',strtotime($term->startingDate))}}-{{date('M-y',strtotime($term->endingDate))}}
                         )
                     </div>
 
@@ -196,11 +196,11 @@
                         <tbody>
 
 
-                        @foreach($chapters as $chapter)
+                        @foreach($chapters as $index => $chapter)
 
                             <tr>
                                 <td class="text-center">
-                                    {{$chapter->id}}
+                                    {{++$index}}
                                 </td>
                                 <td class="text-center">
 
@@ -225,7 +225,7 @@
                                 <td class="text-center">
 
 
-                                    <div class="make-switch switch-mini">
+                                    <div class="make-switch switch-mini" data-on-label="&nbsp;Complete&nbsp;&nbsp;" data-off-label="&nbsp;Incomplete&nbsp;User&nbsp;">
                                         <input name="status"
                                                onchange="updateValue({{ $chapter->id.','.$chapter->chapterStatus }})"
                                                type="checkbox"
@@ -258,11 +258,15 @@
                                     </p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" data-dismiss="modal" class="btn purple">Cancel</button>
-                                    <a href="{{route('deleteChapter',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term->id,'chapter_id'=>$chapter->id])}}"
-                                       class="btn purple">Conform</a>
+                                    <button type="button" data-dismiss="modal" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
+
+                                    <button type="button" onclick="delete_chapter({{$chapter->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
+
+                                    <input  type="hidden" id="{{$chapter->id}}" value="{{route('deleteChapter',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term_id,'chapter_id'=>$chapter->id])}}"
+                                       class="btn purple">
                                 </div>
                             </div>
+
                             <meta name="csrf-token" content="{{ csrf_token() }}"/>
                         @endforeach
 
@@ -390,11 +394,17 @@
                             .done(function (msg) {
                                 alert(msg);
                             });
-
                 }
 
+        }
 
 
+
+
+
+        function delete_chapter(id) {
+
+            window.location.href=$('#'+id).val();
 
         }
     </script>

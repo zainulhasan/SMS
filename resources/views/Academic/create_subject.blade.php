@@ -1,5 +1,5 @@
 @extends('../layout.master')
-@section('title','Add Session')
+@section('title','Add Subject')
 @section('styles')
 
     <link href="{{URL::asset('assets/plugins/select2/select2_metro.css')}}" rel="stylesheet" type="text/css"/>

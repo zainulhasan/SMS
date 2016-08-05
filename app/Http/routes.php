@@ -42,7 +42,10 @@ Route::group(['prefix' => 'Academic'], function () {
 
                         Route::get('/', ['as' => 'chapters', 'uses' => 'ChaptersController@index']);
                         Route::get('/create', ['as' => 'createChapter', 'uses' => 'ChaptersController@create']);
-                        Route::get('{chapter_id}/delete', ['as' => 'deleteChapter', 'uses' => 'ChaptersController@deleteTerm']);
+                        Route::get('{chapter_id}/delete', ['as' => 'deleteChapter', 'uses' => 'ChaptersController@deleteChapter']);
+                        Route::post('insert/', ['as' => 'insertChapter', 'uses' => 'ChaptersController@inserChapters']);
+
+
 
 
 
@@ -68,7 +71,7 @@ Route::group(['prefix' => 'Academic'], function () {
 
 
 
-Route::post('chapter/update/', ['as' => 'updateChapter', 'uses' => 'ChaptersController@update']);
+
 
 
 
@@ -140,3 +143,4 @@ Route::get('api/session', 'AcademicsController@apic');
 
 
 
+Route::post('/chapter/update', ['as' => 'updateChapter', 'uses' => 'ChaptersController@update']);

@@ -1,5 +1,5 @@
 @extends('../layout.master')
-@section('title','Session')
+@section('title','Classes')
 
 
 
@@ -79,7 +79,7 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-globe"></i>Session ({{date('F-y',strtotime($session->startingDate))}}-{{date('F-y',strtotime($session->endingDate))}})
+                        <i class="fa fa-globe"></i>Session ({{date('M-y',strtotime($session->startingDate))}}-{{date('M-y',strtotime($session->endingDate))}})
                     </div>
                     <div class="actions">
                         <a style="color:#fff;" href="{{route('sessions')}}" class="btn purple">
@@ -122,10 +122,10 @@
                         <tbody>
 
 
-                        @foreach($classes as $class)
+                        @foreach($classes as $index => $class)
                             <tr>
                                 <td class="text-center">
-                                    {{$class->id}}
+                                    {{++$index}}
                                 </td>
                                 <td class="text-center">
                                     {{$class->name}} {{$class->section}}
@@ -157,8 +157,11 @@
                                     </p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" data-dismiss="modal" class="btn purple">Cancel</button>
-                                    <a href="{{route('classDelete',['id'=>$id,'class_id'=>$class->id])}}"  class="btn purple">Conform</a>
+
+
+                                    <button type="button" data-dismiss="modal" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
+                                    <button type="button" onclick="delete_classes( {{$class->id}})" class="btn purple"><i class="fa fa-check"></i>       Conform</button>
+                                    <input  type="hidden" id="{{$class->id}}" value="{{route('classDelete',['id'=>$id,'class_id'=>$class->id])}}"  class="btn purple">
                                 </div>
                             </div>
                         @endforeach
@@ -196,6 +199,14 @@
             UIBootbox.init();
             UIExtendedModals.init();
         });
+
+
+
+        function delete_classes(id) {
+
+            window.location.href=$('#'+id).val();
+
+        }
     </script>
 
 @stop

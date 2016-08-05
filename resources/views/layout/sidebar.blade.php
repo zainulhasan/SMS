@@ -50,18 +50,15 @@
 
                             Session </a>
                     </li>
-                    <li>
-                        <a href="layout_idle_timeout.html">
 
-                            Classes</a>
-                    </li>
-                    <li>
-                        <a href="layout_language_bar.html">
-                            Subjects</a>
-                    </li>
                     <li>
                         <a href="{{route('teachers')}}">
                             Teacher</a>
+                    </li>
+
+                    <li>
+                        <a href="{{route('books')}}">
+                            Books</a>
                     </li>
                 </ul>
             </li>

@@ -44,12 +44,7 @@
         <ul class="page-breadcrumb breadcrumb">
 
 
-            <li class="btn-group">
 
-                <a style="color:#fff;" href="{{route("createSession")}}" class="btn purple">
-                    <i class="fa fa-plus"></i> Add Session
-                </a>
-            </li>
 
 
             <li>

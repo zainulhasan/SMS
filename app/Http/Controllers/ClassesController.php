@@ -34,15 +34,11 @@ class ClassesController extends Controller
 
     public function getClass($id)
     {
-        $teachers=$tmp=
-            DB::select(DB::raw('select teachers.id,name from teachers where teachers.id not in (select teacher_id from classes)'));
+//        $teachers=$tmp=
+//            DB::select(DB::raw('select teachers.id,name from teachers where teachers.id not in (select teacher_id from classes)'));
 
 
-
-
-
-
-
+        $teachers=Teacher::all();
         $session=Session::find($id);
         return view('Academic/create_class',compact('id','session','teachers'));
     }

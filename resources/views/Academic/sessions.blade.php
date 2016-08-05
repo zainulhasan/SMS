@@ -101,10 +101,10 @@
                         <tbody>
 
 
-                        @foreach($sessions as $session)
+                        @foreach($sessions as $index =>  $session)
                             <tr>
                                 <td class="text-center">
-                                    {{$session->id}}
+                                    {{++$index}}
                                 </td>
                                 <td class="text-center">
                                     <span>{{date('F-Y',strtotime($session->startingDate))}}
@@ -131,8 +131,12 @@
                                     </p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" data-dismiss="modal" class="btn purple">Cancel</button>
-                                    <a href="{{route('sessionDelete',['id'=>$session->id])}}"  class="btn purple">Conform</a>
+                                    <button type="button" data-dismiss="modal" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
+
+
+
+                                    <input type="hidden" id="{{$session->id}}" value="{{route('sessionDelete',['id'=>$session->id])}}">
+                                    <button type="button" onclick="delete_session({{$session->id}})"  class="btn purple"><i class="fa fa-check"></i>Conform</button>
                                 </div>
                             </div>
                         @endforeach
@@ -182,6 +186,13 @@
 
 
         /*****Custom Scripts ****/
+        
+        function delete_session(id) {
+
+            window.location.href=$('#'+id).val();
+
+            }
+
 
     </script>
 

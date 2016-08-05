@@ -47,12 +47,6 @@
 
 
 
-            <li class="btn-group">
-
-                <a  style="color:#fff;" href="{{route('createTeachers')}}" class="btn purple" >
-                    <i class="fa fa-plus"></i> Add Teacher
-                </a>
-            </li>
             <li>
                 <i class="fa fa-home"></i>
                 <a href="/">Home</a>
@@ -151,8 +145,8 @@
 
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn green"><i class="fa fa-check"></i> Submit</button>
-                                <a href="{{route('teachers')}}" class="btn default"><i class="fa fa-times"></i> Cancel</a>
+                                <button type="submit" class="btn purple"><i class="fa fa-check"></i> Submit</button>
+                                <a href="{{route('teachers')}}" class="btn purple"><i class="fa fa-times"></i> Cancel</a>
                             </div>
                         </div>
 

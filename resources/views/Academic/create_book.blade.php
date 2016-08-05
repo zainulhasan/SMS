@@ -123,8 +123,8 @@
                         </div>
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn green"><i class="fa fa-check"></i> Submit</button>
-                                <a href="{{route('books')}}" class="btn default"><i
+                                <button type="submit" class="btn purple"><i class="fa fa-check"></i> Submit</button>
+                                <a href="{{route('books')}}" class="btn purple"><i
                                             class="fa fa-times"></i> Cancel</a>
                             </div>
                         </div>

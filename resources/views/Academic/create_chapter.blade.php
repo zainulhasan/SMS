@@ -151,7 +151,9 @@
                                     <div class="col-md-1">
                                         <div class="input-group">
 
-                                            <button type="button" id="add_btn" class="btn purple"><i class="fa fa-plus"></i> Add</button>
+                                            <button type="button" id="add_btn" class="btn purple"><i
+                                                        class="fa fa-plus"></i> Add
+                                            </button>
                                         </div>
                                     </div>
 
@@ -168,7 +170,8 @@
                                 <button id="submit_btn" type="submit" class="btn purple"><i class="fa fa-check"></i>
                                     Submit
                                 </button>
-                                <a id="link" href="{{route('chapters',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term_id])}}"
+                                <a id="link"
+                                   href="{{route('chapters',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term_id])}}"
                                    class="btn purple"><i class="fa fa-times"></i> Cancel</a>
                             </div>
                         </div>
@@ -261,7 +264,7 @@
         var myRow = '<br/><div class="row">' +
                 '' +
                 '' +
-                '    <div class="col-md-1">' +
+                '    <div class="col-md-2">' +
                 '        <div class="input-group">' +
                 '        </div>' +
                 '    </div>' +
@@ -273,7 +276,7 @@
                 '        </div>' +
                 '    </div>' +
                 '' +
-                '    <div class="col-md-2">' +
+                '    <div class="col-md-1">' +
                 '        <div class="input-group">' +
                 '            <input type="text" name="chapter" class="form-control">' +
                 '        </div>' +
@@ -304,7 +307,7 @@
             var chapters = [];
             var formPages = [];
             var toPages = [];
-            var term_id=$('#term_id').val();
+            var term_id = $('#term_id').val();
             e.preventDefault();
 
             $.each($("input[name='chapter']"), function () {
@@ -322,11 +325,6 @@
             });
 
 
-            for (var i = 0; i < chapters.length; i++) {
-                alert('Chapter ' + chapters[i] + ' Page ' + formPages[i] + ' to ' + toPages[i]);
-            }
-
-
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -335,20 +333,20 @@
 
             $.ajax({
                 method: "POST",
-                url: "http://laravel.dev/test",
+                url: "./insert",
                 data: {
 
 
                     'chapters': chapters,
                     'fromPages': formPages,
                     'toPages': toPages,
-                    'term_id':term_id
+                    'term_id': term_id
 
                 },
                 success: function (result) {
-                    if(result==1)
-                    {
-                        window.location.href=$('#link').attr("href");
+                    if (result == 1) {
+                        window.location.href = $('#link').attr("href");
+
                     }
                 }
             });

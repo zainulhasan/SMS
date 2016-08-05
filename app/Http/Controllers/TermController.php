@@ -49,7 +49,7 @@ class TermController extends Controller
 
 
         $term=Term::find($term_id);
-        $term->status=0;
+        $term->status=1;
         $term->save();
         return redirect()->route('terms', ['id' => $id, 'class_id' => $class_id, 'sub_id' => $sub_id]);
     }

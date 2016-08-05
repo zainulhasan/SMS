@@ -79,7 +79,7 @@
                         <i class="fa fa-globe"></i>Books
                     </div>
                     <div class="actions">
-                        <a style="color:#fff;" href="{{route('sessions')}}" class="btn green">
+                        <a style="color:#fff;" href="{{route('sessions')}}" class="btn purple">
                             <i class="fa  fa-arrow-left"></i>  Back
                         </a>
                     </div>
@@ -149,8 +149,9 @@
                                     </p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
-                                    <a href="{{route('deleteBook',['book_id'=>$book->id])}}" class="btn blue">Conform</a>
+                                    <button type="button" data-dismiss="modal" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
+                                    <button type="button" onclick="delete_book( {{$book->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
+                                    <input type="hidden" id="{{$book->id}}" value="{{route('deleteBook',['book_id'=>$book->id])}}" >
                                 </div>
                             </div>
                         @endforeach
@@ -188,6 +189,14 @@
             UIBootbox.init();
             UIExtendedModals.init();
         });
+
+
+        function delete_book(id) {
+
+            window.location.href=$('#'+id).val();
+
+        }
+
     </script>
 
 @stop

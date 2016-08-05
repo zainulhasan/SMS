@@ -6,6 +6,7 @@ use App\Book;
 use App\Classes;
 use App\Session;
 use App\Subject;
+use App\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -27,12 +28,13 @@ class SubjectsController extends Controller
     {
 
         $books=Book::all();
-        $teachers = $tmp =
-            DB::select(
-                DB::raw
-                ('select teachers.id,name from teachers where teachers.id not in (select teacher_id from subjects)'));
+//        $teachers = $tmp =
+//            DB::select(
+//                DB::raw
+//                ('select teachers.id,name from teachers where teachers.id not in (select teacher_id from subjects)'));
 
 
+        $teachers=Teacher::all();
         return view('Academic/create_subject', compact('teachers', 'id', 'class_id','books'));
     }
 
@@ -55,7 +57,7 @@ class SubjectsController extends Controller
     public function deleteSubject($id,$class_id,$sub_id)
     {
         $subject=Subject::find($sub_id);
-        $subject->status=0;
+        $subject->status=1;
         $subject->save();
         return redirect()->route('subjects',['id'=>$id,'class_id'=>$class_id]);
 

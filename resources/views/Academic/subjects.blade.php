@@ -1,5 +1,5 @@
 @extends('../layout.master')
-@section('title','Session')
+@section('title','Subjects')
 
 
 
@@ -84,8 +84,8 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-globe"></i>Session ({{date('F-y',strtotime($session->startingDate))}}
-                        -{{date('F-y',strtotime($session->endingDate))}}) - Class
+                        <i class="fa fa-globe"></i>Session ({{date('M-y',strtotime($session->startingDate))}}
+                        -{{date('M-y',strtotime($session->endingDate))}}) - Class
                           {{$classes->name}}{{$classes->section}}
                     </div>
 
@@ -129,11 +129,11 @@
                         <tbody>
 
 
-                        @foreach($subjects as $subject)
+                        @foreach($subjects as $index => $subject)
 
                             <tr>
                                 <td class="text-center">
-                                    {{$subject->id}}
+                                    {{++$index}}
                                 </td>
                                 <td class="text-center">
 
@@ -173,9 +173,12 @@
                                     </p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" data-dismiss="modal" class="btn btn-default">Cancel</button>
-                                    <a href="{{route('deleteSubject',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$subject->id])}}"
-                                       class="btn blue">Conform</a>
+                                    <button type="button" data-dismiss="modal" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
+                                    <button type="button" onclick="delete_subjects({{$subject->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
+
+
+                                    <input  id="{{$subject->id}}" type="hidden" value="{{route('deleteSubject',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$subject->id])}}"
+                                       class="btn blue">
                                 </div>
                             </div>
 
@@ -219,6 +222,15 @@
             UIBootbox.init();
             UIExtendedModals.init();
         });
+
+
+
+        function delete_subjects(id) {
+
+            window.location.href=$('#'+id).val();
+
+        }
+
     </script>
 
 @stop

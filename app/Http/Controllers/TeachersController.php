@@ -40,7 +40,7 @@ class TeachersController extends Controller
     {
 
         $teacher=Teacher::find($teacher_id);
-        $teacher->status=0;
+        $teacher->status=1;
         $teacher->save();
 
         return redirect()->route('teachers');
