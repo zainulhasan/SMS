@@ -9,7 +9,7 @@
 
 
 
-    <link href="{!! URL::asset('assets/plugins/gritter/css/jquery.gritter.css')!!}" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::asset('assets/plugins/gritter/css/jquery.gritter.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{URL::asset('assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css')}}" rel="stylesheet"
           type="text/css"/>
     <link href="{{URL::asset('assets/plugins/fullcalendar/fullcalendar/fullcalendar.css')}}" rel="stylesheet"
