@@ -29,16 +29,11 @@
 
 
         <ul class="page-breadcrumb breadcrumb">
-
-
-
             <li class="btn-group">
-
                 <a style="color:#fff;" href="{{route('createBook')}}" class="btn purple">
                     <i class="fa fa-plus"></i> Add Book
                 </a>
             </li>
-
 
             <li>
                 <i class="fa fa-home"></i>
@@ -54,24 +49,12 @@
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
 
-
-
-
-
 @stop
 
 
-
-
-
-
-
 @section('content')
-
     <div class="row">
         <div class="col-md-12">
-
-
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet box purple">
                 <div class="portlet-title">
@@ -83,8 +66,8 @@
                             <i class="fa  fa-arrow-left"></i>  Back
                         </a>
                     </div>
-
                 </div>
+
                 <div class="portlet-body">
                     <table class="table table-striped table-bordered table-hover table-full-width table-borderless" id="sample_2">
                         <thead>
@@ -96,20 +79,14 @@
                                 Book
                             </th>
 
-
-
-
                             <th class="col-md-1 text-center">
                                 Description
-
                             </th>
-
 
                             <th class="col-md-1 text-center">
                                 Action
 
                             </th>
-
 
                         </tr>
                         </thead>
@@ -129,13 +106,12 @@
                                     {{$book->description}}
                                 </td>
 
-
                                 <td class="text-center">
-
-
                                     <a href="#"
-                                       class="btn btn-xs green "><i class="fa fa-edit"></i> Details </a>
-                                    <a href="#" class="btn btn-xs purple"><i class="fa fa-edit"></i> Edit </a>
+                                       class="btn btn-xs green "><i class="fa fa-edit"></i> Details
+                                    </a>
+                                    <a href="#" class="btn btn-xs purple"><i class="fa fa-edit"></i> Edit
+                                     </a>
 
                                     <a class="btn btn-xs red" data-target="#static" data-toggle="modal"><i class="fa fa-times"></i>Delete</a>
                                 </td>
@@ -155,8 +131,6 @@
                                 </div>
                             </div>
                         @endforeach
-
-
                         </tbody>
                     </table>
                 </div>

@@ -9,12 +9,25 @@ Route::get('/', function () {
 Route::group(['prefix' => 'Academic'], function () {
 
     Route::get('session', ['as' => 'sessions', 'uses' => 'AcademicsController@session']);
-    Route::get('/sessionDelete/{del_id}', ['as' => 'sessionDelete', 'uses' => 'AcademicsController@sessionDelete']);
+
+
+
+
 
     Route::group(['prefix' => 'session'], function () {
 
         Route::get('/create', ['uses' => 'AcademicsController@getSession', 'as' => 'createSession']);
         Route::post('/store', ['uses' => 'AcademicsController@storeSession', 'as' => 'storeSession']);
+
+        Route::post('/delete', ['as' => 'sessionDelete', 'uses' => 'AcademicsController@sessionDelete']);
+
+
+
+        Route::get('/{id}/edit', ['uses' => 'AcademicsController@sessionEdit', 'as' => 'getEditSession']);
+
+        Route::post('{id}/edit/store', ['uses' => 'AcademicsController@storeEditSession', 'as' => 'editSession']);
+
+
 
 
         Route::group(['prefix' => '{id}/classes'], function () {

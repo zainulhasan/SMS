@@ -641,11 +641,20 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <script src="{{URL::asset('assets/plugins/uniform/jquery.uniform.min.js')}}"></script>
 
 
+
+
+
+
+
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 @yield('scripts')
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
+
+<script src="{{URL::asset('assets/scripts/custom.js')}}"></script>
+
+
 </body>
 <!-- END BODY -->
 </html>

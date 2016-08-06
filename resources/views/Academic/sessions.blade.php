@@ -63,6 +63,7 @@
 
 @section('content')
 
+    <div class="message_box"></div>
     <div class="row">
         <div class="col-md-12">
 
@@ -102,7 +103,7 @@
 
 
                         @foreach($sessions as $index =>  $session)
-                            <tr>
+                            <tr id="row{{$session->id}}">
                                 <td class="text-center">
                                     {{++$index}}
                                 </td>
@@ -115,8 +116,12 @@
 
                                     <a href="{{route('classes',['id'=>$session->id])}}" class="btn btn-xs green"><i
                                                 class="fa fa-edit"></i> Details </a>
-                                    <a href="{{route('classes',['id'=>$session->id])}}" class="btn btn-xs purple"><i
+
+
+                                    <a href="{{route('getEditSession',['id'=>$session->id])}}" class="btn btn-xs purple"><i
                                                 class="fa fa-edit"></i> Edit </a>
+
+
                                     <button  type="button" class="btn btn-xs red" data-target="#static" data-toggle="modal"><i class="fa fa-times"></i>Delete</button>
 
 
@@ -135,11 +140,13 @@
 
 
 
-                                    <input type="hidden" id="{{$session->id}}" value="{{route('sessionDelete',['id'=>$session->id])}}">
-                                    <button type="button" onclick="delete_session({{$session->id}})"  class="btn purple"><i class="fa fa-check"></i>Conform</button>
+
+                                    <button type="button" data-dismiss="modal" onclick="delete_session({{$session->id}})"  class="btn purple"><i class="fa fa-check"></i>Conform</button>
                                 </div>
                             </div>
+                            <meta name="csrf-token" content="{{ csrf_token() }}"/>
                         @endforeach
+
 
 
                         </tbody>
@@ -175,6 +182,7 @@
 
 
 
+
     <script>
         jQuery(document).ready(function () {
             App.init();
@@ -185,13 +193,6 @@
         });
 
 
-        /*****Custom Scripts ****/
-        
-        function delete_session(id) {
-
-            window.location.href=$('#'+id).val();
-
-            }
 
 
     </script>

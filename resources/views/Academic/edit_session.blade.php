@@ -1,5 +1,5 @@
 @extends('../layout.master')
-@section('title','Add Session')
+@section('title','Edit ')
 @section('styles')
 
     <link href="{{URL::asset('assets/plugins/select2/select2_metro.css')}}" rel="stylesheet" type="text/css"/>
@@ -38,7 +38,7 @@
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-            Create Session
+            Edit Session
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
@@ -57,7 +57,7 @@
                 <i class="fa fa-angle-right"></i>
             </li>
             <li>
-                <a href="#">Create</a>
+                <a href="#">Edit</a>
             </li>
         </ul>
 
@@ -72,7 +72,6 @@
 
 @section('content')
 
-
     <div id="message_box"></div>
     <div class="row">
         <div class="col-md-12">
@@ -80,18 +79,21 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-reorder"></i>Create Session
+                        <i class="fa fa-reorder"></i>Edit Session
                     </div>
 
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    <form action="#" method="post" id="add_form" class="form-horizontal">
+                    <form action="#" method="post" id="edit_form" class="form-horizontal">
+
                         <div class="form-body">
+
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>
                                 You have some form errors. Please check below.
                             </div>
+
 
 
                             <br/>
@@ -99,21 +101,18 @@
                                 <label class="control-label col-md-3"> Session Date Range</label>
                                 <div class="col-md-4">
                                     <div class="input-group input-large date-picker input-daterange"
-                                         data-date="{{getSessionDate()}}" data-date-format="dd-mm-yyyy">
+                                          data-date-format="dd-mm-yyyy">
                                         <input type="text" class="form-control" name="startingDate"
-                                               value="{{getSessionDate()}}">
+                                               value="{{$session->startingDate}}">
                                         <span class="input-group-addon">
 													to
 												</span>
 
 
                                         <input type="text" class="form-control" name="endingDate"
-                                               value="{{getNextSessionDate()}}">
+                                               value="{{$session->endingDate}}">
                                     </div>
-                                    <!-- /input-group -->
-                                    {{--<span class="help-block">--}}
-												{{--Select date range--}}
-											{{--</span>--}}
+
                                 </div>
                             </div>
 
@@ -122,13 +121,14 @@
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-9">
 
-                                <button type="submit" class="btn purple"><i class="fa fa-check"></i> Submit</button>
+                                <button  type="submit" class="btn purple"><i class="fa fa-check"></i> Submit</button>
                                 <a href="{{route('sessions')}}" class="btn purple"><i class="fa fa-times"></i> Cancel</a>
                             </div>
                         </div>
 
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+                        <meta name="csrf-token" content="{{ csrf_token() }}"/>
+                        <input type="hidden" name="id" value="{{$session->id}}">
                     </form>
                     <!-- END FORM-->
                 </div>

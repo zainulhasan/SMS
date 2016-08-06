@@ -20,12 +20,6 @@
 
 
 
-
-
-
-
-
-
     <link rel="stylesheet" type="text/css"
           href="{{URL::asset('assets/plugins/bootstrap-fileupload/bootstrap-fileupload.css')}}"/>
     <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/plugins/gritter/css/jquery.gritter.css')}}"/>
@@ -53,24 +47,9 @@
     <link rel="stylesheet" type="text/css"
           href="{{URL::asset('assets/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css')}}"/>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 @stop
 
 @section("top-option")
-
-
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
@@ -78,10 +57,7 @@
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
-
-
             <li class="btn-group">
-
                 <a style="color:#fff;"
                    href="{{route('createChapter',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term_id])}}"
                    class="btn purple">
@@ -118,23 +94,12 @@
         <!-- END PAGE TITLE & BREADCRUMB-->
     </div>
 
-
-
-
-
 @stop
 
 
-
-
-
-
 @section('content')
-
     <div class="row">
         <div class="col-md-12">
-
-
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet box purple">
                 <div class="portlet-title">
@@ -225,7 +190,7 @@
                                 <td class="text-center">
 
 
-                                    <div class="make-switch switch-mini" data-on-label="&nbsp;Complete&nbsp;&nbsp;" data-off-label="&nbsp;Incomplete&nbsp;User&nbsp;">
+                                    <div class="make-switch switch-mini" data-on-label="&nbsp;Complete&nbsp;&nbsp;" data-off-label="&nbsp;Incomplete&nbsp;">
                                         <input name="status"
                                                onchange="updateValue({{ $chapter->id.','.$chapter->chapterStatus }})"
                                                type="checkbox"
@@ -239,8 +204,6 @@
                                 </td>
 
                                 <td class="text-center">
-
-
                                     <a href="#" class="btn btn-xs purple"><i class="fa fa-edit"></i> Details </a>
                                     <a href="#" class="btn btn-xs green"><i class="fa fa-edit"></i> Edit </a>
                                     <button type="button" data-toggle="modal" data-target="#static"
@@ -269,8 +232,6 @@
 
                             <meta name="csrf-token" content="{{ csrf_token() }}"/>
                         @endforeach
-
-
                         </tbody>
                     </table>
                 </div>
@@ -295,12 +256,6 @@
     <script src="{{URL::asset('assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js')}}"></script>
     <script src="{{URL::asset('assets/plugins/bootstrap-modal/js/bootstrap-modal.js')}}"></script>
     <script src="{{URL::asset('assets/scripts/ui-extended-modals.js')}}"></script>
-
-
-
-
-
-
 
 
 
@@ -354,14 +309,6 @@
 
         function updateValue(i,s) {
 
-
-
-
-
-
-
-
-
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -372,7 +319,6 @@
 
             if(s==0)
             {
-
                 $.ajax({
                     method: "POST",
                     url: 'http://laravel.dev/chapter/update',
@@ -381,7 +327,6 @@
                         .done(function (msg) {
                             alert(msg);
                         });
-
 
 
             }else
@@ -399,13 +344,8 @@
         }
 
 
-
-
-
         function delete_chapter(id) {
-
             window.location.href=$('#'+id).val();
-
         }
     </script>
 
