@@ -64,4 +64,15 @@ class SubjectsController extends Controller
 
     }
 
+
+
+    public function editSubject($id,$class_id)
+    {
+        $books=Book::all();
+        $teachers=Teacher::all();
+        return view('Academic/create_subject', compact('teachers', 'id', 'class_id','books'));
+    }
+
+
+
 }

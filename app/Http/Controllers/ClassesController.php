@@ -48,49 +48,90 @@ class ClassesController extends Controller
     public function storeClass(Request $request)
     {
 
-
-
-       Classes::create([
-            'name'=>$request->input('className'),
-            'section'=>$request->input('section'),
-            'capacity'=>$request->input('capacity'),
-            'teacher_id'=>$request->input('teacherName'),
-            'session_id'=>$request->input('sessionId')
-
-
-        ]);
+        if($request->ajax())
+        {
+            $className=$request->input('className');
+            $section=$request->input('section');
+            $capacity=$request->input('capacity');
+            $teacher_id=$request->input('teacherName');
+            $session_id=$request->input('sessionId');
 
 
 
+            $classes=new Classes();
 
-        return redirect()->route('classes',['id'=>$request->input('sessionId')]);
+
+            $classes->name=$className;
+            $classes->section=$section;
+            $classes->capacity=$capacity;
+            $classes->teacher_id=$teacher_id;
+            $classes->session_id=$session_id;
+            $classes->save();
+        }
+
+
+
+
+        return "1";
     }
 
 
-    public function sessionDetail($id)
-    {
-        $title="Details";
-        return "Detaild  of classes";#view('Test/index',compact('id','title'));
-    }
 
 
-    public function sessionEdit($id)
+
+    public function classEdit($id,$class_id)
 
     {
-        $title="Edit";
-        return "Detaild  of classes";
-        #view('Test/index',compact('id','title'));
-        #;#view('Test/index',compact('id','title'));
-    }
-
-    public function classDelete($id,$class_id)
-    {
-
-
+        $session=Session::find($id);
         $class=Classes::find($class_id);
-        $class->status=1;
-        $class->save();
-        return redirect()->route('classes',['id'=>$id]);
+        $teachers=Teacher::all();
+
+        return view('Academic.edit_class',compact('teachers','id','class','session'));
+    }
+
+
+
+    public function classEditPost(Request $request)
+    {
+
+            $className=$request->input('className');
+            $section=$request->input('section');
+            $capacity=$request->input('capacity');
+            $teacher_id=$request->input('teacherName');
+            $session_id=$request->input('sessionId');
+            $class_id=$request->input('class_id');
+
+
+            $classes=Classes::find($class_id);
+
+
+            $classes->name=$className;
+            $classes->section=$section;
+            $classes->capacity=$capacity;
+            $classes->teacher_id=$teacher_id;
+            $classes->session_id=$session_id;
+            $classes->class_id=$class_id;
+
+            $classes->save();
+
+            return "1";
+
+    }
+
+
+    public function classDelete(Request $request)
+    {
+
+        if($request->ajax())
+        {
+
+
+            $class_id=$request->get('class_id');
+            $class=Classes::find($class_id);
+            $class->status=1;
+            $class->save();
+            return "1";
+        }
 
     }
 

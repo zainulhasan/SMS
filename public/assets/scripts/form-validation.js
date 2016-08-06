@@ -46,16 +46,7 @@ var FormValidation = function () {
                     },
 
                     /*****Custom Validation***/
-                    startingDate: {
-                        required: true
-                    },
-                    endingDate: {
-                        required: true
-                    },
 
-                    className: {
-                        required: true
-                    }
                 },
 
                 invalidHandler: function (event, validator) { //display error alert on form submit              

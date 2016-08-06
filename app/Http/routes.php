@@ -10,39 +10,34 @@ Route::group(['prefix' => 'Academic'], function () {
 
     Route::get('session', ['as' => 'sessions', 'uses' => 'AcademicsController@session']);
 
-
-
-
-
     Route::group(['prefix' => 'session'], function () {
 
         Route::get('/create', ['uses' => 'AcademicsController@getSession', 'as' => 'createSession']);
         Route::post('/store', ['uses' => 'AcademicsController@storeSession', 'as' => 'storeSession']);
-
         Route::post('/delete', ['as' => 'sessionDelete', 'uses' => 'AcademicsController@sessionDelete']);
-
-
-
         Route::get('/{id}/edit', ['uses' => 'AcademicsController@sessionEdit', 'as' => 'getEditSession']);
-
         Route::post('{id}/edit/store', ['uses' => 'AcademicsController@storeEditSession', 'as' => 'editSession']);
-
-
 
 
         Route::group(['prefix' => '{id}/classes'], function () {
 
             Route::get('/', ['as' => 'classes', 'uses' => 'ClassesController@classes']);
             Route::get('/create', ['as' => 'createClass', 'uses' => 'ClassesController@getClass']);
-            Route::get('/{class_id}/delete', ['as' => 'classDelete', 'uses' => 'ClassesController@classDelete']);
+            Route::post('/delete', ['as' => 'classDelete', 'uses' => 'ClassesController@classDelete']);
+            Route::get('/{class_id}/edit', ['as' => 'classEdit', 'uses' => 'ClassesController@classEdit']);
+            Route::post('{class_id}/edit/store', 'ClassesController@classEditPost');
+
+            Route::post('/store', 'ClassesController@storeClass');
 
 
             Route::group(['prefix' => '{class_id}/subjects'], function () {
 
-
                 Route::get('/', ['as' => 'subjects', 'uses' => 'SubjectsController@index']);
                 Route::get('/create', ['as' => 'createSubject', 'uses' => 'SubjectsController@getSubject']);
                 Route::get('{sub_id}/delete', ['as' => 'deleteSubject', 'uses' => 'SubjectsController@deleteSubject']);
+                Route::get('{sub_id}/edit', ['as' => 'editSubject', 'uses' => 'SubjectsController@editSubject']);
+
+
 
                 Route::group(['prefix' => '{sub_id}/terms'], function () {
 
@@ -50,18 +45,12 @@ Route::group(['prefix' => 'Academic'], function () {
                     Route::get('/create', ['as' => 'createTerms', 'uses' => 'TermController@getTerm']);
                     Route::get('{term_id}/delete', ['as' => 'deleteTerm', 'uses' => 'TermController@deleteTerm']);
 
-
                     Route::group(['prefix' => '{term_id}/chapters'], function () {
 
                         Route::get('/', ['as' => 'chapters', 'uses' => 'ChaptersController@index']);
                         Route::get('/create', ['as' => 'createChapter', 'uses' => 'ChaptersController@create']);
                         Route::get('{chapter_id}/delete', ['as' => 'deleteChapter', 'uses' => 'ChaptersController@deleteChapter']);
                         Route::post('insert/', ['as' => 'insertChapter', 'uses' => 'ChaptersController@inserChapters']);
-
-
-
-
-
 
 
                     });
@@ -90,7 +79,7 @@ Route::group(['prefix' => 'Academic'], function () {
 
 /********** Class Routes **********/
 
-Route::post('/store', ['as' => 'storeClass', 'uses' => 'ClassesController@storeClass']);
+
 Route::post('/storeSubject', ['as' => 'storeSubject', 'uses' => 'SubjectsController@storeSubject']);
 Route::post('/storeTerm', ['as' => 'storeTerm', 'uses' => 'TermController@storeTerm']);
 

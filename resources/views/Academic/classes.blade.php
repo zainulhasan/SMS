@@ -10,8 +10,10 @@
     <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/plugins/data-tables/DT_bootstrap.css')}}"/>
 
 
-    <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css')}}"/>
-    <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/plugins/bootstrap-modal/css/bootstrap-modal.css')}}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{{URL::asset('assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css')}}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{{URL::asset('assets/plugins/bootstrap-modal/css/bootstrap-modal.css')}}"/>
 
 
 
@@ -29,7 +31,6 @@
 
 
         <ul class="page-breadcrumb breadcrumb">
-
 
 
             <li class="btn-group">
@@ -79,17 +80,19 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-globe"></i>Session ({{date('M-y',strtotime($session->startingDate))}}-{{date('M-y',strtotime($session->endingDate))}})
+                        <i class="fa fa-globe"></i>Session ({{date('M-y',strtotime($session->startingDate))}}
+                        -{{date('M-y',strtotime($session->endingDate))}})
                     </div>
                     <div class="actions">
                         <a style="color:#fff;" href="{{route('sessions')}}" class="btn purple">
-                            <i class="fa  fa-arrow-left"></i>  Back
+                            <i class="fa  fa-arrow-left"></i> Back
                         </a>
                     </div>
 
                 </div>
                 <div class="portlet-body">
-                    <table class="table table-striped table-bordered table-hover table-full-width table-borderless" id="sample_2">
+                    <table class="table table-striped table-bordered table-hover table-full-width table-borderless"
+                           id="sample_2">
                         <thead>
                         <tr>
                             <th class="col-md-1 text-center">
@@ -98,8 +101,6 @@
                             <th class="col-md-1 text-center">
                                 Class
                             </th>
-
-
 
 
                             <th class="col-md-1 text-center">
@@ -123,7 +124,7 @@
 
 
                         @foreach($classes as $index => $class)
-                            <tr>
+                            <tr id="row{{$class->id}}">
                                 <td class="text-center">
                                     {{++$index}}
                                 </td>
@@ -143,14 +144,19 @@
 
                                     <a href="{{route('subjects',['id'=>$id,'class_id'=>$class->id])}}"
                                        class="btn btn-xs green "><i class="fa fa-edit"></i> Details </a>
-                                    <a href="#" class="btn btn-xs purple"><i class="fa fa-edit"></i> Edit </a>
 
-                                    <a class="btn btn-xs red" data-target="#static" data-toggle="modal"><i class="fa fa-times"></i>Delete</a>
+
+                                    <a href="{{route('classEdit',['id'=>$id,'class_id'=>$class->id])}}"
+                                       class="btn btn-xs purple"><i class="fa fa-edit"></i> Edit </a>
+
+                                    <a class="btn btn-xs red" data-target="#static" data-toggle="modal"><i
+                                                class="fa fa-times"></i>Delete</a>
                                 </td>
 
                             </tr>
 
-                            <div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+                            <div id="static" class="modal fade" tabindex="-1" data-backdrop="static"
+                                 data-keyboard="false">
                                 <div class="modal-body">
                                     <p>
                                         Are you Sure?
@@ -159,11 +165,19 @@
                                 <div class="modal-footer">
 
 
-                                    <button type="button" data-dismiss="modal" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
-                                    <button type="button" onclick="delete_classes( {{$class->id}})" class="btn purple"><i class="fa fa-check"></i>       Conform</button>
-                                    <input  type="hidden" id="{{$class->id}}" value="{{route('classDelete',['id'=>$id,'class_id'=>$class->id])}}"  class="btn purple">
+                                    <button type="button" data-dismiss="modal" class="btn purple"><i
+                                                class="fa fa-times"></i> Cancel
+                                    </button>
+
+                                    <button type="button" data-dismiss="modal" onclick="delete_class({{$class->id}})" class="btn purple">
+                                        <i class="fa fa-check"></i> Conform
+                                    </button>
+
+
+
                                 </div>
                             </div>
+                            <meta name="csrf-token" content="{{ csrf_token() }}"/>
                         @endforeach
 
 
@@ -202,11 +216,6 @@
 
 
 
-        function delete_classes(id) {
-
-            window.location.href=$('#'+id).val();
-
-        }
     </script>
 
 @stop

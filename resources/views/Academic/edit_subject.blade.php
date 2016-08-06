@@ -1,5 +1,5 @@
 @extends('../layout.master')
-@section('title','Add Class')
+@section('title','Edit Subject')
 @section('styles')
 
     <link href="{{URL::asset('assets/plugins/select2/select2_metro.css')}}" rel="stylesheet" type="text/css"/>
@@ -29,7 +29,9 @@
     <link href="{{URL::asset('assets/plugins/jquery-tags-input/jquery.tagsinput.css')}}" rel="stylesheet"
           type="text/css"/>
 
+
 @stop
+
 
 
 @section("top-option")
@@ -38,7 +40,7 @@
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-           Create Class
+            Create Subject
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
@@ -61,6 +63,10 @@
                 <i class="fa fa-angle-right"></i>
             </li>
             <li>
+                <a href="{{route('subjects',['id'=>$id,'class_id'=>$class_id])}}">Subjects</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
                 <a href="#">Create</a>
             </li>
         </ul>
@@ -74,22 +80,23 @@
 
 @stop
 
+
 @section('content')
 
-<div id="message_box"></div>
+
     <div class="row">
         <div class="col-md-12">
             <!-- BEGIN VALIDATION STATES-->
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-reorder"></i>Create Class
+                        <i class="fa fa-reorder"></i>Create Subject
                     </div>
 
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    <form action="#"  method="post" id="add_class" class="form-horizontal">
+                    <form action="{{route('storeSubject')}}" method="post" id="form_sample_1" class="form-horizontal">
                         <div class="form-body">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>
@@ -98,84 +105,60 @@
 
 
                             <br/>
-                            <input type="hidden" name="sessionId" value="{{$id}}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="classId" value="{{ $class_id }}">
+                            <input type="hidden" name="id" value="{{ $id }}">
                             <div class="form-group">
                                 <label class="control-label col-md-3">Name</label>
                                 <div class="col-md-4">
-                                    <input  type="text" class="form-control" minlength="1"  name="className"
+                                    <input type="text" class="form-control" minlength="3" maxlength="25"
+                                           name="name"
                                            id="maxlength_defaultconfig">
 
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Section</label>
-                                <div class="col-md-4">
-                                    <select name="section" class="form-control select2me" data-placeholder="Select...">
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="C">C</option>
-                                        <option value="D">D</option>
-                                    </select>
 
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-3">Capacity</label>
-                                <div class="col-md-9">
-                                    <div id="spinner1">
-                                        <div class="input-group input-small">
-                                            <input type="text" name="capacity" class="spinner-input form-control" maxlength="3" >
-                                            <div class="spinner-buttons input-group-btn btn-group-vertical">
-                                                <button type="button" class="btn spinner-up btn-xs blue">
-                                                    <i class="fa fa-angle-up"></i>
-                                                </button>
-                                                <button type="button" class="btn spinner-down btn-xs blue">
-                                                    <i class="fa fa-angle-down"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <label class="control-label col-md-3"> Teacher</label>
                                 <div class="col-md-4">
-                                    <select name="teacherName" class="form-control select2me" data-placeholder="Select...">
+                                    <select name="teacherId" class="form-control select2me"
+                                            data-placeholder="Select...">
+
                                         @foreach($teachers as $teacher)
-                                            <option value="{{$teacher->id}}">{{$teacher->name}}</option>
+                                        <option value="{{$teacher->id}}">{{$teacher->name}}</option>
                                             @endforeach
+
                                     </select>
 
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-3">Session</label>
+                                <label class="control-label col-md-3"> Book</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="session"
-                                           id="maxlength_defaultconfig" readonly value="{{date('F-Y',strtotime($session['startingDate']))}} - {{date('F-Y',strtotime($session['endingDate']))}}">
+                                    <select name="bookId" class="form-control select2me"
+                                            data-placeholder="Select...">
+
+                                        @foreach($books as $book)
+                                        <option value="{{$book->id}}">{{$book->name}}</option>
+                                            @endforeach
+
+                                    </select>
 
                                 </div>
                             </div>
 
 
-
-
-
-
-
-
-
                         </div>
+
+
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn purple"><i class="fa fa-check"></i> Submit</button>
-                                <a href="{{route('classes',['id'=>$id])}}" class="btn purple"><i class="fa fa-times"></i> Cancel</a>
+                                <a href="{{route('subjects',['id'=>$id,'class_id'=>$class_id])}}" class="btn purple"><i class="fa fa-times"></i> Cancel</a>
                             </div>
                         </div>
 
-                        <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
                     </form>
                     <!-- END FORM-->
@@ -184,13 +167,9 @@
             <!-- END VALIDATION STATES-->
         </div>
     </div>
-
-
-
 @stop
 
 @section('scripts')
-
 
 
     <script src="{{URL::asset('assets/plugins/jquery-validation/dist/jquery.validate.min.js')}}"></script>
@@ -258,6 +237,11 @@
             FormValidation.init();
             FormComponents.init();
         });
+
+
+
+
+
 
 
     </script>

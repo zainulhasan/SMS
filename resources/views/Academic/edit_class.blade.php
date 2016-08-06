@@ -1,5 +1,5 @@
 @extends('../layout.master')
-@section('title','Add Class')
+@section('title','Edit Class')
 @section('styles')
 
     <link href="{{URL::asset('assets/plugins/select2/select2_metro.css')}}" rel="stylesheet" type="text/css"/>
@@ -38,7 +38,7 @@
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-           Create Class
+           Edit Class
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
@@ -61,7 +61,7 @@
                 <i class="fa fa-angle-right"></i>
             </li>
             <li>
-                <a href="#">Create</a>
+                <a href="#">Edit</a>
             </li>
         </ul>
 
@@ -76,20 +76,21 @@
 
 @section('content')
 
-<div id="message_box"></div>
+    <div id="message_box"></div>
+
     <div class="row">
         <div class="col-md-12">
             <!-- BEGIN VALIDATION STATES-->
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-reorder"></i>Create Class
+                        <i class="fa fa-reorder"></i>Edit Class
                     </div>
 
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    <form action="#"  method="post" id="add_class" class="form-horizontal">
+                    <form action="#"  method="post" id="edit_class" class="form-horizontal">
                         <div class="form-body">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>
@@ -99,12 +100,13 @@
 
                             <br/>
                             <input type="hidden" name="sessionId" value="{{$id}}">
+                            <input type="hidden" name="class_id" value="{{$class->id}}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="form-group">
                                 <label class="control-label col-md-3">Name</label>
                                 <div class="col-md-4">
-                                    <input  type="text" class="form-control" minlength="1"  name="className"
-                                           id="maxlength_defaultconfig">
+                                    <input  type="text" class="form-control" minlength="1" maxlength="25" name="className"
+                                           value="{{$class->name}}" id="maxlength_defaultconfig">
 
                                 </div>
                             </div>
@@ -153,7 +155,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3">Session</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" name="session"
+                                    <input type="text" class="form-control"  name="session"
                                            id="maxlength_defaultconfig" readonly value="{{date('F-Y',strtotime($session['startingDate']))}} - {{date('F-Y',strtotime($session['endingDate']))}}">
 
                                 </div>
@@ -174,6 +176,7 @@
                                 <a href="{{route('classes',['id'=>$id])}}" class="btn purple"><i class="fa fa-times"></i> Cancel</a>
                             </div>
                         </div>
+
 
                         <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
