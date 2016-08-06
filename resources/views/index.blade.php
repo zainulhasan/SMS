@@ -5,11 +5,21 @@
 
 
 @section('styles')
-    <link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css"/>
-    <link href="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css"/>
+
+
+
+
+    <link href="{{URL::asset('assets/plugins/gritter/css/jquery.gritter.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::asset('assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css')}}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{{URL::asset('assets/plugins/fullcalendar/fullcalendar/fullcalendar.css')}}" rel="stylesheet"
+          type="text/css"/>
+    <link href="{{URL::asset('assets/plugins/jqvmap/jqvmap/jqvmap.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::asset('assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css')}}" rel="stylesheet"
+          type="text/css"/>
+
+
+
 @stop
 
 
@@ -19,7 +29,8 @@
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-            Advanced Datatables <small>advanced datatables</small>
+            Advanced Datatables
+            <small>advanced datatables</small>
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
@@ -213,7 +224,8 @@
                     </div>
                     <div class="actions">
                         <div class="btn-group">
-                            <a class="btn btn-sm default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <a class="btn btn-sm default" href="#" data-toggle="dropdown" data-hover="dropdown"
+                               data-close-others="true">
                                 Filter By <i class="fa fa-angle-down"></i>
                             </a>
                             <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
@@ -571,7 +583,8 @@
                     </div>
                     <div class="actions">
                         <div class="btn-group">
-                            <a class="btn default btn-xs" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <a class="btn default btn-xs" href="#" data-toggle="dropdown" data-hover="dropdown"
+                               data-close-others="true">
                                 More <i class="fa fa-angle-down"></i>
                             </a>
                             <ul class="dropdown-menu pull-right">
@@ -638,7 +651,8 @@
                                     </div>
                                     <div class="task-config">
                                         <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown"
+                                               data-hover="dropdown" data-close-others="true">
                                                 <i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
@@ -668,7 +682,8 @@
                                     </div>
                                     <div class="task-config">
                                         <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown"
+                                               data-hover="dropdown" data-close-others="true">
                                                 <i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
@@ -701,7 +716,8 @@
                                     </div>
                                     <div class="task-config">
                                         <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown"
+                                               data-hover="dropdown" data-close-others="true">
                                                 <i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
@@ -731,7 +747,9 @@
                                     </div>
                                     <div class="task-config">
                                         <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
+                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown"
+                                               data-hover="dropdown" data-close-others="true"><i
+                                                        class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
                                                     <a href="#"><i class="fa fa-check"></i> Complete</a>
@@ -760,7 +778,9 @@
                                     </div>
                                     <div class="task-config">
                                         <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
+                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown"
+                                               data-hover="dropdown" data-close-others="true"><i
+                                                        class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
                                                     <a href="#"><i class="fa fa-check"></i> Complete</a>
@@ -789,7 +809,9 @@
                                     </div>
                                     <div class="task-config">
                                         <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
+                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown"
+                                               data-hover="dropdown" data-close-others="true"><i
+                                                        class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
                                                     <a href="#"><i class="fa fa-check"></i> Complete</a>
@@ -821,7 +843,9 @@
                                     </div>
                                     <div class="task-config">
                                         <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
+                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown"
+                                               data-hover="dropdown" data-close-others="true"><i
+                                                        class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
                                                     <a href="#"><i class="fa fa-check"></i> Complete</a>
@@ -853,7 +877,9 @@
                                     </div>
                                     <div class="task-config">
                                         <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
+                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown"
+                                               data-hover="dropdown" data-close-others="true"><i
+                                                        class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
                                                     <a href="#"><i class="fa fa-check"></i> Complete</a>
@@ -882,7 +908,9 @@
                                     </div>
                                     <div class="task-config">
                                         <div class="task-config-btn btn-group">
-                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"><i class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
+                                            <a class="btn btn-xs default" href="#" data-toggle="dropdown"
+                                               data-hover="dropdown" data-close-others="true"><i
+                                                        class="fa fa-cog"></i><i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
                                                     <a href="#"><i class="fa fa-check"></i> Complete</a>
@@ -920,7 +948,8 @@
                         <i class="fa fa-calendar"></i>General Stats
                     </div>
                     <div class="actions">
-                        <a href="javascript:;" class="btn btn-sm yellow easy-pie-chart-reload"><i class="fa fa-repeat"></i> Reload</a>
+                        <a href="javascript:;" class="btn btn-sm yellow easy-pie-chart-reload"><i
+                                    class="fa fa-repeat"></i> Reload</a>
                     </div>
                 </div>
                 <div class="portlet-body">
@@ -1039,7 +1068,8 @@
                                 <a href="" class="btn default btn-sm">Orders</a>
                             </div>
                             <div class="btn-group pull-right">
-                                <a href="" class="btn default btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                                <a href="" class="btn default btn-sm dropdown-toggle" data-toggle="dropdown"
+                                   data-hover="dropdown" data-close-others="true">
                                     Select Region
                                     <span class="fa fa-angle-down">
 										</span>
@@ -1108,7 +1138,8 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab_1_1">
-                                <div class="scroller" style="height: 290px;" data-always-visible="1" data-rail-visible="0">
+                                <div class="scroller" style="height: 290px;" data-always-visible="1"
+                                     data-rail-visible="0">
                                     <ul class="feeds">
                                         <li>
                                             <div class="col1">
@@ -1500,7 +1531,8 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab_1_2">
-                                <div class="scroller" style="height: 290px;" data-always-visible="1" data-rail-visible1="1">
+                                <div class="scroller" style="height: 290px;" data-always-visible="1"
+                                     data-rail-visible1="1">
                                     <ul class="feeds">
                                         <li>
                                             <a href="#">
@@ -1737,7 +1769,8 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab_1_3">
-                                <div class="scroller" style="height: 290px;" data-always-visible="1" data-rail-visible1="1">
+                                <div class="scroller" style="height: 290px;" data-always-visible="1"
+                                     data-rail-visible1="1">
                                     <div class="row">
                                         <div class="col-md-6 user-info">
                                             <img alt="" src="assets/img/avatar.png" class="img-responsive"/>
@@ -2101,31 +2134,55 @@
 
 @section('scripts')
     <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <script src="assets/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
-    <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
-    <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
-    <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
-    <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
-    <script src="assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
-    <script src="assets/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
-    <script src="assets/plugins/flot/jquery.flot.js" type="text/javascript"></script>
-    <script src="assets/plugins/flot/jquery.flot.resize.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
-    <script src="assets/plugins/gritter/js/jquery.gritter.js" type="text/javascript"></script>
+
+
+
+
+
+    <script src="{{URL::asset('assets/plugins/jqvmap/jqvmap/jquery.vmap.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/flot/jquery.flot.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/flot/jquery.flot.resize.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/jquery.pulsate.min.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/bootstrap-daterangepicker/moment.min.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/gritter/js/jquery.gritter.js')}}"></script>
+
+
+
+
+
+
+
+
     <!-- IMPORTANT! fullcalendar depends on jquery-ui-1.10.3.custom.min.js for drag & drop support -->
-    <script src="assets/plugins/fullcalendar/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js" type="text/javascript"></script>
-    <script src="assets/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
-    <!-- END PAGE LEVEL PLUGINS -->
-    <!-- BEGIN PAGE LEVEL SCRIPTS -->
-    <script src="assets/scripts/app.js" type="text/javascript"></script>
-    <script src="assets/scripts/index.js" type="text/javascript"></script>
-    <script src="assets/scripts/tasks.js" type="text/javascript"></script>
+
+    <script src="{{URL::asset('assets/plugins/fullcalendar/fullcalendar/fullcalendar.min.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/jquery.sparkline.min.js')}}"></script>
+    <script src="{{URL::asset('assets/scripts/app.js')}}"></script>
+    <script src="{{URL::asset('assets/scripts/index.js')}}"></script>
+
+    <script src="{{URL::asset('assets/scripts/tasks.js')}}"></script>
+
+
+
+
+
+
+
+
+
+
+
     <!-- END PAGE LEVEL SCRIPTS -->
     <script>
-        jQuery(document).ready(function() {
+        jQuery(document).ready(function () {
             App.init(); // initlayout and core plugins
             Index.init();
             Index.initJQVMAP(); // init index page's custom scripts
