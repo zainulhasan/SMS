@@ -115,10 +115,10 @@
                         <tbody>
 
 
-                        @foreach($teachers as $teacher)
-                            <tr>
+                        @foreach($teachers as $index => $teacher)
+                            <tr id="row{{$teacher->id}}">
                                 <td class="text-center">
-                                    {{$teacher->id}}
+                                    {{++$index}}
                                 </td>
                                 <td class="">
                                     {{$teacher->name}}
@@ -137,7 +137,10 @@
 
 
                                     <a href="{{route('teachers')}}" class="btn btn-xs purple"><i class="fa fa-edit"></i> Details </a>
-                                    <a href="#" class="btn btn-xs green"><i class="fa fa-edit"></i> Edit </a>
+
+
+                                    <a href="{{route('editTeachers',['teacher_id'=>$teacher->id])}}" class="btn btn-xs green"><i class="fa fa-edit"></i> Edit </a>
+
                                     <button  type="button" class="btn btn-xs red" data-target="#static" data-toggle="modal"><i class="fa fa-times"></i>Delete</button>
                                 </td>
 
@@ -151,10 +154,11 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" data-dismiss="modal" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
-                                    <button type="button" onclick="delete_teacher({{$teacher->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
-                                    <input id="{{$teacher->id}}" type="hidden" value="{{route('deleteTeachers',['teacher_id'=>$teacher->id])}}">
+                                    <button type="button" data-dismiss="modal"  onclick="delete_teacher({{$teacher->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
+
                                 </div>
                             </div>
+                            <meta name="csrf-token" content="{{ csrf_token() }}"/>
                             @endforeach
 
 
@@ -194,11 +198,7 @@
         });
 
 
-        function delete_teacher(id) {
 
-            window.location.href=$('#'+id).val();
-
-        }
     </script>
 
 @stop

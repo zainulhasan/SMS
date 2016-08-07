@@ -53,14 +53,15 @@ class ChaptersController extends Controller
 
 
 
-    public function deleteChapter($id,$class_id,$sub_id,$term_id,$chapter_id)
+    public function deleteChapter(Request $request)
     {
+        $chapter_id=$request->get('chapter_id');
         $chapter=Chapter::find($chapter_id);
         $chapter->status=1;
         $chapter->save();
 
 
-        return Redirect::route('chapters',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term_id]);
+        return "1";
 
 
     }

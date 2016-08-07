@@ -1,5 +1,5 @@
 @extends('../layout.master')
-@section('title','Add Term')
+@section('title','Edit Term')
 @section('styles')
 
     <link href="{{URL::asset('assets/plugins/select2/select2_metro.css')}}" rel="stylesheet" type="text/css"/>
@@ -38,7 +38,7 @@
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-            Create Term
+            Edit Term
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
@@ -66,7 +66,7 @@
                 <i class="fa fa-angle-right"></i>
             </li>
             <li>
-                <a href="#">Create</a>
+                <a href="#">Edit</a>
             </li>
         </ul>
 
@@ -90,13 +90,13 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-reorder"></i>Create Term
+                        <i class="fa fa-reorder"></i>Edit Term
                     </div>
 
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    <form action="#" method="post" id="add_term" class="form-horizontal">
+                    <form action="#" method="post" id="edit_term" class="form-horizontal">
                         <div class="form-body">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>
@@ -119,7 +119,7 @@
 
 
                                         <input type="text" class="form-control" name="endingDate"
-                                               value="{{getNextTermDate()    }}">
+                                               value="{{getNextTermDate()}}">
                                     </div>
                                     <!-- /input-group -->
 
@@ -141,6 +141,7 @@
                         <input type="hidden" name="subject_id" value="{{$sub_id}}">
                         <input type="hidden" name="session_id" value="{{$id}}">
                         <input type="hidden" name="class_id" value="{{$class_id}}">
+                        <input type="hidden" name="term_id" value="{{$term_id}}">
                         <meta name="csrf-token" content="{{ csrf_token() }}"/>
                     </form>
                     <!-- END FORM-->

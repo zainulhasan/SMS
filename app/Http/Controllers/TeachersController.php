@@ -9,7 +9,7 @@ class TeachersController extends Controller
 {
     public function index()
     {
-        $teachers = Teacher::where('status',0)->get();
+        $teachers = Teacher::where('status', 0)->get();
         return view('Academic/teachers', compact('teachers'));
     }
 
@@ -17,6 +17,13 @@ class TeachersController extends Controller
     {
 
         return view('Academic/create_teacher');
+    }
+
+    public function edit($teacher_id)
+    {
+        $teacher=Teacher::find($teacher_id);
+
+        return view('Academic.edit_teacher',compact('teacher'));
     }
 
 
@@ -30,20 +37,19 @@ class TeachersController extends Controller
             'designation' => $request->get('designation'),
         ]);
 
-        return redirect()->route('teachers');
+        return "1";
     }
 
 
-
-
-    public function delete($teacher_id)
+    public function delete(Request $request)
     {
 
-        $teacher=Teacher::find($teacher_id);
-        $teacher->status=1;
+        $teacher_id = $request->get('teacher_id');
+        $teacher = Teacher::find($teacher_id);
+        $teacher->status = 1;
         $teacher->save();
 
-        return redirect()->route('teachers');
+        return "1";
     }
 
 }

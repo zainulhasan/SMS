@@ -163,7 +163,7 @@
 
                         @foreach($chapters as $index => $chapter)
 
-                            <tr>
+                            <tr id="row{{$chapter->id}}">
                                 <td class="text-center">
                                     {{++$index}}
                                 </td>
@@ -223,10 +223,9 @@
                                 <div class="modal-footer">
                                     <button type="button" data-dismiss="modal" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
 
-                                    <button type="button" onclick="delete_chapter({{$chapter->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
+                                    <button type="button" data-dismiss="modal" onclick="delete_chapter({{$chapter->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
 
-                                    <input  type="hidden" id="{{$chapter->id}}" value="{{route('deleteChapter',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term_id,'chapter_id'=>$chapter->id])}}"
-                                       class="btn purple">
+
                                 </div>
                             </div>
 
@@ -344,9 +343,7 @@
         }
 
 
-        function delete_chapter(id) {
-            window.location.href=$('#'+id).val();
-        }
+
     </script>
 
 @stop

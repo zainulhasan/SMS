@@ -10,8 +10,10 @@
     <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/plugins/data-tables/DT_bootstrap.css')}}"/>
 
 
-    <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css')}}"/>
-    <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/plugins/bootstrap-modal/css/bootstrap-modal.css')}}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{{URL::asset('assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css')}}"/>
+    <link rel="stylesheet" type="text/css"
+          href="{{URL::asset('assets/plugins/bootstrap-modal/css/bootstrap-modal.css')}}"/>
 
 
 @stop
@@ -30,7 +32,8 @@
 
             <li class="btn-group">
 
-                <a style="color:#fff;" href="{{route('createTerms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id])}}"
+                <a style="color:#fff;"
+                   href="{{route('createTerms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id])}}"
                    class="btn purple">
                     <i class="fa fa-plus"></i> Add Term
                 </a>
@@ -73,10 +76,11 @@
 
 @section('content')
 
+
+
+    <div id="message_box"></div>
     <div class="row">
         <div class="col-md-12">
-
-
             <!-- BEGIN EXAMPLE TABLE PORTLET-->
             <div class="portlet box purple">
                 <div class="portlet-title">
@@ -87,14 +91,17 @@
                     </div>
 
                     <div class="actions">
-                        <a style="color:#fff;" href="{{route('subjects',['id'=>$id,'sub_id'=>$subject->id])}}" class="btn purple">
-                            <i class="fa  fa-arrow-left"></i>  Back
+                        <a style="color:#fff;"
+                           href="{{route('subjects',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id])}}"
+                           class="btn purple">
+                            <i class="fa  fa-arrow-left"></i> Back
                         </a>
                     </div>
 
                 </div>
                 <div class="portlet-body">
-                    <table class="table table-striped table-bordered table-hover table-full-width table-borderless" id="sample_2">
+                    <table class="table table-striped table-bordered table-hover table-full-width table-borderless"
+                           id="sample_2">
                         <thead>
                         <tr>
                             <th class="col-md-1 text-center">
@@ -103,7 +110,6 @@
                             <th class="col-md-1 text-center">
                                 Term
                             </th>
-
 
 
                             <th class="col-md-1 text-center">
@@ -143,29 +149,35 @@
                                 <td class="text-center">
 
 
-                                    <a href="{{route('chapters',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term->id])}}" class="btn btn-xs purple"><i class="fa fa-edit"></i> Details </a>
+                                    <a href="{{route('chapters',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term->id])}}"
+                                       class="btn btn-xs purple"><i class="fa fa-edit"></i> Details </a>
 
 
-                                    <a href="#" class="btn btn-xs green"><i class="fa fa-edit"></i> Edit </a>
-
+                                    <a href="{{route('editTerms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term->id])}}"
+                                       class="btn btn-xs green"><i class="fa fa-edit"></i> Edit </a>
 
 
                                     <button type="button" data-toggle="modal" data-target="#static"
-                                       class="btn btn-xs red"><i class="fa fa-edit"></i> Delete </button>
+                                            class="btn btn-xs red"><i class="fa fa-edit"></i> Delete
+                                    </button>
                                 </td>
 
                             </tr>
 
-                            <div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+                            <div id="static" class="modal fade" tabindex="-1" data-backdrop="static"
+                                 data-keyboard="false">
                                 <div class="modal-body">
                                     <p>
                                         Are you Sure?
                                     </p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" data-dismiss="modal" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
-                                    <button type="button" data-dismiss="modal" onclick="delete_term({{$term->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
-
+                                    <button type="button" data-dismiss="modal" class="btn purple"><i
+                                                class="fa fa-times"></i> Cancel
+                                    </button>
+                                    <button type="button" data-dismiss="modal" onclick="delete_term({{$term->id}})"
+                                            class="btn purple"><i class="fa fa-check"></i> Conform
+                                    </button>
 
 
                                 </div>
@@ -212,8 +224,6 @@
             UIBootbox.init();
             UIExtendedModals.init();
         });
-
-
 
 
     </script>

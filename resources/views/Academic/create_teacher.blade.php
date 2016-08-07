@@ -76,7 +76,7 @@
 
 @section('content')
 
-
+<div id="message_box"></div>
     <div class="row">
         <div class="col-md-12">
             <!-- BEGIN VALIDATION STATES-->
@@ -89,7 +89,7 @@
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    <form action="{{route('storeTeachers')}}" method="post" id="form_sample_1" class="form-horizontal">
+                    <form action="#" method="post" id="add_teacher" class="form-horizontal">
                         <div class="form-body">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>
@@ -111,7 +111,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3">CNIC</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" minlength="15" maxlength="25"
+                                    <input type="text" class="form-control"
                                            name="cnic"
                                            id="maxlength_defaultconfig">
 
@@ -120,7 +120,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3">Phone</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" minlength="11" maxlength="25"
+                                    <input type="text" class="form-control"
                                            name="phone"
                                            id="maxlength_defaultconfig">
 
@@ -142,6 +142,7 @@
 
                         </div>
 
+                        <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
                         <div class="form-actions fluid">
                             <div class="col-md-offset-3 col-md-9">
