@@ -50,29 +50,59 @@ class SubjectsController extends Controller
 
         ]);
 
-        return redirect()->route('subjects', ['id' => $request->input('id'), 'class_id' => $request->input('classId')]);
+        return "1";
     }
 
 
-    public function deleteSubject($id,$class_id,$sub_id)
+    public function deleteSubject(Request $request)
     {
-        $subject=Subject::find($sub_id);
-        $subject->status=1;
-        $subject->save();
-        return redirect()->route('subjects',['id'=>$id,'class_id'=>$class_id]);
 
+        if($request->ajax())
+        {
+            $sub_id=$request->get('subject_id');
+            $subject=Subject::find($sub_id);
+            $subject->status=1;
+            $subject->save();
+
+            return "1";
+        }
 
     }
 
 
 
-    public function editSubject($id,$class_id)
+
+    public function editSubject($id, $class_id,$sub_id)
     {
+
         $books=Book::all();
         $teachers=Teacher::all();
-        return view('Academic/create_subject', compact('teachers', 'id', 'class_id','books'));
+        $subject=Subject::find($sub_id);
+        return view('Academic.edit_subject', compact('subject','teachers', 'id', 'class_id','books'));
     }
 
+    public function store(Request $request)
+    {
+        if($request->ajax())
+        {
+            $title = $request->get('name');
+            $teacher_id = $request->get('teacherId');
+            $classes_id = $request->get('classId');
+            $book_id = $request->get('bookId');
+            $sub_id = $request->get('sub_id');
+            $subject=Subject::find($sub_id);
+
+            $subject->title=$title;
+            $subject->teacher_id=$teacher_id;
+            $subject->classes_id=$classes_id;
+            $subject->book_id=$book_id;
+            $subject->save();
+
+
+
+            return "1";
+        }
+    }
 
 
 }

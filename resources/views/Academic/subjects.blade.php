@@ -131,7 +131,7 @@
 
                         @foreach($subjects as $index => $subject)
 
-                            <tr>
+                            <tr id="row{{$subject->title}}">
                                 <td class="text-center">
                                     {{++$index}}
                                 </td>
@@ -155,7 +155,9 @@
 
                                     <a href="{{route('terms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$subject->id])}}"
                                        class="btn btn-xs green"><i class="fa fa-edit"></i> Details </a>
-                                    <a href="#" class="btn btn-xs purple"><i class="fa fa-edit"></i> Edit </a>
+
+                                    <a href="{{route('editSubject',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$subject->id])}}" class="btn btn-xs purple"><i class="fa fa-edit"></i> Edit </a>
+
                                     <a class="btn btn-xs red" data-target="#static" data-toggle="modal"><i
                                                 class="fa fa-times"></i>Delete</a>
                                 </td>
@@ -174,14 +176,13 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" data-dismiss="modal" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
-                                    <button type="button" onclick="delete_subjects({{$subject->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
+                                    <button type="button" data-dismiss="modal" onclick="delete_subject({{$subject->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
 
 
-                                    <input  id="{{$subject->id}}" type="hidden" value="{{route('deleteSubject',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$subject->id])}}"
-                                       class="btn blue">
                                 </div>
                             </div>
 
+                            <meta name="csrf-token" content="{{ csrf_token() }}"/>
                         @endforeach
 
 
@@ -225,11 +226,6 @@
 
 
 
-        function delete_subjects(id) {
-
-            window.location.href=$('#'+id).val();
-
-        }
 
     </script>
 

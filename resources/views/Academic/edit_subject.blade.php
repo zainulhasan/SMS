@@ -1,5 +1,5 @@
 @extends('../layout.master')
-@section('title','Edit Subject')
+@section('title','Add Subject')
 @section('styles')
 
     <link href="{{URL::asset('assets/plugins/select2/select2_metro.css')}}" rel="stylesheet" type="text/css"/>
@@ -40,7 +40,7 @@
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-            Create Subject
+            Edit Subject
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
@@ -67,7 +67,7 @@
                 <i class="fa fa-angle-right"></i>
             </li>
             <li>
-                <a href="#">Create</a>
+                <a href="#">Edit</a>
             </li>
         </ul>
 
@@ -82,21 +82,20 @@
 
 
 @section('content')
-
-
+    <div id="message_box"></div>
     <div class="row">
         <div class="col-md-12">
             <!-- BEGIN VALIDATION STATES-->
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-reorder"></i>Create Subject
+                        <i class="fa fa-reorder"></i>Edit Subject
                     </div>
 
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    <form action="{{route('storeSubject')}}" method="post" id="form_sample_1" class="form-horizontal">
+                    <form action="#" method="post" id="subject_edit_form" class="form-horizontal">
                         <div class="form-body">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>
@@ -105,13 +104,13 @@
 
 
                             <br/>
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="sub_id" value="{{ $subject->id }}">
                             <input type="hidden" name="classId" value="{{ $class_id }}">
                             <input type="hidden" name="id" value="{{ $id }}">
                             <div class="form-group">
                                 <label class="control-label col-md-3">Name</label>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control" minlength="3" maxlength="25"
+                                    <input type="text" class="form-control" value="{{$subject->title}}" maxlength="25"
                                            name="name"
                                            id="maxlength_defaultconfig">
 
@@ -122,7 +121,9 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3"> Teacher</label>
                                 <div class="col-md-4">
-                                    <select name="teacherId" class="form-control select2me"
+                                    <select
+
+                                            name="teacherId" class="form-control select2me"
                                             data-placeholder="Select...">
 
                                         @foreach($teachers as $teacher)
@@ -160,6 +161,7 @@
                         </div>
 
 
+                        <meta name="csrf-token" content="{{ csrf_token() }}"/>
                     </form>
                     <!-- END FORM-->
                 </div>

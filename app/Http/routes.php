@@ -34,8 +34,11 @@ Route::group(['prefix' => 'Academic'], function () {
 
                 Route::get('/', ['as' => 'subjects', 'uses' => 'SubjectsController@index']);
                 Route::get('/create', ['as' => 'createSubject', 'uses' => 'SubjectsController@getSubject']);
-                Route::get('{sub_id}/delete', ['as' => 'deleteSubject', 'uses' => 'SubjectsController@deleteSubject']);
+                Route::post('/delete', ['as' => 'deleteSubject', 'uses' => 'SubjectsController@deleteSubject']);
+                Route::post('/store', ['as' => 'storeSubject', 'uses' => 'SubjectsController@storeSubject']);
                 Route::get('{sub_id}/edit', ['as' => 'editSubject', 'uses' => 'SubjectsController@editSubject']);
+
+                Route::post('{sub_id}/edit/store',  'SubjectsController@store');
 
 
 
@@ -43,7 +46,8 @@ Route::group(['prefix' => 'Academic'], function () {
 
                     Route::get('/', ['as' => 'terms', 'uses' => 'TermController@index']);
                     Route::get('/create', ['as' => 'createTerms', 'uses' => 'TermController@getTerm']);
-                    Route::get('{term_id}/delete', ['as' => 'deleteTerm', 'uses' => 'TermController@deleteTerm']);
+                    Route::post('/store', ['as' => 'storeTerm', 'uses' => 'TermController@storeTerm']);
+                    Route::post('/delete', ['as' => 'deleteTerm', 'uses' => 'TermController@deleteTerm']);
 
                     Route::group(['prefix' => '{term_id}/chapters'], function () {
 
@@ -78,10 +82,10 @@ Route::group(['prefix' => 'Academic'], function () {
 
 
 /********** Class Routes **********/
-
-
-Route::post('/storeSubject', ['as' => 'storeSubject', 'uses' => 'SubjectsController@storeSubject']);
-Route::post('/storeTerm', ['as' => 'storeTerm', 'uses' => 'TermController@storeTerm']);
+//
+//
+//Route::post('/storeSubject', ['as' => 'storeSubject', 'uses' => 'SubjectsController@storeSubject']);
+//Route::post('/storeTerm', ['as' => 'storeTerm', 'uses' => 'TermController@storeTerm']);
 
 /********** End Class Routes **********/
 

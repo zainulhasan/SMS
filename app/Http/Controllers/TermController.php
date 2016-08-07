@@ -38,19 +38,20 @@ class TermController extends Controller
         ]);
 
 
-        return redirect()->route('terms', ['id' => $request->input('session_id'), 'class_id' => $request->input('class_id'), 'sub_id' => $request->input('subject_id')]);
+        return "1";
     }
 
 
 
 
-    public function DeleteTerm($id,$class_id,$sub_id,$term_id)
+    public function DeleteTerm(Request $request)
     {
 
 
+        $term_id=$request->get('term_id');
         $term=Term::find($term_id);
         $term->status=1;
         $term->save();
-        return redirect()->route('terms', ['id' => $id, 'class_id' => $class_id, 'sub_id' => $sub_id]);
+        return "1";
     }
 }

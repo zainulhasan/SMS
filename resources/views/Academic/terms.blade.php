@@ -124,7 +124,7 @@
 
                         @foreach($terms as $index => $term)
 
-                            <tr>
+                            <tr id="row{{$term->id}}">
                                 <td class="text-center">
                                     {{++$index}}
                                 </td>
@@ -144,7 +144,12 @@
 
 
                                     <a href="{{route('chapters',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term->id])}}" class="btn btn-xs purple"><i class="fa fa-edit"></i> Details </a>
+
+
                                     <a href="#" class="btn btn-xs green"><i class="fa fa-edit"></i> Edit </a>
+
+
+
                                     <button type="button" data-toggle="modal" data-target="#static"
                                        class="btn btn-xs red"><i class="fa fa-edit"></i> Delete </button>
                                 </td>
@@ -159,12 +164,13 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" data-dismiss="modal" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
-                                    <button type="button" onclick="delete_term({{$term->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
+                                    <button type="button" data-dismiss="modal" onclick="delete_term({{$term->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
 
-                                    <input id="{{$term->id}}" type="hidden" value="{{route('deleteTerm',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term->id])}}">
+
 
                                 </div>
                             </div>
+                            <meta name="csrf-token" content="{{ csrf_token() }}"/>
                         @endforeach
 
 
@@ -209,11 +215,7 @@
 
 
 
-        function delete_term(id) {
 
-            window.location.href=$('#'+id).val();
-
-        }
     </script>
 
 @stop

@@ -276,7 +276,7 @@ function delete_class(class_id) {
 function add_subject() {
 
     get_token();
-    jQuery('#add_class').on('submit', (function (e) {
+    jQuery('#add_subject').on('submit', (function (e) {
         e.preventDefault();
 
         jQuery.ajax({
@@ -308,13 +308,14 @@ function add_subject() {
 
 
 /**
- * Edit class through ajax
+ * Edit suject through ajax
  */
 function edit_subject() {
 
     get_token();
-    jQuery('#edit_class').on('submit', (function (e) {
+    jQuery('#subject_edit_form').on('submit', (function (e) {
         e.preventDefault();
+
 
 
         jQuery.ajax({
@@ -349,8 +350,8 @@ function edit_subject() {
 
 
 /**
- * Delete class
- * @param session_id
+ * Delete subject
+ * @param subject_id
  */
 function delete_subject(subject_id) {
 
@@ -360,7 +361,7 @@ function delete_subject(subject_id) {
 
 
     jQuery.ajax({
-        url: './classes/delete',
+        url: './subjects/delete',
         type: 'POST',
         data: {
             'subject_id':subject_id,
@@ -388,6 +389,123 @@ function delete_subject(subject_id) {
 
 
 
+/**
+ * Add term through ajax
+ */
+function add_term() {
+
+    get_token();
+    jQuery('#add_term').on('submit', (function (e) {
+        e.preventDefault();
+
+        jQuery.ajax({
+            url: './store',
+            type: 'POST',
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            cache: false,
+
+            success: function (res) {
+                if (res == 1) {
+
+
+                    $('#message_box').append(get_message("Record Added Successfully."));
+                    $('.form-control').val('');
+
+                } else {
+
+                    $('#message_box').append(get_message("You have some form errors. Please check below."));
+                }
+
+            }
+        });
+    }));
+
+
+}
+
+
+/**
+ * Edit term through ajax
+ */
+function edit_term() {
+
+    get_token();
+    jQuery('#subject_edit_form').on('submit', (function (e) {
+        e.preventDefault();
+
+
+
+        jQuery.ajax({
+            url: './edit/store',
+            type: 'POST',
+
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            cache: false,
+            beforeSend: function () {
+
+            },
+            success: function (res) {
+                if (res == 1) {
+
+
+                    $('#message_box').append(get_message("Record Edit Successfully."));
+                    $('.form-control').val('');
+
+                } else {
+
+                    $('#message_box').append(get_message("You have some form errors. Please check below."));
+                }
+
+            }
+        });
+    }));
+
+
+}
+
+
+/**
+ * Delete subject
+ * @param subject_id
+ */
+function delete_term(term_id) {
+
+
+    get_token();
+
+
+
+    jQuery.ajax({
+        url: './terms/delete',
+        type: 'POST',
+        data: {
+            'term_id':term_id,
+        },
+
+        success: function (res) {
+            if (res == 1) {
+
+
+                $('#message_box').append(get_message("Record Deleted Successfully."));
+                $('.form-control').val('');
+                $('#row'+term_id).slideUp();
+
+
+
+            } else {
+
+                $('#message_box').append(get_message("You have some form errors. Please check below."));
+            }
+
+        }
+    });
+
+}
+
 
 
 
@@ -403,5 +521,13 @@ $(document).ready(function () {
 
     add_class();
     edit_class();
+
+
+    add_subject();
+    edit_subject();
+
+
+    add_term();
+    edit_term();
 
 })
