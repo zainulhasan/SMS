@@ -71,6 +71,7 @@
 @section('content')
 
 
+    <div id="message_box"></div>
     <div class="row">
         <div class="col-md-12">
             <!-- BEGIN VALIDATION STATES-->
@@ -83,7 +84,7 @@
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    <form action="{{route('storeBook')}}" method="post" id="form_sample_1" class="form-horizontal">
+                    <form action="#" method="post" id="add_book" class="form-horizontal">
                         <div class="form-body">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>
@@ -129,6 +130,7 @@
                             </div>
                         </div>
 
+                        <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
                     </form>
                     <!-- END FORM-->

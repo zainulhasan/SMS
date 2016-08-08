@@ -1,5 +1,5 @@
 @extends('../layout.master')
-@section('title','Add Chapter')
+@section('title','Edit Chapter')
 @section('styles')
 
     <link href="{{URL::asset('assets/plugins/select2/select2_metro.css')}}" rel="stylesheet" type="text/css"
@@ -35,11 +35,10 @@
 
 @section("top-option")
 
-
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-            Create Chapter
+            Edit Chapter
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
@@ -74,7 +73,7 @@
             </li>
 
             <li>
-                <a href="#">Create</a>
+                <a href="#">Edit</a>
             </li>
         </ul>
 
@@ -88,9 +87,8 @@
 @stop
 
 
+
 @section('content')
-
-
     <div id="message_box"></div>
     <div class="row">
         <div class="col-md-12">
@@ -98,13 +96,13 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-reorder"></i>Create Chapter
+                        <i class="fa fa-reorder"></i>Edit Chapter
                     </div>
 
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    <form id="mForm" action="#" method="post" id="form_sample_1"
+                    <form action="#" method="post" id="edit_chapter"
                           class="form-horizontal">
                         <div id="fBody" class="form-body">
                             <div class="alertalert alert-danger display-hide">
@@ -134,16 +132,16 @@
 
                                         <div class="col-md-1">
                                             <div class="input-group">
-                                                <input type="text" name="chapter" class="form-control">
+                                                <input type="text" value="{{$chapter->chapter}}" name="chapter" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="col-md-3">
                                             <div class="input-group">
                                                 <span class="input-group-addon">From</span>
-                                                <input type="text" class="form-control" name="fromPage">
+                                                <input type="text" value="{{$chapter->formPage}}" class="form-control" name="fromPage">
                                                 <span class="input-group-addon">to</span>
-                                                <input type="text" class="form-control" name="toPage">
+                                                <input type="text"  value="{{$chapter->toPage}}" class="form-control" name="toPage">
 
                                             </div>
                                         </div>
@@ -181,7 +179,8 @@
                         <input type="hidden" name="session_id" value="{{$id}}">
                         <input type="hidden" name="class_id" value="{{$class_id}}">
                         <input id="term_id" type="hidden" name="term_id" value="{{$term_id}}">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="chapter_id" value="{{$chapter->id}}">
+
                         <meta name="csrf-token" content="{{ csrf_token() }}"/>
                     </form>
                     <!-- END FORM-->
@@ -262,98 +261,7 @@
         });
 
 
-        var myRow = '<br/><div class="row">' +
-                '' +
-                '' +
-                '    <div class="col-md-2">' +
-                '        <div class="input-group">' +
-                '        </div>' +
-                '    </div>' +
-                '' +
-                '' +
-                '    <div class="col-md-1">' +
-                '        <div class="input-group">' +
-                '            <label class="control-label">Chapter</label>' +
-                '        </div>' +
-                '    </div>' +
-                '' +
-                '    <div class="col-md-1">' +
-                '        <div class="input-group">' +
-                '            <input type="text" name="chapter" class="form-control">' +
-                '        </div>' +
-                '    </div>' +
-                '' +
-                '    <div class="col-md-3">' +
-                '        <div class="input-group">' +
-                '            <span class="input-group-addon">From</span>' +
-                '            <input type="text" class="form-control" name="fromPage">' +
-                '            <span class="input-group-addon">to</span>' +
-                '            <input type="text" class="form-control" name="toPage">' +
-                '' +
-                '        </div>' +
-                '    </div>' +
-                '</div>';
 
-
-        $('#add_btn').click(function () {
-
-            $('#box').append(myRow);
-
-
-        });
-
-
-        $('#submit_btn').click(function (e) {
-
-            var chapters = [];
-            var formPages = [];
-            var toPages = [];
-            var term_id = $('#term_id').val();
-            e.preventDefault();
-
-            $.each($("input[name='chapter']"), function () {
-                chapters.push($(this).val());
-            });
-
-
-            $.each($("input[name='fromPage']"), function () {
-                formPages.push($(this).val());
-            });
-
-
-            $.each($("input[name='toPage']"), function () {
-                toPages.push($(this).val());
-            });
-
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $.ajax({
-                method: "POST",
-                url: "./insert",
-                data: {
-
-
-                    'chapters': chapters,
-                    'fromPages': formPages,
-                    'toPages': toPages,
-                    'term_id': term_id
-
-                },
-                success: function (result) {
-                    if (result == 1) {
-                        $('#message_box').append(get_message("Record Added Successfully."));
-
-                    }
-                }
-            });
-
-
-        });
 
 
     </script>

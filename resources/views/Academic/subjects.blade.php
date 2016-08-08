@@ -86,7 +86,7 @@
                     <div class="caption">
                         <i class="fa fa-globe"></i>Session ({{date('M-y',strtotime($session->startingDate))}}
                         -{{date('M-y',strtotime($session->endingDate))}}) - Class
-                          {{$classes->name}}{{$classes->section}}
+                          - {{$classes->name}}{{$classes->section}} - Subjects
                     </div>
 
                     <div class="actions">
@@ -131,7 +131,7 @@
 
                         @foreach($subjects as $index => $subject)
 
-                            <tr id="row{{$subject->title}}">
+                            <tr id="row{{$subject->id}}">
                                 <td class="text-center">
                                     {{++$index}}
                                 </td>
@@ -158,7 +158,7 @@
 
                                     <a href="{{route('editSubject',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$subject->id])}}" class="btn btn-xs purple"><i class="fa fa-edit"></i> Edit </a>
 
-                                    <a class="btn btn-xs red" data-target="#static" data-toggle="modal"><i
+                                    <a class="btn btn-xs red" onclick="delete_subject({{$subject->id}})"><i
                                                 class="fa fa-times"></i>Delete</a>
                                 </td>
 
@@ -167,20 +167,7 @@
 
 
 
-                            <div id="static" class="modal fade" tabindex="-1" data-backdrop="static"
-                                 data-keyboard="false">
-                                <div class="modal-body">
-                                    <p>
-                                        Are you Sure?
-                                    </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" data-dismiss="modal" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
-                                    <button type="button" data-dismiss="modal" onclick="delete_subject({{$subject->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
 
-
-                                </div>
-                            </div>
 
                             <meta name="csrf-token" content="{{ csrf_token() }}"/>
                         @endforeach

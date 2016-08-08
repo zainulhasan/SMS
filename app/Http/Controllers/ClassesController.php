@@ -110,7 +110,7 @@ class ClassesController extends Controller
             $classes->capacity=$capacity;
             $classes->teacher_id=$teacher_id;
             $classes->session_id=$session_id;
-            $classes->class_id=$class_id;
+
 
             $classes->save();
 

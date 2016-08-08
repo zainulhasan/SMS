@@ -141,23 +141,12 @@
 
                                     <a href="{{route('editTeachers',['teacher_id'=>$teacher->id])}}" class="btn btn-xs green"><i class="fa fa-edit"></i> Edit </a>
 
-                                    <button  type="button" class="btn btn-xs red" data-target="#static" data-toggle="modal"><i class="fa fa-times"></i>Delete</button>
+                                    <button  type="button" class="btn btn-xs red" onclick="delete_teacher({{$teacher->id}})"><i class="fa fa-times"></i>Delete</button>
                                 </td>
 
                             </tr>
 
-                            <div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
-                                <div class="modal-body">
-                                    <p>
-                                        Are you Sure?
-                                    </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" data-dismiss="modal" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
-                                    <button type="button" data-dismiss="modal"  onclick="delete_teacher({{$teacher->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
 
-                                </div>
-                            </div>
                             <meta name="csrf-token" content="{{ csrf_token() }}"/>
                             @endforeach
 

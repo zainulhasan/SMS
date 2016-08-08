@@ -81,7 +81,7 @@
                 <div class="portlet-title">
                     <div class="caption">
                         <i class="fa fa-globe"></i>Session ({{date('M-y',strtotime($session->startingDate))}}
-                        -{{date('M-y',strtotime($session->endingDate))}})
+                        -{{date('M-y',strtotime($session->endingDate))}}) - Classes
                     </div>
                     <div class="actions">
                         <a style="color:#fff;" href="{{route('sessions')}}" class="btn purple">
@@ -149,34 +149,13 @@
                                     <a href="{{route('classEdit',['id'=>$id,'class_id'=>$class->id])}}"
                                        class="btn btn-xs purple"><i class="fa fa-edit"></i> Edit </a>
 
-                                    <a class="btn btn-xs red" data-target="#static" data-toggle="modal"><i
+                                    <a class="btn btn-xs red" onclick="delete_class({{$class->id}})" ><i
                                                 class="fa fa-times"></i>Delete</a>
                                 </td>
 
                             </tr>
 
-                            <div id="static" class="modal fade" tabindex="-1" data-backdrop="static"
-                                 data-keyboard="false">
-                                <div class="modal-body">
-                                    <p>
-                                        Are you Sure?
-                                    </p>
-                                </div>
-                                <div class="modal-footer">
 
-
-                                    <button type="button" data-dismiss="modal" class="btn purple"><i
-                                                class="fa fa-times"></i> Cancel
-                                    </button>
-
-                                    <button type="button" data-dismiss="modal" onclick="delete_class({{$class->id}})" class="btn purple">
-                                        <i class="fa fa-check"></i> Conform
-                                    </button>
-
-
-
-                                </div>
-                            </div>
                             <meta name="csrf-token" content="{{ csrf_token() }}"/>
                         @endforeach
 

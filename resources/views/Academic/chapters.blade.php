@@ -44,8 +44,13 @@
           href="{{URL::asset('assets/plugins/bootstrap-switch/static/stylesheets/bootstrap-switch-metro.css')}}"/>
     <link rel="stylesheet" type="text/css"
           href="{{URL::asset('assets/plugins/jquery-tags-input/jquery.tagsinput.css')}}"/>
+
+
     <link rel="stylesheet" type="text/css"
           href="{{URL::asset('assets/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css')}}"/>
+
+
+
 
 @stop
 
@@ -163,9 +168,13 @@
 
                         @foreach($chapters as $index => $chapter)
 
+
+
+
+
                             <tr id="row{{$chapter->id}}">
                                 <td class="text-center">
-                                    {{++$index}}
+                                    {{$chapter->id}}
                                 </td>
                                 <td class="text-center">
 
@@ -205,13 +214,30 @@
 
                                 <td class="text-center">
                                     <a href="#" class="btn btn-xs purple"><i class="fa fa-edit"></i> Details </a>
-                                    <a href="#" class="btn btn-xs green"><i class="fa fa-edit"></i> Edit </a>
-                                    <button type="button" data-toggle="modal" data-target="#static"
+
+
+                                    <a href="{{route('editChapter',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$sub_id,'term_id'=>$term_id,'chapter_id'=>$chapter->id])}}" class="btn btn-xs green"><i class="fa fa-edit"></i> Edit </a>
+
+
+                                    {{--<button type="button" data-toggle="modal" data-target="#static"--}}
+                                            {{--class="btn btn-xs red"><i class="fa fa-edit"></i> Delete--}}
+                                    {{--</button>--}}
+
+
+
+                                    <button type="button" onclick="delete_chapter({{$chapter->id}});"
                                             class="btn btn-xs red"><i class="fa fa-edit"></i> Delete
                                     </button>
+
+
+
                                 </td>
 
                             </tr>
+
+
+
+                            <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
                             <div id="static" class="modal fade" tabindex="-1" data-backdrop="static"
                                  data-keyboard="false">
@@ -220,16 +246,18 @@
                                         Are you Sure?
                                     </p>
                                 </div>
+
+
                                 <div class="modal-footer">
                                     <button type="button" data-dismiss="modal" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
 
-                                    <button type="button" data-dismiss="modal" onclick="delete_chapter({{$chapter->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
+
+                                    <button type="button"  data-dismiss="modal" onclick='alert({{$index}});' class="btn purple"><i class="fa fa-check"></i> Conform</button>
 
 
                                 </div>
                             </div>
 
-                            <meta name="csrf-token" content="{{ csrf_token() }}"/>
                         @endforeach
                         </tbody>
                     </table>
@@ -296,6 +324,10 @@
 
 
 
+
+
+
+
     <script>
         jQuery(document).ready(function () {
             App.init();
@@ -307,6 +339,8 @@
 
 
         function updateValue(i,s) {
+
+
 
             $.ajaxSetup({
                 headers: {
@@ -341,6 +375,7 @@
                 }
 
         }
+
 
 
 

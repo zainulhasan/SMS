@@ -652,6 +652,8 @@ Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-templa
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 
+<script src="{{URL::asset('assets/scripts/jquery-impromptu.js')}}"></script>
+
 <script src="{{URL::asset('assets/scripts/custom.js')}}"></script>
 
 

@@ -18,13 +18,14 @@ class BooksController extends Controller
         return view('Academic.books', compact('books'));
     }
 
-    public function delete($book_id)
+    public function delete(Request $request)
     {
+        $book_id=$request->get('book_id');
 
         $book=Book::find($book_id);
         $book->status=1;
         $book->save();
-        return Redirect::route('books');
+        return "1";
 
     }
 
@@ -46,7 +47,33 @@ class BooksController extends Controller
 
         ]);
 
-        return Redirect::route('books');
+        return "1";
+    }
+
+
+    public function editStore(Request $request)
+    {
+
+
+
+            $book_id=$request->get('book_id');
+            $book=Book::find($book_id);
+            $name =$request->get('name');
+            $description =$request->get('description');
+
+
+
+        return "1";
+    }
+
+
+
+
+    public function edit($book_id)
+    {
+
+        $book=Book::find($book_id);
+        return view('Academic.edit_book',compact('book'));
     }
 
 

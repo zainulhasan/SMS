@@ -93,10 +93,10 @@
                         <tbody>
 
 
-                        @foreach($books as $book)
-                            <tr>
+                        @foreach($books as $index => $book)
+                            <tr id="row{{$book->id}}">
                                 <td class="text-center">
-                                    {{$book->id}}
+                                    {{++$index}}
                                 </td>
                                 <td class="text-center">
                                     {{$book->name}}
@@ -110,26 +110,16 @@
                                     <a href="#"
                                        class="btn btn-xs green "><i class="fa fa-edit"></i> Details
                                     </a>
-                                    <a href="#" class="btn btn-xs purple"><i class="fa fa-edit"></i> Edit
+                                    <a href="{{route('editBook',['book_id'=>$book->id])}}" class="btn btn-xs purple"><i class="fa fa-edit"></i> Edit
                                      </a>
 
-                                    <a class="btn btn-xs red" data-target="#static" data-toggle="modal"><i class="fa fa-times"></i>Delete</a>
+                                    <a class="btn btn-xs red" onclick="delete_book( {{$book->id}})"><i class="fa fa-times"></i>Delete</a>
                                 </td>
 
                             </tr>
 
-                            <div id="static" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
-                                <div class="modal-body">
-                                    <p>
-                                        Are you Sure?
-                                    </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" data-dismiss="modal" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
-                                    <button type="button" onclick="delete_book( {{$book->id}})" class="btn purple"><i class="fa fa-check"></i> Conform</button>
-                                    <input type="hidden" id="{{$book->id}}" value="{{route('deleteBook',['book_id'=>$book->id])}}" >
-                                </div>
-                            </div>
+
+                            <meta name="csrf-token" content="{{ csrf_token() }}"/>
                         @endforeach
                         </tbody>
                     </table>
@@ -165,11 +155,7 @@
         });
 
 
-        function delete_book(id) {
 
-            window.location.href=$('#'+id).val();
-
-        }
 
     </script>
 

@@ -47,7 +47,7 @@ Route::group(['prefix' => 'Academic'], function () {
                     Route::get('/', ['as' => 'terms', 'uses' => 'TermController@index']);
                     Route::get('/create', ['as' => 'createTerms', 'uses' => 'TermController@getTerm']);
                     Route::get('/{term_id}/edit', ['as' => 'editTerms', 'uses' => 'TermController@editTerm']);
-                    Route::post('/{term_id}/edit/store', ['as' => 'editTerms', 'uses' => 'TermController@EditStoreTerm']);
+                    Route::post('/{term_id}/edit/store', ['as' => 'StoreEditTerms', 'uses' => 'TermController@EditStoreTerm']);
 
 
 
@@ -58,9 +58,19 @@ Route::group(['prefix' => 'Academic'], function () {
 
                         Route::get('/', ['as' => 'chapters', 'uses' => 'ChaptersController@index']);
                         Route::get('/create', ['as' => 'createChapter', 'uses' => 'ChaptersController@create']);
-                       // Route::get('{chapter_id}/delete', ['as' => 'deleteChapter', 'uses' => 'ChaptersController@deleteChapter']);
+                        Route::get('/{chapter_id}/edit', ['as' => 'editChapter', 'uses' => 'ChaptersController@edit']);
+
+
+
+
+                        // Route::get('{chapter_id}/delete', ['as' => 'deleteChapter', 'uses' => 'ChaptersController@deleteChapter']);
                         Route::post('insert/', ['as' => 'insertChapter', 'uses' => 'ChaptersController@inserChapters']);
                         Route::post('/delete', ['as' => 'deleteChapter', 'uses' => 'ChaptersController@deleteChapter']);
+                        Route::post('/{chapter_id}/edit/store', ['as' => 'storeEditChapter', 'uses' => 'ChaptersController@editStore']);
+
+
+
+
 
 
                     });
@@ -120,8 +130,18 @@ Route::post('teachers/{teacher_id}/edit/store', ['as' => 'storeEditTeachers', 'u
 /********** Book Routes **********/
 Route::get('/books', ['as' => 'books', 'uses' => 'BooksController@index']);
 Route::get('/books/create', ['as' => 'createBook', 'uses' => 'BooksController@create']);
+
 Route::post('/books/delete', ['as' => 'deleteBook', 'uses' => 'BooksController@delete']);
+
+
 Route::post('/books/store', ['as' => 'storeBook', 'uses' => 'BooksController@store']);
+
+
+
+Route::get('/books/{book_id}/edit', ['as' => 'editBook', 'uses' => 'BooksController@edit']);
+
+Route::post('/books/edit/store', ['as' => 'storeEditBook', 'uses' => 'BooksController@store']);
+
 
 /********** End Book Routes **********/
 

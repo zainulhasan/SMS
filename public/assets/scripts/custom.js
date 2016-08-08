@@ -27,7 +27,7 @@ function add_session() {
 
 
                     $('#message_box').append(get_message("Record Added Successfully."));
-                    $('.form-control').val('');
+
 
                 } else {
 
@@ -69,7 +69,7 @@ function edit_session() {
 
 
                     $('#message_box').append(get_message("Record Edit Successfully."));
-                    $('.form-control').val('');
+
 
                 } else {
 
@@ -99,27 +99,35 @@ function delete_session(session_id) {
     get_token();
 
 
+    $.prompt("Are you Sure?", {
+        title: "Alert",
+        buttons: {"Cancel": false, "Conform": true},
+        submit: function (e, v, m, f) {
+            if (v == true) {
 
-    jQuery.ajax({
-        url: './session/delete',
-        type: 'POST',
-        data: {
-            'session_id':session_id,
-        },
+                jQuery.ajax({
+                    url: './session/delete',
+                    type: 'POST',
+                    data: {
+                        'session_id': session_id,
+                    },
 
-        success: function (res) {
-            if (res == 1) {
-
-
-                $('#message_box').append(get_message("Record Deleted Successfully."));
-                $('.form-control').val('');
-                $('#row'+session_id).slideUp();
+                    success: function (res) {
+                        if (res == 1) {
 
 
+                            $('#message_box').append(get_message("Record Deleted Successfully."));
 
-            } else {
+                            $('#row' + session_id).slideUp();
 
-                $('#message_box').append(get_message("You have some form errors. Please check below."));
+
+                        } else {
+
+                            $('#message_box').append(get_message("You have some form errors. Please check below."));
+                        }
+
+                    }
+                });
             }
 
         }
@@ -140,12 +148,6 @@ function get_message(msg) {
     alertVal += msg;
     return alertVal
 }
-
-
-
-
-
-
 
 
 /**
@@ -170,7 +172,7 @@ function add_class() {
 
 
                     $('#message_box').append(get_message("Record Added Successfully."));
-                    $('.form-control').val('');
+
 
                 } else {
 
@@ -211,7 +213,7 @@ function edit_class() {
 
 
                     $('#message_box').append(get_message("Record Edit Successfully."));
-                    $('.form-control').val('');
+
 
                 } else {
 
@@ -235,39 +237,41 @@ function delete_class(class_id) {
 
     get_token();
 
+    $.prompt("Are you Sure?", {
+        title: "Alert",
+        buttons: {"Cancel": false, "Conform": true},
+        submit: function (e, v, m, f) {
+            if (v == true) {
+
+                jQuery.ajax({
+                    url: './classes/delete',
+                    type: 'POST',
+                    data: {
+                        'class_id': class_id,
+                    },
+
+                    success: function (res) {
+                        if (res == 1) {
 
 
-    jQuery.ajax({
-        url: './classes/delete',
-        type: 'POST',
-        data: {
-            'class_id':class_id,
-        },
+                            $('#message_box').append(get_message("Record Deleted Successfully."));
 
-        success: function (res) {
-            if (res == 1) {
+                            $('#row' + class_id).slideUp();
 
 
-                $('#message_box').append(get_message("Record Deleted Successfully."));
-                $('.form-control').val('');
-                $('#row'+class_id).slideUp();
+                        } else {
 
+                            $('#message_box').append(get_message("You have some form errors. Please check below."));
+                        }
 
-
-            } else {
-
-                $('#message_box').append(get_message("You have some form errors. Please check below."));
+                    }
+                });
             }
 
         }
     });
 
 }
-
-
-
-
-
 
 
 /**
@@ -292,7 +296,7 @@ function add_subject() {
 
 
                     $('#message_box').append(get_message("Record Added Successfully."));
-                    $('.form-control').val('');
+
 
                 } else {
 
@@ -317,7 +321,6 @@ function edit_subject() {
         e.preventDefault();
 
 
-
         jQuery.ajax({
             url: './edit/store',
             type: 'POST',
@@ -334,7 +337,7 @@ function edit_subject() {
 
 
                     $('#message_box').append(get_message("Record Edit Successfully."));
-                    $('.form-control').val('');
+
 
                 } else {
 
@@ -358,35 +361,44 @@ function delete_subject(subject_id) {
 
     get_token();
 
+    $.prompt("Are you Sure?", {
+        title: "Alert",
+        buttons: {"Cancel": false, "Conform": true},
+        submit: function (e, v, m, f) {
+            if (v == true) {
 
 
-    jQuery.ajax({
-        url: './subjects/delete',
-        type: 'POST',
-        data: {
-            'subject_id':subject_id,
-        },
+                jQuery.ajax({
+                    url: './subjects/delete',
+                    type: 'POST',
+                    data: {
+                        'subject_id': subject_id,
+                    },
 
-        success: function (res) {
-            if (res == 1) {
-
-
-                $('#message_box').append(get_message("Record Deleted Successfully."));
-                $('.form-control').val('');
-                $('#row'+subject_id).slideUp();
+                    success: function (res) {
+                        if (res == 1) {
 
 
+                            $('#message_box').append(get_message("Record Deleted Successfully."));
 
-            } else {
+                            $('#row' + subject_id).slideUp();
 
-                $('#message_box').append(get_message("You have some form errors. Please check below."));
+
+                        } else {
+
+                            $('#message_box').append(get_message("You have some form errors. Please check below."));
+                        }
+
+                    }
+                });
+
             }
 
         }
     });
 
-}
 
+}
 
 
 /**
@@ -411,7 +423,7 @@ function add_term() {
 
 
                     $('#message_box').append(get_message("Record Added Successfully."));
-                    $('.form-control').val('');
+
 
                 } else {
 
@@ -436,7 +448,6 @@ function edit_term() {
         e.preventDefault();
 
 
-
         jQuery.ajax({
             url: './edit/store',
             type: 'POST',
@@ -453,7 +464,7 @@ function edit_term() {
 
 
                     $('#message_box').append(get_message("Record Edit Successfully."));
-                    $('.form-control').val('');
+
 
                 } else {
 
@@ -478,37 +489,43 @@ function delete_term(term_id) {
     get_token();
 
 
-
-    jQuery.ajax({
-        url: './terms/delete',
-        type: 'POST',
-        data: {
-            'term_id':term_id,
-        },
-
-        success: function (res) {
-            if (res == 1) {
+    $.prompt("Are you Sure?", {
+        title: "Alert",
+        buttons: {"Cancel": false, "Conform": true},
+        submit: function (e, v, m, f) {
+            if (v == true) {
 
 
-                $('#message_box').append(get_message("Record Deleted Successfully."));
-                $('.form-control').val('');
-                $('#row'+term_id).slideUp();
+                jQuery.ajax({
+                    url: './terms/delete',
+                    type: 'POST',
+                    data: {
+                        'term_id': term_id,
+                    },
+
+                    success: function (res) {
+                        if (res == 1) {
 
 
+                            $('#message_box').append(get_message("Record Deleted Successfully."));
 
-            } else {
+                            $('#row' + term_id).slideUp();
 
-                $('#message_box').append(get_message("You have some form errors. Please check below."));
+
+                        } else {
+
+                            $('#message_box').append(get_message("You have some form errors. Please check below."));
+                        }
+
+                    }
+                });
+
+
             }
-
         }
     });
 
 }
-
-
-
-
 
 
 /**
@@ -517,9 +534,8 @@ function delete_term(term_id) {
 function edit_chapter() {
 
     get_token();
-    jQuery('#edit_term').on('submit', (function (e) {
+    jQuery('#edit_chapter').on('submit', (function (e) {
         e.preventDefault();
-
 
 
         jQuery.ajax({
@@ -538,7 +554,7 @@ function edit_chapter() {
 
 
                     $('#message_box').append(get_message("Record Edit Successfully."));
-                    $('.form-control').val('');
+
 
                 } else {
 
@@ -559,41 +575,45 @@ function edit_chapter() {
  */
 function delete_chapter(chapter_id) {
 
-
     get_token();
 
+    $.prompt("Are you Sure?", {
+        title: "Alert",
+        buttons: {"Cancel": false, "Conform": true},
+        submit: function (e, v, m, f) {
+            if (v == true) {
+
+                jQuery.ajax({
+                    url: './chapters/delete',
+                    type: 'POST',
+                    data: {
+                        'chapter_id': chapter_id,
+                    },
+
+                    success: function (res) {
+                        if (res == 1) {
 
 
-    jQuery.ajax({
-        url: './chapters/delete',
-        type: 'POST',
-        data: {
-            'chapter_id':chapter_id,
-        },
+                            $('#message_box').append(get_message("Record Deleted Successfully."));
 
-        success: function (res) {
-            if (res == 1) {
+                            $('#row' + chapter_id).slideUp();
 
 
-                $('#message_box').append(get_message("Record Deleted Successfully."));
-                $('.form-control').val('');
-                $('#row'+chapter_id).slideUp();
+                        } else {
+
+                            $('#message_box').append(get_message("You have some form errors. Please check below."));
+                        }
+
+                    }
+                });
 
 
-
-            } else {
-
-                $('#message_box').append(get_message("You have some form errors. Please check below."));
             }
-
         }
     });
 
+
 }
-
-
-
-
 
 
 /**
@@ -618,7 +638,7 @@ function add_teacher() {
 
 
                     $('#message_box').append(get_message("Record Added Successfully."));
-                    $('.form-control').val('');
+
 
                 } else {
 
@@ -643,7 +663,6 @@ function edit_teacher() {
         e.preventDefault();
 
 
-
         jQuery.ajax({
             url: 'edit/store',
             type: 'POST',
@@ -660,7 +679,7 @@ function edit_teacher() {
 
 
                     $('#message_box').append(get_message("Record Edit Successfully."));
-                    $('.form-control').val('');
+
 
                 } else {
 
@@ -683,29 +702,36 @@ function delete_teacher(teacher_id) {
 
 
     get_token();
+    $.prompt("Are you Sure?", {
+        title: "Alert",
+        buttons: {"Cancel": false, "Conform": true},
+        submit: function (e, v, m, f) {
+            if (v == true) {
 
 
+                jQuery.ajax({
+                    url: '/teachers/delete',
+                    type: 'POST',
+                    data: {
+                        'teacher_id': teacher_id,
+                    },
 
-    jQuery.ajax({
-        url: '/teachers/delete',
-        type: 'POST',
-        data: {
-            'teacher_id':teacher_id,
-        },
-
-        success: function (res) {
-            if (res == 1) {
-
-
-                $('#message_box').append(get_message("Record Deleted Successfully."));
-                $('.form-control').val('');
-                $('#row'+teacher_id).slideUp();
+                    success: function (res) {
+                        if (res == 1) {
 
 
+                            $('#message_box').append(get_message("Record Deleted Successfully."));
 
-            } else {
+                            $('#row' + teacher_id).slideUp();
 
-                $('#message_box').append(get_message("You have some form errors. Please check below."));
+
+                        } else {
+
+                            $('#message_box').append(get_message("You have some form errors. Please check below."));
+                        }
+
+                    }
+                });
             }
 
         }
@@ -714,22 +740,17 @@ function delete_teacher(teacher_id) {
 }
 
 
-
-
-
-
-
 /**
  * Add book through ajax
  */
 function add_book() {
 
     get_token();
-    jQuery('#add_term').on('submit', (function (e) {
+    jQuery('#add_book').on('submit', (function (e) {
         e.preventDefault();
 
         jQuery.ajax({
-            url: './store',
+            url: '/books/store',
             type: 'POST',
             data: new FormData(this),
             processData: false,
@@ -741,7 +762,7 @@ function add_book() {
 
 
                     $('#message_box').append(get_message("Record Added Successfully."));
-                    $('.form-control').val('');
+
 
                 } else {
 
@@ -766,7 +787,6 @@ function edit_book() {
         e.preventDefault();
 
 
-
         jQuery.ajax({
             url: './edit/store',
             type: 'POST',
@@ -783,7 +803,7 @@ function edit_book() {
 
 
                     $('#message_box').append(get_message("Record Edit Successfully."));
-                    $('.form-control').val('');
+
 
                 } else {
 
@@ -807,35 +827,42 @@ function delete_book(book_id) {
 
     get_token();
 
+    $.prompt("Are you Sure?", {
+        title: "Alert",
+        buttons: {"Cancel": false, "Conform": true},
+        submit: function (e, v, m, f) {
+            if (v == true) {
 
 
-    jQuery.ajax({
-        url: '/books/delete',
-        type: 'POST',
-        data: {
-            'book_id':book_id,
-        },
+                jQuery.ajax({
+                    url: '/books/delete',
+                    type: 'POST',
+                    data: {
+                        'book_id': book_id,
+                    },
 
-        success: function (res) {
-            if (res == 1) {
-
-
-                $('#message_box').append(get_message("Record Deleted Successfully."));
-                $('.form-control').val('');
-                $('#row'+book_id).slideUp();
+                    success: function (res) {
+                        if (res == 1) {
 
 
+                            $('#message_box').append(get_message("Record Deleted Successfully."));
 
-            } else {
+                            $('#row' + book_id).slideUp();
 
-                $('#message_box').append(get_message("You have some form errors. Please check below."));
+
+                        } else {
+
+                            $('#message_box').append(get_message("You have some form errors. Please check below."));
+                        }
+
+                    }
+                });
             }
 
         }
     });
 
 }
-
 
 
 $(document).ready(function () {
@@ -856,13 +883,15 @@ $(document).ready(function () {
     edit_term();
 
 
-
-
     add_teacher();
     edit_teacher();
 
 
+    edit_chapter();
+
+
     add_book();
     edit_book();
+
 
 })
