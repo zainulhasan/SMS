@@ -119,7 +119,7 @@ Route::post('/teachers/delete', ['as' => 'deleteTeachers', 'uses' => 'TeachersCo
 
 
 Route::post('/teachers/store', ['as' => 'storeTeachers', 'uses' => 'TeachersController@store']);
-Route::post('teachers/{teacher_id}/edit/store', ['as' => 'storeEditTeachers', 'uses' => 'TeachersController@store']);
+Route::post('teachers/{teacher_id}/edit/store', ['as' => 'storeEditTeachers', 'uses' => 'TeachersController@editStore']);
 
 /********** End Teacher Routes **********/
 
@@ -140,7 +140,7 @@ Route::post('/books/store', ['as' => 'storeBook', 'uses' => 'BooksController@sto
 
 Route::get('/books/{book_id}/edit', ['as' => 'editBook', 'uses' => 'BooksController@edit']);
 
-Route::post('/books/edit/store', ['as' => 'storeEditBook', 'uses' => 'BooksController@store']);
+Route::post('/books/{book_id}/edit/store', ['as' => 'storeEditBook', 'uses' => 'BooksController@editStore']);
 
 
 /********** End Book Routes **********/
@@ -182,3 +182,17 @@ Route::get('api/session', 'AcademicsController@apic');
 
 
 Route::post('/chapter/update', ['as' => 'updateChapter', 'uses' => 'ChaptersController@update']);
+
+
+
+
+
+/**
+ * Student Routes
+ */
+
+
+Route::get('/student',function (){
+
+    return view('Student.create_student');
+});

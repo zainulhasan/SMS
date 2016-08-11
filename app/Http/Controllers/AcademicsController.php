@@ -62,7 +62,11 @@ class AcademicsController extends Controller
         if($request->ajax())
         {
             $id=$request->get('session_id');
+
             $session = Session::find($id);
+
+
+
             $session->status = 1;
             $session->save();
             return "1";
@@ -122,25 +126,13 @@ class AcademicsController extends Controller
     public function posttest(Request $request)
     {
 
-
-        $chapters = $request->get('chapters');
-        $fromPages = $request->get('fromPages');
-        $toPages = $request->get('toPages');
-        $term_id = $request->get('term_id');
-
-        for ($i = 0; $i < count($chapters); $i++) {
-            $chapter = new Chapter();
-            $chapter->chapter = $chapters[$i];
-            $chapter->formPage = $fromPages[$i];
-            $chapter->toPage = $toPages[$i];
-            $chapter->status = 0;
-            $chapter->chapterStatus = 0;
-            $chapter->term_id = $term_id;
-            $chapter->save();
-        }
-
-        return 1;
+        $subjects=$request->input('subjects');
+        return $subjects;
     }
+
+
+
+
 
     public function test()
     {

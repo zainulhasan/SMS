@@ -12,16 +12,34 @@ use App\Subject;
 use App\Term;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 
 class ChaptersController extends Controller
 {
     public function index($id,$class_id,$sub_id,$term_id)
     {
 
+
+        $condition=['chapterStatus'=>0,'term_id'=>$term_id];
+        $count=Chapter::where($condition)->count();
+        $term=Term::find($term_id);
+//
+//        $chapterCount = DB::select(
+//                DB::raw
+//                ('SELECT COUNT(*) FROM chapters WHERE term_id=1 and chapterStatus = 0'));
+        if($count==0)
+        {
+
+           $term->termStatus=1;
+            $term->save();
+        }
+
+
+
         $session=Session::find($id);
         $classes=Classes::find($class_id);
         $subject=Subject::find($sub_id);
-        $term=Term::find($term_id);
+
 
 
         $condations=['term_id'=>$term_id,'status'=>0];

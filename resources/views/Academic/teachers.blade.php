@@ -1,5 +1,5 @@
 @extends('../layout.master')
-@section('title','Session')
+@section('title','Teachers')
 
 
 
@@ -74,7 +74,7 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-globe"></i>Classes
+                        <i class="fa fa-globe"></i>Teachers
                     </div>
 
                 </div>

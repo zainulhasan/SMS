@@ -21,9 +21,9 @@ class TeachersController extends Controller
 
     public function edit($teacher_id)
     {
-        $teacher=Teacher::find($teacher_id);
+        $teacher = Teacher::find($teacher_id);
 
-        return view('Academic.edit_teacher',compact('teacher'));
+        return view('Academic.edit_teacher', compact('teacher'));
     }
 
 
@@ -36,6 +36,29 @@ class TeachersController extends Controller
             'phone' => $request->get('phone'),
             'designation' => $request->get('designation'),
         ]);
+
+        return "1";
+    }
+
+
+    public function editStore(Request $request)
+    {
+
+        $teacher_id = $request->get('teacher_id');
+        $teacher = Teacher::find($teacher_id);
+
+
+        $name = $request->get('name');
+        $cnic = $request->get('cnic');
+        $phone = $request->get('phone');
+        $designation = $request->get('designation');
+
+
+        $teacher->name=$name;
+        $teacher->cnic=$cnic;
+        $teacher->$phone;
+        $teacher->designation=$designation;
+        $teacher->save();
 
         return "1";
     }

@@ -20,10 +20,10 @@ class BooksController extends Controller
 
     public function delete(Request $request)
     {
-        $book_id=$request->get('book_id');
+        $book_id = $request->get('book_id');
 
-        $book=Book::find($book_id);
-        $book->status=1;
+        $book = Book::find($book_id);
+        $book->status = 1;
         $book->save();
         return "1";
 
@@ -41,9 +41,9 @@ class BooksController extends Controller
 
         Book::create([
 
-            'name' =>$request->get('name'),
-            'description' =>$request->get('description'),
-            'status' =>0,
+            'name' => $request->get('name'),
+            'description' => $request->get('description'),
+            'status' => 0,
 
         ]);
 
@@ -55,25 +55,29 @@ class BooksController extends Controller
     {
 
 
+        $book_id = $request->get('book_id');
+        $book = Book::find($book_id);
 
-            $book_id=$request->get('book_id');
-            $book=Book::find($book_id);
-            $name =$request->get('name');
-            $description =$request->get('description');
+        $name = $request->get('name');
+        $description = $request->get('description');
 
+        $book->name = $name;
+
+        $book->description = $description;
+
+        $book->save();
 
 
         return "1";
+
     }
-
-
 
 
     public function edit($book_id)
     {
 
-        $book=Book::find($book_id);
-        return view('Academic.edit_book',compact('book'));
+        $book = Book::find($book_id);
+        return view('Academic.edit_book', compact('book'));
     }
 
 

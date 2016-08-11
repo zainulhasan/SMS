@@ -109,7 +109,7 @@ function delete_session(session_id) {
                     url: './session/delete',
                     type: 'POST',
                     data: {
-                        'session_id': session_id,
+                        'session_id': session_id
                     },
 
                     success: function (res) {
@@ -783,7 +783,7 @@ function add_book() {
 function edit_book() {
 
     get_token();
-    jQuery('#edit_term').on('submit', (function (e) {
+    jQuery('#edit_book').on('submit', (function (e) {
         e.preventDefault();
 
 
@@ -865,6 +865,47 @@ function delete_book(book_id) {
 }
 
 
+
+
+
+/**
+ * Add Student through ajax
+ */
+function add_student() {
+
+    get_token();
+    jQuery('#register_form').on('submit', (function (e) {
+        e.preventDefault();
+
+
+        jQuery.ajax({
+            url: '/test',
+            type: 'POST',
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            cache: false,
+
+            success: function (res) {
+                if (res == 1) {
+
+
+                    $('#message_box').append(get_message("Record Added Successfully."));
+
+
+                } else {
+
+                    $('#message_box').append(get_message("You have some form errors. Please check below."));
+                }
+
+            }
+        });
+    }));
+
+
+}
+
+
 $(document).ready(function () {
 
     add_session();
@@ -892,6 +933,9 @@ $(document).ready(function () {
 
     add_book();
     edit_book();
+
+
+    add_student();
 
 
 })

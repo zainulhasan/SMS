@@ -35,7 +35,7 @@
 @section("top-option")
 
 
-    <div id="message_box"></div>
+
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
@@ -85,7 +85,7 @@
                 </div>
                 <div class="portlet-body form">
                     <!-- BEGIN FORM-->
-                    <form action="#" method="post" id="add_book" class="form-horizontal">
+                    <form action="#" method="post" id="edit_book" class="form-horizontal">
                         <div class="form-body">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button>

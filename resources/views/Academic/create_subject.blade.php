@@ -1,5 +1,9 @@
 @extends('../layout.master')
 @section('title','Add Subject')
+
+
+
+
 @section('styles')
 
     <link href="{{URL::asset('assets/plugins/select2/select2_metro.css')}}" rel="stylesheet" type="text/css"/>
@@ -111,6 +115,8 @@
                             <input type="hidden" name="classId" value="{{ $class_id }}">
                             <meta name="csrf-token" content="{{ csrf_token() }}"/>
                             <input type="hidden" name="id" value="{{ $id }}">
+
+
                             <div class="form-group">
                                 <label class="control-label col-md-3">Name</label>
                                 <div class="col-md-4">
@@ -147,6 +153,24 @@
                                             @endforeach
 
                                     </select>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Class</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" disabled
+                                           value="{{$classes->name}}{{$classes->section}}"
+                                           id="maxlength_defaultconfig">
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Session</label>
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" name="session"
+                                           id="maxlength_defaultconfig" readonly value="{{date('F-Y',strtotime($session['startingDate']))}} - {{date('F-Y',strtotime($session['endingDate']))}}">
 
                                 </div>
                             </div>

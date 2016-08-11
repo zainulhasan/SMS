@@ -36,6 +36,10 @@
           href="{{URL::asset('assets/css/jquery-impromptu.css')}}"/>
 
 
+    <link rel="stylesheet" type="text/css"
+          href="{{URL::asset('assets/css/toastr.css')}}"/>
+
+
 
 
 

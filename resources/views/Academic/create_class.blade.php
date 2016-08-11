@@ -103,8 +103,8 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3">Name</label>
                                 <div class="col-md-4">
-                                    <input  type="text" class="form-control" minlength="1"  name="className"
-                                           id="maxlength_defaultconfig">
+                                    <input  type="text" class="form-control"  name="className"
+                                           id="">
 
                                 </div>
                             </div>

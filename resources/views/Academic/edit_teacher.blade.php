@@ -144,6 +144,7 @@
 
                         </div>
 
+                        <input type="hidden" name="teacher_id" value="{{$teacher->id}}">
                         <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
                         <div class="form-actions fluid">

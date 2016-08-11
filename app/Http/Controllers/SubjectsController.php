@@ -34,8 +34,10 @@ class SubjectsController extends Controller
 //                ('select teachers.id,name from teachers where teachers.id not in (select teacher_id from subjects)'));
 
 
+        $classes=Classes::find($class_id);
+        $session=Session::find($id);
         $teachers=Teacher::all();
-        return view('Academic/create_subject', compact('teachers', 'id', 'class_id','books'));
+        return view('Academic/create_subject', compact('session','classes','teachers', 'id', 'class_id','books'));
     }
 
 
