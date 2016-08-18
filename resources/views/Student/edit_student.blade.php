@@ -1,5 +1,5 @@
 @extends('../layout.master')
-@section('title',' Add Students')
+@section('title',' Edit Students')
 
 
 @section('styles')
@@ -38,6 +38,7 @@
 @section("top-option")
 
 
+    <div id="message_box"></div>
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
@@ -78,8 +79,6 @@
 
 @section('content')
 
-
-    <div id="message_box"></div>
     <div class="row">
         <div class="col-md-12">
             <div class="tabbable tabbable-custom boxless">
@@ -181,8 +180,8 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">First Name</label>
                                             <div class="col-md-9">
-                                                <input type="text" id="first_name" class="form-control"
-                                                       name="studentFirstName">
+                                                <input type="text" value="{{$student->firstName}}" class="form-control"
+                                                       name="studentFirstName" >
                                             </div>
                                         </div>
                                     </div>
@@ -191,7 +190,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Last Name</label>
                                             <div class="col-md-9">
-                                                <input type="text" id="last_name" class="form-control"
+                                                <input type="text" value="{{$student->lastName}}" class="form-control"
                                                        name="studentLastName">
                                             </div>
                                         </div>
@@ -205,7 +204,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Father Name</label>
                                             <div class="col-md-9">
-                                                <input name="studentFatherName" class="form-control" type="text"/>
+                                                <input name="studentFatherName"  value="{{$student->fatherName}}" class="form-control" type="text"/>
                                             </div>
                                         </div>
                                     </div>
@@ -214,7 +213,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Mother Name</label>
                                             <div class="col-md-9">
-                                                <input name="studentMotherName" class="form-control" type="text"/>
+                                                <input name="studentMotherName" value="{{$student->motherName}}" class="form-control" type="text"/>
                                             </div>
                                         </div>
                                     </div>
@@ -231,8 +230,8 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Date of Birth</label>
                                             <div class="col-md-9">
-                                                <input type="date"   class="form-control"
-                                                       placeholder="dd/mm/yyyy" name="studentDob">
+                                                <input type="date" class="form-control"
+                                                       name="studentDob">
                                             </div>
                                         </div>
                                     </div>
@@ -242,8 +241,12 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Gender</label>
                                             <div class="col-md-9">
-                                                <select class="form-control" name="studentGender">
-                                                    <option value="">-Select-</option>
+                                                <select class="form-control"  name="studentGender">
+
+
+
+                                                    <option value="#">Select</option>
+                                                    <option value="#">Select</option>
                                                     <option value="male">Male</option>
                                                     <option value="female">Female</option>
                                                 </select>
@@ -258,7 +261,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Religion</label>
                                             <div class="col-md-9">
-                                                <input name="studentReligion" class="form-control" type="text"/>
+                                                <input name="studentReligion"   value="{{$student->religion}}" class="form-control" type="text"/>
                                             </div>
                                         </div>
                                     </div>
@@ -267,7 +270,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Nationality</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="studentNationality">
+                                                <input type="text" value="{{$student->nationality}}" class="form-control" name="studentNationality">
                                             </div>
                                         </div>
                                     </div>
@@ -281,7 +284,9 @@
                                             <div class="form-group">
                                                 <label class="control-label col-md-3">Language</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" name="studentLanguage">
+                                                    <input type="text" class="form-control"
+                                                           value="{{$student->language}}"
+                                                           name="studentLanguage">
                                                 </div>
                                             </div>
                                         </div>
@@ -290,7 +295,9 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Place of Birth</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="studentPlaceOfBirth">
+                                                <input type="text" class="form-control"
+                                                       value="{{$student->loc}}"
+                                                       name="studentPlaceOfBirth">
                                             </div>
                                         </div>
                                     </div>
@@ -334,7 +341,9 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Passport</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="studentPassport">
+
+                                                <input value="{{$student->passport}}"
+                                                        type="text" class="form-control" name="studentPassport">
                                             </div>
                                         </div>
                                     </div>
@@ -354,7 +363,9 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Contact No.1</label>
                                             <div class="col-md-9">
-                                                <input name="studentContactNo1" class="form-control" type="text"/>
+                                                <input
+                                                        value="{{$student->contact1}}"
+                                                        name="studentContactNo1" class="form-control" type="text"/>
                                             </div>
                                         </div>
                                     </div>
@@ -363,7 +374,10 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Contact No.2</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="studentContactNo2">
+                                                <input
+
+                                                        value="{{$student->contact1}}"
+                                                        type="text" class="form-control" name="studentContactNo2">
                                             </div>
                                         </div>
                                     </div>
@@ -372,9 +386,13 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3">House No</label>
+                                            <label class="control-label col-md-3">Address</label>
                                             <div class="col-md-9">
-                                                <input type="text"  class="form-control"
+                                                <input type="text"
+
+
+                                                       value="{{$student->address}}"
+                                                       class="form-control"
                                                        name="studentAddress">
                                             </div>
                                         </div>
@@ -385,7 +403,11 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">City</label>
                                             <div class="col-md-9">
-                                                <input name="studentCity" id="city" class="form-control"
+                                                <input
+
+
+                                                        value="{{$student->city}}"
+                                                        name="studentCity" id="city" class="form-control"
                                                        type="text">
 
                                             </div>
@@ -399,7 +421,9 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Province</label>
                                             <div class="col-md-9">
-                                                <input name="studentProvince" class="form-control" type="text">
+                                                <input
+                                                        value="{{$student->province}}"
+                                                        name="studentProvince" class="form-control" type="text">
 
 
                                             </div>
@@ -409,7 +433,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Country</label>
                                             <div class="col-md-9">
-                                                <input name="studentCountry" class="form-control"
+                                                <input value="{{$student->address}}" name="studentCountry" class="form-control"
                                                        type="text">
 
                                             </div>

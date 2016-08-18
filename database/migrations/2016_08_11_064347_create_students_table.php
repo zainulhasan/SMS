@@ -44,7 +44,7 @@ class CreateStudentsTable extends Migration
             $table->string('country');
 
             $table->integer('session_id')->unsigned();
-            $table->integer('class_id')->unsigned();
+            $table->integer('classes_id')->unsigned();
 
 
             $table->timestamps();

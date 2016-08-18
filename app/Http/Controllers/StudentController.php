@@ -40,6 +40,22 @@ class studentController extends Controller
     }
 
 
+
+
+
+    public function edit($student_id)
+    {
+
+
+
+
+        $student=Student::find($student_id);
+        $classes=$student->classes()->first();
+        return view('student.edit_student', compact('student','classes'));
+    }
+
+
+
     /**
      * @return string
      */
@@ -139,8 +155,8 @@ class studentController extends Controller
 
 
         $con = ['id' => $studentClass, 'section' => $studentSection];
-        $class = Classes::where($con)->first();
-        $student->class_id = $class['id'];
+        $classes = Classes::where($con)->first();
+        $student->classes_id = $classes['id'];
 
 
         $session = Session::where('startingDate', 'Like', '%' . date('Y'))->first();

@@ -137,9 +137,9 @@ class AcademicsController extends Controller
 
     public function test()
     {
-      $student= Student::find(1);
-        $tmp=$student->classes()->get();
-        return dd($tmp);
+        $student=Student::first();
+
+        return dd();
     }
 
     public function api()

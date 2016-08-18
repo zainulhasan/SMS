@@ -195,7 +195,7 @@ Route::post('/chapter/update', ['as' => 'updateChapter', 'uses' => 'ChaptersCont
 
 Route::get('/students',['as' => 'students','uses' => 'StudentController@index']);
 Route::get('students/create',['as' => 'createStudents','uses' => 'StudentController@create']);
-Route::get('/edit',['as' => 'EditStudents','uses' => 'StudentController@index']);
+Route::get('students/{student_id}/edit',['as' => 'EditStudents','uses' => 'StudentController@edit']);
 
 
 
