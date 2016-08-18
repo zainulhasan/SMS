@@ -47,9 +47,6 @@
         <ul class="page-breadcrumb breadcrumb">
 
 
-
-
-
             <li>
                 <i class="fa fa-home"></i>
                 <a href="/">Home</a>
@@ -81,502 +78,646 @@
 
 @section('content')
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="tabbable tabbable-custom boxless">
-            <div class="portlet box purple">
-                <div class="portlet-title">
-                    <div class="caption">
-                        Add Student
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tabbable tabbable-custom boxless">
+                <div class="portlet box purple">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            Add Student
+                        </div>
+                        <div class="tools">
+                            <a href="javascript:;" class="collapse"></a>
+                            <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                            <a href="javascript:;" class="reload"></a>
+                            <a href="javascript:;" class="remove"></a>
+                        </div>
                     </div>
-                    <div class="tools">
-                        <a href="javascript:;" class="collapse"></a>
-                        <a href="#portlet-config" data-toggle="modal" class="config"></a>
-                        <a href="javascript:;" class="reload"></a>
-                        <a href="javascript:;" class="remove"></a>
-                    </div>
-                </div>
-                <div class="portlet-body form">
-                    <!-- BEGIN FORM-->
-                    <form class="form-horizontal" id="register_form" enctype="multipart/form-data"
-                          method="post">
-                        <meta name="csrf-token" content="{{ csrf_token() }}"/>
+                    <div class="portlet-body form">
+                        <!-- BEGIN FORM-->
+                        <form class="form-horizontal" id="register_form" enctype="multipart/form-data"
+                              method="post">
+                            <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
-                        <div class="form-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group ">
+                            <div class="form-body">
 
-                                        <div class="col-md-12">
-                                            <img id="output"
-                                                 style="height: 160px;width: 160px;float: right; margin-right: 40px;"/>
-                                            <script>
-                                                var loadFile = function (event) {
-                                                    var output = document.getElementById('output');
-                                                    output.src = URL.createObjectURL(event.target.files[0]);
-                                                };
-                                            </script>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group ">
+
                                             <div class="col-md-12">
-                                                <input type="file" style="float: right;margin-right: -68px;
+                                                <img id="output"
+                                                     style="height: 160px;width: 160px;float: right; margin-right: 40px;"/>
+                                                <script>
+                                                    var loadFile = function (event) {
+                                                        var output = document.getElementById('output');
+                                                        output.src = URL.createObjectURL(event.target.files[0]);
+                                                    };
+                                                </script>
+                                                <div class="col-md-12">
+                                                    <input type="file" style="float: right;margin-right: -68px;
     margin-top: 10px;" name="image" accept="image/*" onchange="loadFile(event)">
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-
-
-
-                            <!-- first Section-->
-                            <h3 class="form-section"><b>Personal Information</b></h3>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">First Name</label>
-                                        <div class="col-md-9">
-                                            <input type="text" id="first_name" class="form-control" name="first_name">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/span-->
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Last Name</label>
-                                        <div class="col-md-9">
-                                            <input type="text" id="last_name" class="form-control" name="last_name">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/span-->
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Gender</label>
-                                        <div class="col-md-9">
-                                            <select class="form-control" name="gender">
-                                                <option value="">-Select-</option>
-                                                <option value="male">Male</option>
-                                                <option value="female">Female</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/span-->
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Date of Birth</label>
-                                        <div class="col-md-9">
-                                            <input type="date" id="empbirth" class="form-control"
-                                                   placeholder="dd/mm/yyyy" name="dob">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!--/span-->
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Nationality</label>
-                                        <div class="col-md-9">
-                                            <input  type="text"  class="form-control" name="nationality">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Language</label>
-                                        <div class="col-md-9">
-                                            <input  type="text"  class="form-control" name="nationality">
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="row">
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Religion</label>
-                                        <div class="col-md-9">
-                                            <input name="religion" class="form-control"  type="text"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/span-->
-
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">CNIC </label>
-                                        <div class="col-md-3">
-                                            <input type="text" class="form-control" name="cnic1" id="cnic11"
-                                                   maxlength="5"/>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <input type="text" class="form-control" name="cnic2" id="cnic22"
-                                                   maxlength="7" />
-                                        </div>
-                                        <div class="col-md-3">
-                                            <input type="text" class="form-control" name="cnic3" id="cnic33"
-                                                   maxlength="1"/>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">CNIC Copy</label>
-                                        <div class="col-md-9">
-                                            <input name="cniccopy" class="form-control" id="cniccopy" type="file"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/span-->
-
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Passport</label>
-                                        <div class="col-md-9">
-                                            <input type="text" id="passport" class="form-control" name="passport">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Passport Copy</label>
-                                        <div class="col-md-9">
-                                            <input name="passportcopy" class="form-control" type="file"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/span-->
-
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Contact No.1</label>
-                                        <div class="col-md-9">
-                                            <input name="mobNo1" class="form-control" id="mobNo1" type="text"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/span-->
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Contact No.2</label>
-                                        <div class="col-md-9">
-                                            <input type="text" id="mobNo2" class="form-control" name="mobNo2">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Landline No</label>
-                                        <div class="col-md-9">
-                                            <input type="text" id="postalcode" class="form-control" name="postalcode">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Country</label>
-                                        <div class="col-md-9">
-                                            <select name="country" id="country_ID" class="form-control select2me">
-                                                <option> Select</option>
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">City</label>
-                                        <div class="col-md-9">
-                                            <select name="city" id="city" class="form-control">
-                                                <option value=""></option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-
-                            <br>
-                            <!-- end first Section-->
-
-
-                            <!-- second Section-->
-                            <h3 class="form-section"><b>Parent/Guardian Information</b></h3>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Name</label>
-                                        <div class="col-md-9">
-                                            <input type="text" id="first_name" class="form-control" name="first_name">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/span-->
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Father Name</label>
-                                        <div class="col-md-9">
-                                            <input type="text" id="last_name" class="form-control" name="last_name">
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/span-->
-                            </div>
-                            <div class="row">
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Gender</label>
-                                        <div class="col-md-9">
-                                            <select class="form-control" name="gender">
-                                                <option value="">-Select-</option>
-                                                <option value="male">Male</option>
-                                                <option value="female">Female</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Date of Birth</label>
-                                        <div class="col-md-9">
-                                            <input type="date" id="empbirth" class="form-control"
-                                                   placeholder="dd/mm/yyyy" name="dob">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!--/span-->
-
-
-
-
-
-                                <!--/span-->
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Relation</label>
-                                        <div class="col-md-9">
-                                            <select class="form-control" name="gender">
-                                                <option value="">-Select-</option>
-                                                <option value="male">Father</option>
-                                                <option value="female">Mother</option>
-                                                <option value="female">Uncle</option>
-                                                <option value="female">Brother</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Nationality</label>
-                                        <div class="col-md-9">
-                                            <input  type="text"  class="form-control" name="nationality">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">CNIC </label>
-                                        <div class="col-md-3">
-                                            <input type="text" class="form-control" name="cnic1"
-                                                   />
-                                        </div>
-                                        <div class="col-md-3">
-                                            <input type="text" class="form-control" name="cnic2" id="cnic22"
-                                                   maxlength="7" onkeyup="jump2()"/>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <input type="text" class="form-control" name="cnic3" id="cnic33"
-                                                   maxlength="1"/>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">CNIC Copy</label>
-                                        <div class="col-md-9">
-                                            <input name="cniccopy" class="form-control" id="cniccopy" type="file"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/span-->
-
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Passport</label>
-                                        <div class="col-md-9">
-                                            <input type="text" id="passport" class="form-control" name="passport">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Passport Copy</label>
-                                        <div class="col-md-9">
-                                            <input name="passportcopy" class="form-control" type="file"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/span-->
-
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Contact No.1</label>
-                                        <div class="col-md-9">
-                                            <input name="mobNo1" class="form-control" id="mobNo1" type="text"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/span-->
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Contact No.2</label>
-                                        <div class="col-md-9">
-                                            <input type="text" id="mobNo2" class="form-control" name="mobNo2">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Landline No</label>
-                                        <div class="col-md-9">
-                                            <input name="homeNo" class="form-control" id="homeNo" type="text"/>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/span-->
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Email</label>
-                                        <div class="col-md-9">
-                                            <input type="text"  class="form-control" name="email">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <!-- end second Section-->
-
-
-                            <div class="row">
-                                <h3 class="form-section" style="padding-left: 20px;"><b>Academic/Previous</b></h3>
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-hover table-bordered"  style="margin-left:0px;" id="acadamic_record">
-                                        <tbody>
-                                        <thead>
-                                        <tr>
-                                            <td> Year</td>
-                                            <td> Qualification</td>
-                                            <td> Instituttion</td>
-                                            <td> Grade </td>
-                                            <td> Position </td>
-                                            <td> Subjects </td>
-                                            <td> Delete </td>
-                                        </tr>
-                                        <div class="multi-field-wrapper">
-                                            <div  class="multi-fields">
-                                                <tr  class="tablechild">
-                                                    <td>
-                                                        <input type="date" id="year" class="form-control" placeholder="dd/mm/yyyy" name="year[]">
-                                                    </td>
-                                                    <td><input type="text" id="qualification" name="qualification[]" value="" class="form-control"  /></td>
-                                                    <td><input type="text" id="institution" name="institution[]" value="" class="form-control"  /></td>
-                                                    <td><input type="text" id="grade" name="grade[]" value="" class="form-control"/></td>
-                                                    <td><input type="text" id="position" name="position[]" value="" class="form-control"/></td>
-                                                    <td><input type="text" id="subjects" name="subjects[]" value="" class="form-control"/></td>
-                                                    <td>
-                                                        <a style="cursor: pointer;" value="Remove" class="minusbtn" id="remove"></a>
-                                                    </td>
-                                                </tr>
+                                                </div>
 
                                             </div>
                                         </div>
-                                        </thead>
-
-                                        </tbody>
-                                    </table>
-                                    <li class="btn-group purple" style=" margin-left: 10px;">
-                                                    <span class="btn purple fileinput-button" id="plusbtn">
-                                                        <i  style="color: #ffffff;" class="fa fa-plus"></i>
-                                                        <span>
-                                                            <a style="color: #ffffff;"  value="Add" id="acadamic_recordBtn" >Add New</a>
-                                                        </span>
-                                                    </span>
-                                    </li>
+                                    </div>
                                 </div>
-                            </div>
+
+
+                                <h3 class="form-section"><b>Class Allocation</b></h3>
+                                <div class="row">
 
 
 
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Session </label>
+                                            <div class="col-md-9">
+                                                <input type="text" value="{{get_current_session()}}" name="currentSesstion"
+                                                        class="form-control" readonly>
 
-                            <div class="form-actions fluid">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Class </label>
+                                            <div class="col-md-9">
+                                                <select type="text" id="studentClass" name="studentClass"
+                                                        class="form-control">
+                                                    <option value="">Select</option>
+                                                    @foreach($classes as $class)
+                                                        <option value="{{$class->id}}">{{$class->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Section</label>
+                                            <div class="col-md-9">
+                                                <select type="text" id="studentSection" name="studentSection"
+                                                        class="form-control">
+                                                    <option value="#">Select</option>
+                                                </select>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                                <!-- first Section-->
+                                <h3 class="form-section"><b>Personal Information</b></h3>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="col-md-offset-8 col-md-6">
-                                            <button type="submit" class="btn purple"><i class="fa fa-check"></i> Submit
-                                            </button>
-                                            <a href="#">
-                                                <button type="button" class="btn purple"><i class="fa fa-times"></i> Cancel</button>
-                                            </a>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">First Name</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="first_name" class="form-control"
+                                                       name="studentFirstName">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Last Name</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="last_name" class="form-control"
+                                                       name="studentLastName">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Father Name</label>
+                                            <div class="col-md-9">
+                                                <input name="studentFatherName" class="form-control" type="text"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Mother Name</label>
+                                            <div class="col-md-9">
+                                                <input name="studentMotherName" class="form-control" type="text"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!--/span-->
+
+                                </div>
+                                <div class="row">
+
+
+                                    <!--/span-->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Date of Birth</label>
+                                            <div class="col-md-9">
+                                                <input type="date"   class="form-control"
+                                                       placeholder="dd/mm/yyyy" name="studentDob">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Gender</label>
+                                            <div class="col-md-9">
+                                                <select class="form-control" name="studentGender">
+                                                    <option value="">-Select-</option>
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--/span-->
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Religion</label>
+                                            <div class="col-md-9">
+                                                <input name="studentReligion" class="form-control" type="text"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Nationality</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="studentNationality">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!--/span-->
+
+                                </div>
+                                <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">Language</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" name="studentLanguage">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Place of Birth</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="studentPlaceOfBirth">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="row">
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">CNIC </label>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="studentCnic1"
+                                                       maxlength="5"/>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="studentCnic2"
+                                                       maxlength="7"/>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="studentCnic3"
+                                                       maxlength="1"/>
+
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">CNIC Copy</label>
+                                            <div class="col-md-9">
+                                                <input name="studentCnicCopy" class="form-control" type="file"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Passport</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="studentPassport">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Passport Copy</label>
+                                            <div class="col-md-9">
+                                                <input name="studentPassportCopy" class="form-control" type="file"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Contact No.1</label>
+                                            <div class="col-md-9">
+                                                <input name="studentContactNo1" class="form-control" type="text"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Contact No.2</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="studentContactNo2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">House No</label>
+                                            <div class="col-md-9">
+                                                <input type="text"  class="form-control"
+                                                       name="studentAddress">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">City</label>
+                                            <div class="col-md-9">
+                                                <input name="studentCity" id="city" class="form-control"
+                                                       type="text">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Province</label>
+                                            <div class="col-md-9">
+                                                <input name="studentProvince" class="form-control" type="text">
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Country</label>
+                                            <div class="col-md-9">
+                                                <input name="studentCountry" class="form-control"
+                                                       type="text">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <!-- end Student Section-->
+
+
+                                <!-- Guardian Section-->
+
+
+                                <h3 class="form-section"><b>Parent/Guardian Information</b></h3>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Guardian Name</label>
+                                            <div class="col-md-9">
+                                                <input type="text"class="form-control"
+                                                       name="guardianName">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Date of Birth</label>
+                                            <div class="col-md-9">
+                                                <input type="date" class="form-control"
+                                                       placeholder="dd/mm/yyyy" name="guardianDob">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                </div>
+                                <div class="row">
+
+
+                                    <!--/span-->
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Occupation</label>
+                                            <div class="col-md-9">
+                                                <input type="text"  class="form-control"
+                                                       name="guardianOccupation">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Gender</label>
+                                            <div class="col-md-9">
+                                                <select class="form-control" name="guardianGender">
+                                                    <option value="">-Select-</option>
+                                                    <option value="male">Male</option>
+                                                    <option val ue="female">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--/span-->
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Monthly Income</label>
+                                            <div class="col-md-9">
+                                                <input name="guardianIncome" class="form-control" type="text"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Religion</label>
+                                            <div class="col-md-9">
+                                                <input name="guardianReligion" class="form-control" type="text"/>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!--/span-->
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Language</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="guardianLanguage">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Nationality</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="guardianNationality">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="row">
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">CNIC </label>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="guardianCnic1"
+                                                       maxlength="5">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="guardianCnic2"
+                                                       maxlength="7">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input type="text" class="form-control" name="guardianCnic3"
+                                                       maxlength="1"/>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">CNIC Copy</label>
+                                            <div class="col-md-9">
+                                                <input name="guardianCnicCopy" class="form-control"
+                                                       id="guardianCnicCopy"
+                                                       type="file"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Passport</label>
+                                            <div class="col-md-9">
+                                                <input type="text" id="passport" class="form-control"
+                                                       name="guardianPassport">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Passport Copy</label>
+                                            <div class="col-md-9">
+                                                <input name="guardianPassportCopy" class="form-control" type="file"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Contact No.1</label>
+                                            <div class="col-md-9">
+                                                <input name="guardianContactNo1" class="form-control" type="text"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Contact No.2</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="guardianContactNo2">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Email</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="guardianEmail">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Address</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="guardianAddress">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+
+
+
+                                <br>
+
+
+
+                                <!-- End Guardian Section-->
+
+
+
+
+
+
+
+                                <!-- previous Record Section-->
+
+
+                                <div class="row">
+                                    <h3 class="form-section" style="padding-left: 20px;"><b>Academic/Previous Record</b>
+                                    </h3>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-hover" style="margin-left:0px;"
+                                               id="acadamic_record">
+                                            <tbody>
+                                            <thead>
+                                            <tr>
+                                                <td class="text-center">Class</td>
+                                                <td class="text-center">Section</td>
+                                                <td class="text-center"> Session</td>
+                                                <td class="text-center"> Roll No</td>
+
+                                                <td class="text-center"> Marks Obtained</td>
+                                                <td class="text-center"> School</td>
+
+                                            </tr>
+                                            <div class="multi-field-wrapper">
+                                                <div class="multi-fields">
+                                                    <tr class="tablechild">
+
+
+
+                                                        <td><input type="text" name="PrevClass"
+                                                                   value="" class="form-control"/></td>
+                                                        <td><input type="text" name="PrevSection"
+                                                                   value="" class="form-control"/></td>
+                                                        <td><input type="text" name="PrevSession" value=""
+                                                                   class="form-control"/></td>
+                                                        <td><input type="text" name="PrevRoll" value=""
+                                                                   class="form-control"/></td>
+                                                        <td><input type="text" name="PrevMarks" value=""
+                                                                   class="form-control"/></td>
+                                                        <td><input type="text" name="PrevSchool" value=""
+                                                                   class="form-control"/></td>
+
+                                                    </tr>
+
+                                                </div>
+                                            </div>
+                                            </thead>
+
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-actions fluid">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="col-md-offset-8 col-md-6">
+                                                <button type="submit" class="btn purple"><i class="fa fa-check"></i>
+                                                    Submit
+                                                </button>
+                                                <a href="#">
+                                                    <button type="button" class="btn purple"><i class="fa fa-times"></i>
+                                                        Cancel
+                                                    </button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
-                    <!-- END FORM-->
-                    <div class="result"></div>
+                        </form>
+                        <!-- END FORM-->
+                        <div class="result"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-</div>
+    </div>
 
 
 @stop
@@ -654,36 +795,13 @@
             add_allowance();
 
 
-
-
         });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         function deleteRow(id) {
-            $('#'+id).remove();
+            $('#' + id).remove();
+
         }
-
-
-
-
 
 
         /////////////////////////////////////////////////////////////////////////////////////////
@@ -693,17 +811,13 @@
         function add_allowance() {
 
             var click = 2;
-            jQuery("#acadamic_recordBtn").click(function(){
+            jQuery("#acadamic_recordBtn").click(function () {
                 jQuery('#acadamic_record tr:last').after(jQuery('#acadamic_record tr:last').after(
-
-                        "<tr id=\""+click +"\" \" class=\"tablechild\"><td><input type=\"date\" id=\"year\" class=\"form-control\" placeholder=\"dd\/mm\/yyyy\" name=\"year[]\"><\/td><td><input type=\"text\" id=\"qualification\" name=\"qualification[]\" value=\"\" class=\"form-control\"  \/><\/td><td><input type=\"text\" id=\"institution\" name=\"institution[]\" value=\"\" class=\"form-control\"  \/><\/td><td><input type=\"text\" id=\"grade\" name=\"grade[]\" value=\"\" class=\"form-control\"\/><\/td><td><input type=\"text\" id=\"position\" name=\"position[]\" value=\"\" class=\"form-control\"\/><\/td><td><input type=\"text\" id=\"subjects\" name=\"subjects[]\" value=\"\" class=\"form-control\"\/><\/td><td><a style=\"cursor: pointer;\" value=\"Remove\" class=\"minusbtn\" id=\"remove\"><i class=\"fa fa-trash-o\" onclick=\"deleteRow\("+click+"\)\"><\/i><\/a><\/td><\/tr>")
+                        "<tr id=\"" + click + "\" \" class=\"tablechild\"><td><input type=\"text\" id=\"year\" class=\"form-control\"  name=\"year[]\"><\/td><td><input type=\"text\" id=\"qualification\" name=\"qualification[]\" value=\"\" class=\"form-control\"  \/><\/td><td><input type=\"text\" id=\"institution\" name=\"institution[]\" value=\"\" class=\"form-control\"  \/><\/td><td><input type=\"text\" id=\"grade\" name=\"grade[]\" value=\"\" class=\"form-control\"\/><\/td><td><input type=\"text\" id=\"subjects\" name=\"subjects[]\" value=\"\" class=\"form-control\"\/><\/td><td><a style=\"cursor: pointer;\" value=\"Remove\" class=\"minusbtn\" id=\"remove\"><i class=\"fa fa-trash-o\" onclick=\"deleteRow\(" + click + "\)\"><\/i><\/a><\/td><\/tr>")
                 );
             });
             click++;
         }
-
-
-
 
 
     </script>

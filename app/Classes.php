@@ -23,6 +23,13 @@ class Classes extends Model
 
     public function subjects()
     {
-        return $this->hasMany('App\Subjects', 'subject_id');
+        return $this->hasMany('App\Subject', 'subject_id');
     }
+
+
+    public function students()
+    {
+        return $this->hasMany('App\Student');
+    }
+
 }

@@ -30,4 +30,18 @@ function getNextTermDate()
 }
 
 
+ function get_current_session()
+{
+
+    $year=date('Y');
+
+    $session=$year.'-'.(++$year);
+
+
+    return $session;
+
+
+}
+
+
 ?>

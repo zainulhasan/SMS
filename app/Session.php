@@ -12,4 +12,11 @@ class Session extends Model
     {
         return $this->hasMany('App\Classes','session_id');
     }
+
+
+    public function students()
+    {
+        return $this->hasMany('App\Student');
+    }
+
 }

@@ -1,5 +1,5 @@
 @extends('../layout.master')
-@section('title','Subjects')
+@section('title','Students')
 
 
 
@@ -28,7 +28,7 @@
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-            Subjects
+            Students
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
@@ -36,9 +36,9 @@
 
             <li class="btn-group">
 
-                <a style="color:#fff;" href="{{route('createSubject',['id'=>$id,'class_id'=>$class_id])}}"
+                <a style="color:#fff;" href="{{route('createStudents')}}"
                    class="btn purple">
-                    <i class="fa fa-plus"></i> Add Subjects
+                    <i class="fa fa-plus"></i> Add Student
                 </a>
             </li>
 
@@ -48,11 +48,11 @@
                 <i class="fa fa-angle-right"></i>
             </li>
             <li>
-                <a href="{{route('sessions')}}">Sessions</a>
+                <a href="">Sessions</a>
                 <i class="fa fa-angle-right"></i>
             </li>
             <li>
-                <a href="{{route('classes',['id'=>$id])}}">Classes</a>
+                <a href="#">Classes</a>
                 <i class="fa fa-angle-right"></i>
             </li>
             <li>
@@ -84,13 +84,11 @@
             <div class="portlet box purple">
                 <div class="portlet-title">
                     <div class="caption">
-                        <i class="fa fa-globe"></i>Session ({{date('M-y',strtotime($session->startingDate))}}
-                        -{{date('M-y',strtotime($session->endingDate))}}) - Class
-                          - {{$classes->name}}{{$classes->section}} - Subjects
+                        <i class="fa fa-globe"></i>Students
                     </div>
 
                     <div class="actions">
-                        <a style="color:#fff;" href="{{route('classes',['id'=>$id])}}" class="btn purple">
+                        <a style="color:#fff;" href="#" class="btn purple">
                             <i class="fa  fa-arrow-left"></i> Back
                         </a>
                     </div>
@@ -105,20 +103,44 @@
                                 Sr.No
                             </th>
                             <th class="col-md-1 text-center">
-                                Subject
+                               Roll No
                             </th>
 
 
                             <th class="col-md-1 text-center">
-                                Teacher
+                                Name
 
                             </th>
                             <th class="col-md-1 text-center">
-                                Book
+                                Father Name
 
                             </th>
 
                             <th class="col-md-1 text-center">
+                                DOB
+
+                            </th>
+
+                            <th class="col-md-1 text-center">
+                                Contact No
+
+                            </th>
+                            <th class="col-md-1 text-center">
+
+                                Address
+
+                            </th>
+                            <th class="col-md-1 text-center">
+                                Class
+
+                            </th>
+                            <th class="col-md-1 text-center">
+
+                                Section
+
+                            </th>
+                            <th class="col-md-1 text-center">
+
                                 Action
 
                             </th>
@@ -129,45 +151,57 @@
                         <tbody>
 
 
-                        @foreach($subjects as $index => $subject)
+                        @foreach($students as $index => $student)
 
-                            <tr id="row{{$subject->id}}">
+                            <tr id="row{{$student->id}}">
                                 <td class="text-center">
                                     {{++$index}}
                                 </td>
                                 <td class="text-center">
 
-                                    {{$subject->title}}
+                                    {{$student->id}}
+
                                 </td>
 
                                 <td class="text-center">
 
-                                    {{$subject->teacher->name}}
+                                    {{$student->firstName}} {{$student->lastName}}
+                                </td>
+
+                                <td class="text-center">
+                                    {{$student->fatherName}}
+                                </td>
+                                <td class="text-center">
+                                    {{$student->dob}}
+                                </td>
+                                <td class="text-center">
+                                    {{$student->contact1}}
+
+                                </td>
+                                <td class="text-center">
+                                    {{$student->address}}
+                                </td>
+                                <td class="text-center">
+                                    {{$student->class_id}}
+                                </td>
+                                <td class="text-center">
+
+
                                 </td>
 
                                 <td class="text-center">
 
-                                    {{$subject->book->name}}
-                                </td>
 
-                                <td class="text-center">
-
-
-                                    <a href="{{route('terms',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$subject->id])}}"
+                                    <a href="#"
                                        class="btn btn-xs green"><i class="fa fa-edit"></i> Details </a>
 
-                                    <a href="{{route('editSubject',['id'=>$id,'class_id'=>$class_id,'sub_id'=>$subject->id])}}" class="btn btn-xs purple"><i class="fa fa-edit"></i> Edit </a>
+                                    <a href="#" class="btn btn-xs purple"><i class="fa fa-edit"></i> Edit </a>
 
-                                    <a class="btn btn-xs red" onclick="delete_subject({{$subject->id}})"><i
+                                    <a class="btn btn-xs red" onclick=""><i
                                                 class="fa fa-times"></i>Delete</a>
                                 </td>
 
                             </tr>
-
-
-
-
-
 
                             <meta name="csrf-token" content="{{ csrf_token() }}"/>
                         @endforeach

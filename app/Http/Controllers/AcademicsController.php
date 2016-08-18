@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Chapter;
 use App\Classes;
 use App\Session;
+use App\Student;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -136,10 +137,9 @@ class AcademicsController extends Controller
 
     public function test()
     {
-        $chapter = Chapter::find(1);
-
-
-        return dd($chapter->term->startingDate);
+      $student= Student::find(1);
+        $tmp=$student->classes()->get();
+        return dd($tmp);
     }
 
     public function api()

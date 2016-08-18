@@ -167,12 +167,12 @@ Route::post('/test',
         'as' => 'test'
     ]);
 
-//
-//Route::get('/test',
-//    [
-//        'uses' => 'AcademicsController@test',
-//        'as' => 'test'
-//    ]);
+
+Route::get('/test',
+    [
+        'uses' => 'AcademicsController@test',
+        'as' => 'test'
+    ]);
 
 Route::get('/tlogin', 'AcademicsController@testLogin');
 
@@ -192,7 +192,16 @@ Route::post('/chapter/update', ['as' => 'updateChapter', 'uses' => 'ChaptersCont
  */
 
 
-Route::get('/student',function (){
 
-    return view('Student.create_student');
-});
+Route::get('/students',['as' => 'students','uses' => 'StudentController@index']);
+Route::get('students/create',['as' => 'createStudents','uses' => 'StudentController@create']);
+Route::get('/edit',['as' => 'EditStudents','uses' => 'StudentController@index']);
+
+
+
+Route::post('/students/store',['as' => 'storeStudents','uses' => 'StudentController@store']);
+Route::post('/edit/store',['as' => 'students','uses' => 'StudentController@index']);
+
+
+Route::post('/students/getSections','StudentController@getSections');
+

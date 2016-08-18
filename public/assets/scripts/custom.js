@@ -879,7 +879,7 @@ function add_student() {
 
 
         jQuery.ajax({
-            url: '/test',
+            url: '/students/store',
             type: 'POST',
             data: new FormData(this),
             processData: false,
@@ -902,6 +902,62 @@ function add_student() {
         });
     }));
 
+
+}
+
+
+/**
+ * Populate section when user select ony class on create student
+ */
+
+
+function getSectionsByClassIs()
+    {
+
+    $( "#studentClass" ).change(function() {
+
+
+        var class_id=$( "#studentClass option:selected").text();
+
+        jQuery.ajax({
+            url: '/students/getSections',
+            type: 'POST',
+            data: {
+
+                'class_id':class_id
+            },
+            success: function (res) {
+
+
+
+
+               var sections=res;
+
+
+                var op='';
+                for(var i=0;i<sections.length;i++)
+                {
+
+                    op+='<option value=\"'+sections[i]['section']+'\">'+sections[i]['section']+'</option>';
+                }
+
+                $('#studentSection:last').append(op)
+
+                if (res == 1) {
+
+
+                    $('#message_box').append(get_message("Record Added Successfully."));
+
+
+                } else {
+
+                    $('#message_box').append(get_message("You have some form errors. Please check below."));
+                }
+
+            }
+        });
+
+    });
 
 }
 
@@ -935,6 +991,8 @@ $(document).ready(function () {
     edit_book();
 
 
+
+    getSectionsByClassIs();
     add_student();
 
 
