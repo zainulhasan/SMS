@@ -200,7 +200,10 @@ Route::get('students/{student_id}/edit',['as' => 'EditStudents','uses' => 'Stude
 
 
 Route::post('/students/store',['as' => 'storeStudents','uses' => 'StudentController@store']);
-Route::post('/edit/store',['as' => 'students','uses' => 'StudentController@index']);
+Route::post('/edit/store',['as' => 'students','uses' => 'StudentController@editStore']);
+Route::post('students/delete',['as' => 'deleteStudents','uses' => 'StudentController@delete']);
+
+
 
 
 Route::post('/students/getSections','StudentController@getSections');

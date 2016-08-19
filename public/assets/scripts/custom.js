@@ -906,6 +906,88 @@ function add_student() {
 }
 
 
+
+function edit_student() {
+
+    get_token();
+    jQuery('#edit_student_form').on('submit', (function (e) {
+        e.preventDefault();
+
+
+        jQuery.ajax({
+            url: '/edit/store',
+            type: 'POST',
+            data: new FormData(this),
+            processData: false,
+            contentType: false,
+            cache: false,
+
+            success: function (res) {
+                if (res == 1) {
+
+
+                    $('#message_box').append(get_message("Record Added Successfully."));
+
+
+                } else {
+
+                    $('#message_box').append(get_message("You have some form errors. Please check below."));
+                }
+
+            }
+        });
+    }));
+
+
+}
+
+function delete_student(student_id) {
+
+
+    get_token();
+
+    $.prompt("Are you Sure?", {
+        title: "Alert",
+        buttons: {"Cancel": false, "Conform": true},
+        submit: function (e, v, m, f) {
+            if (v == true) {
+
+
+                jQuery.ajax({
+                    url: '/students/delete',
+                    type: 'POST',
+                    data: {
+                        'student_id': student_id,
+                    },
+
+                    success: function (res) {
+                        if (res == 1) {
+
+
+                            $('#message_box').append(get_message("Record Deleted Successfully."));
+
+                            $('#row' + student_id).slideUp();
+
+
+                        } else {
+
+                            $('#message_box').append(get_message("You have some form errors. Please check below."));
+                        }
+
+                    }
+                });
+            }
+
+        }
+    });
+
+}
+
+
+
+
+
+
 /**
  * Populate section when user select ony class on create student
  */
@@ -943,16 +1025,7 @@ function getSectionsByClassIs()
 
                 $('#studentSection:last').append(op)
 
-                if (res == 1) {
 
-
-                    $('#message_box').append(get_message("Record Added Successfully."));
-
-
-                } else {
-
-                    $('#message_box').append(get_message("You have some form errors. Please check below."));
-                }
 
             }
         });
@@ -994,6 +1067,10 @@ $(document).ready(function () {
 
     getSectionsByClassIs();
     add_student();
+
+
+
+    edit_student();
 
 
 })

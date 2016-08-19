@@ -42,7 +42,7 @@
     <div class="col-md-12">
         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
         <h3 class="page-title">
-            Create Student
+            Edit Student
         </h3>
 
         <ul class="page-breadcrumb breadcrumb">
@@ -55,11 +55,11 @@
             </li>
 
             <li>
-                <a href="#">Student</a>
+                <a href="/students">Student</a>
                 <i class="fa fa-angle-right"></i>
             </li>
             <li>
-                <a href="#">Create</a>
+                <a href="#">Edit</a>
             </li>
         </ul>
 
@@ -96,7 +96,7 @@
                     </div>
                     <div class="portlet-body form">
                         <!-- BEGIN FORM-->
-                        <form class="form-horizontal" id="register_form" enctype="multipart/form-data"
+                        <form class="form-horizontal" id="edit_student_form" enctype="multipart/form-data"
                               method="post">
                             <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
@@ -107,7 +107,7 @@
                                         <div class="form-group ">
 
                                             <div class="col-md-12">
-                                                <img id="output"
+                                                <img src="{{$student->image?'/img/'.$student->image:""}}"  id="output"
                                                      style="height: 160px;width: 160px;float: right; margin-right: 40px;"/>
                                                 <script>
                                                     var loadFile = function (event) {
@@ -116,7 +116,7 @@
                                                     };
                                                 </script>
                                                 <div class="col-md-12">
-                                                    <input type="file" style="float: right;margin-right: -68px;
+                                                    <input type="file"  style="float: right;margin-right: -68px;
     margin-top: 10px;" name="image" accept="image/*" onchange="loadFile(event)">
                                                 </div>
 
@@ -129,7 +129,7 @@
                                 <h3 class="form-section"><b>Class Allocation</b></h3>
                                 <div class="row">
 
-
+                                    <input type="hidden" value="{{$student->id}}" name="student_id">
 
                                     <div class="col-md-4">
                                         <div class="form-group">
@@ -230,7 +230,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Date of Birth</label>
                                             <div class="col-md-9">
-                                                <input type="date" class="form-control"
+                                                <input placeholder="{{"2+2"}}" type="date" class="form-control"
                                                        name="studentDob">
                                             </div>
                                         </div>
@@ -244,11 +244,15 @@
                                                 <select class="form-control"  name="studentGender">
 
 
+                                                    @if($student->gender=='Male')
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                        @else
 
-                                                    <option value="#">Select</option>
-                                                    <option value="#">Select</option>
-                                                    <option value="male">Male</option>
-                                                    <option value="female">Female</option>
+                                                        <option value="Female">Female</option>
+                                                        <option value="Male">Male</option>
+
+                                                    @endif
                                                 </select>
                                             </div>
                                         </div>
@@ -311,15 +315,15 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">CNIC </label>
                                             <div class="col-md-3">
-                                                <input type="text" class="form-control" name="studentCnic1"
+                                                <input type="text" value="{{substr($student->cnic,0,4)}}" class="form-control" name="studentCnic1"
                                                        maxlength="5"/>
                                             </div>
                                             <div class="col-md-3">
-                                                <input type="text" class="form-control" name="studentCnic2"
+                                                <input type="text" value="{{substr($student->cnic,4,11)}}" class="form-control" name="studentCnic2"
                                                        maxlength="7"/>
                                             </div>
                                             <div class="col-md-3">
-                                                <input type="text" class="form-control" name="studentCnic3"
+                                                <input type="text"  value="{{  substr($student->cnic,12)}}" class="form-control" name="studentCnic3"
                                                        maxlength="1"/>
 
                                             </div>
@@ -329,7 +333,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">CNIC Copy</label>
                                             <div class="col-md-9">
-                                                <input name="studentCnicCopy" class="form-control" type="file"/>
+                                                <input placeholder="{{$student->cnicImage}}" value="{{$student->cnicImage}}" name="studentCnicCopy" class="form-control" type="file"/>
                                             </div>
                                         </div>
                                     </div>
@@ -389,8 +393,6 @@
                                             <label class="control-label col-md-3">Address</label>
                                             <div class="col-md-9">
                                                 <input type="text"
-
-
                                                        value="{{$student->address}}"
                                                        class="form-control"
                                                        name="studentAddress">
@@ -453,7 +455,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Guardian Name</label>
                                             <div class="col-md-9">
-                                                <input type="text"class="form-control"
+                                                <input value="{{$sg->Name}}" type="text"class="form-control"
                                                        name="guardianName">
                                             </div>
                                         </div>
@@ -465,7 +467,7 @@
                                             <label class="control-label col-md-3">Date of Birth</label>
                                             <div class="col-md-9">
                                                 <input type="date" class="form-control"
-                                                       placeholder="dd/mm/yyyy" name="guardianDob">
+                                                       placeholder="{{$sg->dob}}" name="guardianDob">
                                             </div>
                                         </div>
                                     </div>
@@ -481,7 +483,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Occupation</label>
                                             <div class="col-md-9">
-                                                <input type="text"  class="form-control"
+                                                <input type="text" value="{{$sg->occupation}}"  class="form-control"
                                                        name="guardianOccupation">
                                             </div>
                                         </div>
@@ -491,9 +493,16 @@
                                             <label class="control-label col-md-3">Gender</label>
                                             <div class="col-md-9">
                                                 <select class="form-control" name="guardianGender">
-                                                    <option value="">-Select-</option>
-                                                    <option value="male">Male</option>
-                                                    <option val ue="female">Female</option>
+                                                    @if($sg->gender=='Male')
+                                                        <option value="Male">Male</option>
+                                                        <option value="Female">Female</option>
+                                                    @else
+
+                                                        <option value="Female">Female</option>
+                                                        <option value="Male">Male</option>
+
+                                                    @endif
+
                                                 </select>
                                             </div>
                                         </div>
@@ -507,7 +516,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Monthly Income</label>
                                             <div class="col-md-9">
-                                                <input name="guardianIncome" class="form-control" type="text"/>
+                                                <input value="{{$sg->income}}" name="guardianIncome" class="form-control" type="text"/>
                                             </div>
                                         </div>
                                     </div>
@@ -516,7 +525,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Religion</label>
                                             <div class="col-md-9">
-                                                <input name="guardianReligion" class="form-control" type="text"/>
+                                                <input value="{{$sg->religion}}" name="guardianReligion" class="form-control" type="text"/>
                                             </div>
                                         </div>
                                     </div>
@@ -531,7 +540,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Language</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="guardianLanguage">
+                                                <input value="{{$sg->language}}" type="text" class="form-control" name="guardianLanguage">
                                             </div>
                                         </div>
                                     </div>
@@ -539,7 +548,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Nationality</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="guardianNationality">
+                                                <input value="{{$sg->nationality}}" type="text" class="form-control" name="guardianNationality">
                                             </div>
                                         </div>
                                     </div>
@@ -555,15 +564,15 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">CNIC </label>
                                             <div class="col-md-3">
-                                                <input type="text" class="form-control" name="guardianCnic1"
+                                                <input type="text" value="{{substr($sg->cnic,0,4)}}" class="form-control" name="guardianCnic1"
                                                        maxlength="5">
                                             </div>
                                             <div class="col-md-3">
-                                                <input type="text" class="form-control" name="guardianCnic2"
+                                                <input type="text" value="{{substr($sg->cnic,4,11)}}" class="form-control" name="guardianCnic2"
                                                        maxlength="7">
                                             </div>
                                             <div class="col-md-3">
-                                                <input type="text" class="form-control" name="guardianCnic3"
+                                                <input type="text" value="{{substr($sg->cnic,12)}}" class="form-control" name="guardianCnic3"
                                                        maxlength="1"/>
 
                                             </div>
@@ -587,7 +596,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Passport</label>
                                             <div class="col-md-9">
-                                                <input type="text" id="passport" class="form-control"
+                                                <input type="text" value="{{$sg->passport}}" id="passport" class="form-control"
                                                        name="guardianPassport">
                                             </div>
                                         </div>
@@ -610,7 +619,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Contact No.1</label>
                                             <div class="col-md-9">
-                                                <input name="guardianContactNo1" class="form-control" type="text"/>
+                                                <input value="{{$sg->contact1}}" name="guardianContactNo1" class="form-control" type="text"/>
                                             </div>
                                         </div>
                                     </div>
@@ -619,7 +628,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Contact No.2</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="guardianContactNo2">
+                                                <input type="text" value="{{$sg->contact2}}" class="form-control" name="guardianContactNo2">
                                             </div>
                                         </div>
                                     </div>
@@ -632,7 +641,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Email</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="guardianEmail">
+                                                <input type="text" value="{{$sg->email}}" class="form-control" name="guardianEmail">
                                             </div>
                                         </div>
                                     </div>
@@ -640,7 +649,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Address</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="guardianAddress">
+                                                <input  value="{{$sg->address}}" type="text" class="form-control" name="guardianAddress">
                                             </div>
                                         </div>
                                     </div>
@@ -670,10 +679,10 @@
                                     <h3 class="form-section" style="padding-left: 20px;"><b>Academic/Previous Record</b>
                                     </h3>
                                     <div class="table-responsive">
-                                        <table class="table table-striped table-hover" style="margin-left:0px;"
+                                        <table class="table table-bordered" style="margin-left:0px;"
                                                id="acadamic_record">
-                                            <tbody>
-                                            <thead>
+
+                                            <thead style="background-color: purple;color:#fff;">
                                             <tr>
                                                 <td class="text-center">Class</td>
                                                 <td class="text-center">Section</td>
@@ -684,24 +693,25 @@
                                                 <td class="text-center"> School</td>
 
                                             </tr>
+                                            <tbody>
                                             <div class="multi-field-wrapper">
                                                 <div class="multi-fields">
                                                     <tr class="tablechild">
 
 
 
-                                                        <td><input type="text" name="PrevClass"
-                                                                   value="" class="form-control"/></td>
-                                                        <td><input type="text" name="PrevSection"
-                                                                   value="" class="form-control"/></td>
-                                                        <td><input type="text" name="PrevSession" value=""
-                                                                   class="form-control"/></td>
-                                                        <td><input type="text" name="PrevRoll" value=""
-                                                                   class="form-control"/></td>
-                                                        <td><input type="text" name="PrevMarks" value=""
-                                                                   class="form-control"/></td>
-                                                        <td><input type="text" name="PrevSchool" value=""
-                                                                   class="form-control"/></td>
+                                                        <td><input  value="{{$sr->class}}" type="text" name="PrevClass"
+                                                                    style="border: none; height: 15px;" class="form-control"/></td>
+                                                        <td><input value="{{$sr->section}}" type="text" name="PrevSection"
+                                                                   style="border: none; height: 15px;" class="form-control"/></td>
+                                                        <td><input value="{{$sr->session}}" type="text" name="PrevSession" value=""
+                                                                   style="border: none; height: 15px;"  class="form-control"/></td>
+                                                        <td><input value="{{$sr->roll}}" type="text" name="PrevRoll" value=""
+                                                                   style="border: none; height: 15px;"  class="form-control"/></td>
+                                                        <td><input value="{{$sr->marks}}" type="text" name="PrevMarks" value=""
+                                                                   style="border: none; height: 15px;" class="form-control"/></td>
+                                                        <td><input value="{{$sr->school}}" type="text" name="PrevSchool" value=""
+                                                                   style="border: none; height: 15px;" class="form-control"/></td>
 
                                                     </tr>
 
@@ -724,9 +734,9 @@
                                                     Submit
                                                 </button>
                                                 <a href="#">
-                                                    <button type="button" class="btn purple"><i class="fa fa-times"></i>
+                                                    <a href="/students" class="btn purple"><i class="fa fa-times"></i>
                                                         Cancel
-                                                    </button>
+                                                    </a>
                                                 </a>
                                             </div>
                                         </div>

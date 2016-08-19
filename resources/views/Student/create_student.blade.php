@@ -32,6 +32,13 @@
     <link href="{{URL::asset('assets/plugins/jquery-tags-input/jquery.tagsinput.css')}}" rel="stylesheet"
           type="text/css"/>
 
+
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/plugins/select2/select2_metro.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/plugins/data-tables/DT_bootstrap.css')}}"/>
+
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{URL::asset('assets/plugins/bootstrap-modal/css/bootstrap-modal.css')}}"/>
+
 @stop
 
 
@@ -54,7 +61,7 @@
             </li>
 
             <li>
-                <a href="#">Student</a>
+                <a href="/students">Student</a>
                 <i class="fa fa-angle-right"></i>
             </li>
             <li>
@@ -89,10 +96,8 @@
                             Add Student
                         </div>
                         <div class="tools">
-                            <a href="javascript:;" class="collapse"></a>
-                            <a href="#portlet-config" data-toggle="modal" class="config"></a>
-                            <a href="javascript:;" class="reload"></a>
-                            <a href="javascript:;" class="remove"></a>
+
+
                         </div>
                     </div>
                     <div class="portlet-body form">
@@ -643,13 +648,16 @@
 
 
                                 <div class="row">
-                                    <h3 class="form-section" style="padding-left: 20px;"><b>Academic/Previous Record</b>
-                                    </h3>
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-hover" style="margin-left:0px;"
-                                               id="acadamic_record">
-                                            <tbody>
-                                            <thead>
+
+
+
+
+                                    <div class="table-responsive" style="margin: 10px;">
+
+
+                                        <h3><b>Academic/Previous Record</b></h3>
+                                        <table class="table table-bordered">
+                                            <thead style="background-color: purple;color:#fff;">
                                             <tr>
                                                 <td class="text-center">Class</td>
                                                 <td class="text-center">Section</td>
@@ -658,38 +666,32 @@
 
                                                 <td class="text-center"> Marks Obtained</td>
                                                 <td class="text-center"> School</td>
-
                                             </tr>
-                                            <div class="multi-field-wrapper">
-                                                <div class="multi-fields">
-                                                    <tr class="tablechild">
-
-
-
-                                                        <td><input type="text" name="PrevClass"
-                                                                   value="" class="form-control"/></td>
-                                                        <td><input type="text" name="PrevSection"
-                                                                   value="" class="form-control"/></td>
-                                                        <td><input type="text" name="PrevSession" value=""
-                                                                   class="form-control"/></td>
-                                                        <td><input type="text" name="PrevRoll" value=""
-                                                                   class="form-control"/></td>
-                                                        <td><input type="text" name="PrevMarks" value=""
-                                                                   class="form-control"/></td>
-                                                        <td><input type="text" name="PrevSchool" value=""
-                                                                   class="form-control"/></td>
-
-                                                    </tr>
-
-                                                </div>
-                                            </div>
                                             </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><input style="border: none; height: 15px;" type="text" name="PrevClass"
+                                                           value="" class="form-control"/></td>
+                                                <td><input  style="border: none; height: 15px;" type="text" name="PrevSection"
+                                                           value="" class="form-control"/></td>
+                                                <td><input style="border: none; height: 15px;" type="text" name="PrevSession" value=""
+                                                           class="form-control"/></td>
+                                                <td><input style="border: none; height: 15px;" type="text" name="PrevRoll" value=""
+                                                           class="form-control"/></td>
+                                                <td><input style="border: none; height: 15px;" type="text" name="PrevMarks" value=""
+                                                           class="form-control"/></td>
+                                                <td><input style="border: none; height: 15px;" type="text" name="PrevSchool" value=""
+                                                           class="form-control"/></td>
+                                            </tr>
 
                                             </tbody>
                                         </table>
 
+
                                     </div>
-                                </div>
+
+
+
 
 
                                 <div class="form-actions fluid">
@@ -699,7 +701,7 @@
                                                 <button type="submit" class="btn purple"><i class="fa fa-check"></i>
                                                     Submit
                                                 </button>
-                                                <a href="#">
+                                                <a href="/students">
                                                     <button type="button" class="btn purple"><i class="fa fa-times"></i>
                                                         Cancel
                                                     </button>
@@ -782,6 +784,18 @@
     <script src="{{URL::asset('assets/plugins/bootstrap-markdown/lib/markdown.js')}}"></script>
     <script src="{{URL::asset('assets/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js')}}"></script>
     <script src="{{URL::asset('assets/plugins/bootstrap-touchspin/bootstrap.touchspin.js')}}"></script>
+
+    <script src="{{URL::asset('assets/plugins/select2/select2.min.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/data-tables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/data-tables/DT_bootstrap.js')}}"></script>
+    <script src="{{URL::asset('assets/scripts/app.js')}}"></script>
+    <script src="{{URL::asset('assets/scripts/table-advanced.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/bootbox/bootbox.min.js')}}"></script>
+    <script src="{{URL::asset('assets/scripts/ui-bootbox.js')}}"></script>
+
+    <script src="{{URL::asset('assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js')}}"></script>
+    <script src="{{URL::asset('assets/plugins/bootstrap-modal/js/bootstrap-modal.js')}}"></script>
+    <script src="{{URL::asset('assets/scripts/ui-extended-modals.js')}}"></script>
 
 
 

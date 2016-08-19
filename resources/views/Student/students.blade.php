@@ -47,16 +47,9 @@
                 <a href="/">Home</a>
                 <i class="fa fa-angle-right"></i>
             </li>
+
             <li>
-                <a href="">Sessions</a>
-                <i class="fa fa-angle-right"></i>
-            </li>
-            <li>
-                <a href="#">Classes</a>
-                <i class="fa fa-angle-right"></i>
-            </li>
-            <li>
-                <a href="#">Subjects</a>
+                <a href="#">Students</a>
             </li>
         </ul>
 
@@ -87,11 +80,11 @@
                         <i class="fa fa-globe"></i>Students
                     </div>
 
-                    <div class="actions">
-                        <a style="color:#fff;" href="#" class="btn purple">
-                            <i class="fa  fa-arrow-left"></i> Back
-                        </a>
-                    </div>
+                    {{--<div class="actions">--}}
+                        {{--<a style="color:#fff;" href="#" class="btn purple">--}}
+                            {{--<i class="fa  fa-arrow-left"></i> Back--}}
+                        {{--</a>--}}
+                    {{--</div>--}}
 
                 </div>
                 <div class="portlet-body">
@@ -134,11 +127,7 @@
                                 Class
 
                             </th>
-                            <th class="col-md-1 text-center">
 
-                                Section
-
-                            </th>
                             <th class="col-md-1 text-center">
 
                                 Action
@@ -182,12 +171,9 @@
                                     {{$student->address}}
                                 </td>
                                 <td class="text-center">
-                                    {{$student->class_id}}
+                                    {{$student->classes->name}}{{$student->classes->section}}
                                 </td>
-                                <td class="text-center">
 
-
-                                </td>
 
                                 <td class="text-center">
 
@@ -195,9 +181,9 @@
                                     <a href="#"
                                        class="btn btn-xs green"><i class="fa fa-edit"></i> Details </a>
 
-                                    <a href="#" class="btn btn-xs purple"><i class="fa fa-edit"></i> Edit </a>
+                                    <a href="{{route('EditStudents',['student_id'=>$student->id])}}" class="btn btn-xs purple"><i class="fa fa-edit"></i> Edit </a>
 
-                                    <a class="btn btn-xs red" onclick=""><i
+                                    <a class="btn btn-xs red" onclick="delete_student({{$student->id}})"><i
                                                 class="fa fa-times"></i>Delete</a>
                                 </td>
 
