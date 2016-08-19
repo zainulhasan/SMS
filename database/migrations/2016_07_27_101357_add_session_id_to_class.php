@@ -31,7 +31,7 @@ class AddSessionIdToClass extends Migration
     {
         Schema::table('classes', function (Blueprint $table) {
 
-            $table->dropForeign('classes_session_id_foreign');
+           $table->dropForeign('classes_session_id_foreign');
 
 
         });

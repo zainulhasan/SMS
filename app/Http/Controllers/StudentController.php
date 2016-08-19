@@ -30,10 +30,12 @@ class studentController extends Controller
     {
 
 
-        $session = Session::where('startingDate', 'Like', '%' . date('Y'))->first();
+       $session = Session::where('startingDate', 'Like', '%' . date('Y'))->first();
+
+        logger($session);
 
         $con = ['session_id' => $session->id, 'status' => 0];
-        $classes = Classes::where($con)->groupby('name')->distinct()->get();
+       $classes = Classes::where($con)->groupby('name')->distinct()->get();
 
 
         return view('student.create_student', compact('classes', 'session'));
@@ -46,7 +48,13 @@ class studentController extends Controller
 
         $classes = Classes::all();
         $student = Student::find($student_id);
+
+
         $sg = StudentGuardian::where('student_id', '=', $student->id)->first();
+
+
+
+
         $sr = studentRecord::where('student_id', '=', $student->id)->first();
 
 
@@ -244,6 +252,7 @@ class studentController extends Controller
         $guardian->occupation = $guardianOccupation;
         $guardian->email = $guardianEmail;
         $guardian->address = $guardianAddress;
+        $guardian->student_id = $student->id;
 
 
         $guardianCnicCopy = $request->file('guardianCnicCopy');
@@ -269,6 +278,7 @@ class studentController extends Controller
         $PrevRoll = $request->get('PrevRoll');
         $prevMarks = $request->get('PrevMarks');
         $prevSchool = $request->get('PrevSchool');
+        $studentVaccination = $request->get('vaccination');
 
 
         $studentRecord->class = $prevClass;
@@ -283,6 +293,22 @@ class studentController extends Controller
         $studentRecord->marks = $prevMarks;
         $studentRecord->school = $prevSchool;
         $studentRecord->student_id = $student->id;
+
+
+
+
+        $studentRecord->vaccination = $studentVaccination;
+
+
+        $studnetvaccinationCopy = $request->file('studentVaccinationCopy');
+        $studentRecord->vaccinationImage = $fileName;
+        $extension = $studnetvaccinationCopy->getClientOriginalExtension();
+        $fileName = rand(1111, 9999) . 'vaccination' . '.' . $extension;
+        $studnetvaccinationCopy->move($destinationPath, $fileName);
+
+
+
+
 
 
         $studentRecord->save();
@@ -515,10 +541,32 @@ class studentController extends Controller
         $studentRecord->student_id = $student->id;
 
 
+
+        $studentVaccination = $request->get('vaccination');
+
+
+
+
+        if($studentVaccination !=null and $studentVaccination!="") {
+            $studentRecord->vaccination = $studentVaccination;
+        }
+
+
+        $studnetvaccinationCopy = $request->file('studentVaccinationCopy');
+
+        if($studnetvaccinationCopy !=null and $studnetvaccinationCopy!="") {
+            $studentRecord->vaccinationImage = $fileName;
+            $extension = $studnetvaccinationCopy->getClientOriginalExtension();
+            $fileName = rand(1111, 9999) . 'vaccination' . '.' . $extension;
+            $studnetvaccinationCopy->move($destinationPath, $fileName);
+
+        }
+
+
        $studentRecord->save();
 
 
-        return $guardian;
+        return "1";
 
     }
 

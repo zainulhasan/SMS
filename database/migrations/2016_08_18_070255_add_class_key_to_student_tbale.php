@@ -14,9 +14,7 @@ class AddClassKeyToStudentTbale extends Migration
     {
         Schema::table('students', function (Blueprint $table) {
 
-            $table->foreign('classes_id')
-                ->references('id')->on('classes')
-                ->onDelete('cascade');
+            $table->foreign('classes_id')->references('id')->on('classes')->onDelete('cascade');
 
 
         });

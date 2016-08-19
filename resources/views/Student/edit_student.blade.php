@@ -313,7 +313,7 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3">CNIC </label>
+                                            <label class="control-label col-md-3">CNIC / Form B </label>
                                             <div class="col-md-3">
                                                 <input type="text" value="{{substr($student->cnic,0,4)}}" class="form-control" name="studentCnic1"
                                                        maxlength="5"/>
@@ -331,7 +331,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="control-label col-md-3">CNIC Copy</label>
+                                            <label class="control-label col-md-3">CNIC / Form B Copy</label>
                                             <div class="col-md-9">
                                                 <input placeholder="{{$student->cnicImage}}" value="{{$student->cnicImage}}" name="studentCnicCopy" class="form-control" type="file"/>
                                             </div>
@@ -669,6 +669,39 @@
 
 
 
+
+
+                                <!-- End Medical Section-->
+
+
+
+                                <h3  style="margin:10px; " class="form-section"><b>Medical History</b></h3>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-7"> Have you completed child's vaccination ?</label>
+                                            <div class="col-md-5">
+                                                <label    class="radio-inline"><input onchange="updateVaccinationRadio()" type="radio"   value="1" name="vaccination">Yes</label>
+                                                <label class="radio-inline"><input onchange="updateVaccinationRadio()" type="radio"  value="0" name="vaccination" >No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Vaccination Certificate Copy</label>
+                                            <div class="col-md-6">
+                                                <input type="file" class="form-control"
+                                                       name="studentVaccinationCopy">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/span-->
+                                </div>
+
+
+                                <!-- End Medical Section-->
 
 
 

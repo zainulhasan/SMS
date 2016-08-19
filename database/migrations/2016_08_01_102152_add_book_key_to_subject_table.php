@@ -13,12 +13,12 @@ class AddBookKeyToSubjectTable extends Migration
     public function up()
     {
         Schema::table('subjects', function (Blueprint $table) {
-
+//
             $table->foreign('book_id')
                 ->references('id')->on('books')
                 ->onDelete('cascade');
-
-
+//
+//
         });
     }
 

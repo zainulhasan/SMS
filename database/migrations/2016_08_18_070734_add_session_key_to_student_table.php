@@ -30,7 +30,7 @@ class AddSessionKeyToStudentTable extends Migration
     {
         Schema::table('students', function (Blueprint $table) {
 
-            $table->dropForeign('classes_session_id_foreign');
+            $table->dropForeign('students_session_id_foreign');
 
 
         });
