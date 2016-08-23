@@ -7,7 +7,7 @@ use App\Session;
 use App\student;
 use App\StudentGuardian;
 use App\StudentRecord;
-use Barryvdh\DomPDF\Facade as PDF;
+use Barryvdh\Snappy\Facades\SnappyPdf as SPDF;
 use Illuminate\Http\Request;
 
 class studentController extends Controller
@@ -78,23 +78,11 @@ class studentController extends Controller
 
     public function getPDF($student_id)
     {
-
-//        $student=Student::find($student_id);
-//
-//        $pdf = PDF::loadView('pdf.student_form', $student);
-//        return $pdf->stream('student_form.pdf');
-
-
-        return view('pdf.student_form');
-
-
+        $student=Student::find($student_id);
+         return view('pdf.index',compact('student'));
     }
 
 
-
-    /**
-     * @param Request $request
-     */
     public function delete(Request $request)
     {
 

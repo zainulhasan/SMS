@@ -841,32 +841,18 @@
             FormComponents.init();
 
 
-            add_allowance();
+
 
 
         });
 
 
-        function deleteRow(id) {
-            $('#' + id).remove();
 
-        }
 
 
         /////////////////////////////////////////////////////////////////////////////////////////
         //////////////////add allowance/////////////////////
         /////////////////////////////////////////////////////////////////////////////////////////
-
-        function add_allowance() {
-
-            var click = 2;
-            jQuery("#acadamic_recordBtn").click(function () {
-                jQuery('#acadamic_record tr:last').after(jQuery('#acadamic_record tr:last').after(
-                        "<tr id=\"" + click + "\" \" class=\"tablechild\"><td><input type=\"text\" id=\"year\" class=\"form-control\"  name=\"year[]\"><\/td><td><input type=\"text\" id=\"qualification\" name=\"qualification[]\" value=\"\" class=\"form-control\"  \/><\/td><td><input type=\"text\" id=\"institution\" name=\"institution[]\" value=\"\" class=\"form-control\"  \/><\/td><td><input type=\"text\" id=\"grade\" name=\"grade[]\" value=\"\" class=\"form-control\"\/><\/td><td><input type=\"text\" id=\"subjects\" name=\"subjects[]\" value=\"\" class=\"form-control\"\/><\/td><td><a style=\"cursor: pointer;\" value=\"Remove\" class=\"minusbtn\" id=\"remove\"><i class=\"fa fa-trash-o\" onclick=\"deleteRow\(" + click + "\)\"><\/i><\/a><\/td><\/tr>")
-                );
-            });
-            click++;
-        }
 
 
     </script>

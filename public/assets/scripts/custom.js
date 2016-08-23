@@ -140,31 +140,31 @@ function delete_session(session_id) {
 
 
 
-function updateVaccinationRadio(){
-
-
-
-
-    {
-        var tmp = $("input[name=vaccination]:checked").val();
-
-
-
-
-        if (tmp == "1") {
-
-            console.log('1');
-            $("input[name=studentVaccinationCopy]").prop('disabled', false);
-        } else {
-
-            console.log('0');
-            $("input[name=studentVaccinationCopy]").prop('disabled', true);
-        }
-
-    }
-
-
-}
+// function updateVaccinationRadio(){
+//
+//
+//
+//
+//     {
+//         var tmp = $("input[name=vaccination]:checked").val();
+//
+//
+//
+//
+//         if (tmp == "1") {
+//
+//             console.log('1');
+//             $("input[name=studentVaccinationCopy]").prop('disabled', false);
+//         } else {
+//
+//             console.log('0');
+//             $("input[name=studentVaccinationCopy]").prop('disabled', true);
+//         }
+//
+//     }
+//
+//
+// }
 
 /**
  * Generate Message to display on page after ajax request completed.
@@ -1043,6 +1043,7 @@ function getSectionsByClassIs()
 
 
 
+                $('#studentSection').empty();
                var sections=res;
 
 

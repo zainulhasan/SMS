@@ -23,8 +23,8 @@
 
             margin: 10px;
         }
-        .heading{
-            margin-left: 40px;
+        .header{
+            margin-top: 20px;
             line-height:1px;
             text-align: center;
         }
@@ -37,31 +37,21 @@
 
 
 <div class="container">
-
-
     <div class="row">
 
-        <div class="logo">
-            <div class="two columns">
-                <img width="70px" height="70px;" src="http://placehold.it/70x70" alt="">
+        <div class="col-md-3">
+            <img width="120px" height="120px" class="img-responsive" src="{{asset('img/logo.png')}}" alt="">
+        </div>
+        <div class="col-md-5">
+            <div class="header">
+                <h1>Army Public School</h1>
             </div>
         </div>
-        <div  class="eight columns">
-
-            <div class="heading">
-                <h4>Army Public School</h4>
-                <p>Army Public School</p>
-            </div>
-
-
-
+        <div class="col-md-3">
+            <img width="120px" height="120px" class="img-responsive" src="{{asset('img/pic.jpg')}}" alt="">
         </div>
-
-
 
     </div>
-
-
 </div>
 
 

@@ -13,8 +13,8 @@ class BooksController extends Controller
 {
     public function index()
     {
-        $condations = ['status' => 0];
-        $books = Book::where($condations)->get();
+        $conditions = ['status' => 0];
+        $books = Book::where($conditions)->get();
         return view('Academic.books', compact('books'));
     }
 
@@ -75,7 +75,6 @@ class BooksController extends Controller
 
     public function edit($book_id)
     {
-
         $book = Book::find($book_id);
         return view('Academic.edit_book', compact('book'));
     }
