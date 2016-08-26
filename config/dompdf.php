@@ -160,7 +160,9 @@ return array(
          * Used if no suitable fonts can be found. This must exist in the font folder.
          * @var string
          */
-        "DOMPDF_DEFAULT_FONT" => "serif",
+        "DOMPDF_DEFAULT_FONT" => "Calibri",
+
+
 
         /**
          * Image DPI setting
@@ -251,7 +253,7 @@ return array(
          * Allows people to disabled CSS float support
          * @var bool
          */
-        "DOMPDF_ENABLE_CSS_FLOAT" => false,
+        "DOMPDF_ENABLE_CSS_FLOAT" => true,
 
 
         /**

@@ -21,7 +21,8 @@ class CreateStudentRecordsTable extends Migration
             $table->string('marks');
             $table->string('school');
             $table->string('vaccination');
-            $table->string('vaccinationImage');
+            $table->string('vaccinationImage')
+            ;$table->string('certificateImage');
             $table->integer('student_id')->unsigned();
             $table->timestamps();
         });

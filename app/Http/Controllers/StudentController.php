@@ -7,7 +7,8 @@ use App\Session;
 use App\student;
 use App\StudentGuardian;
 use App\StudentRecord;
-use Barryvdh\Snappy\Facades\SnappyPdf as SPDF;
+use  Barryvdh\DomPDF\Facade as PDF;
+
 use Illuminate\Http\Request;
 
 class studentController extends Controller
@@ -17,9 +18,7 @@ class studentController extends Controller
      */
     public function index()
     {
-
         $students = student::all();
-
         return view('student.students', compact('students'));
     }
 
@@ -33,9 +32,9 @@ class studentController extends Controller
 
        $session = Session::where('startingDate', 'Like', '%' . date('Y'))->first();
 
-        logger($session);
 
-        $con = ['session_id' => $session->id, 'status' => 0];
+
+       $con = ['session_id' => $session->id, 'status' => 0];
        $classes = Classes::where($con)->groupby('name')->distinct()->get();
 
 
@@ -49,13 +48,7 @@ class studentController extends Controller
 
         $classes = Classes::all();
         $student = Student::find($student_id);
-
-
         $sg = StudentGuardian::where('student_id', '=', $student->id)->first();
-
-
-
-
         $sr = studentRecord::where('student_id', '=', $student->id)->first();
 
 
@@ -64,7 +57,7 @@ class studentController extends Controller
 
 
     /**
-     * @return string
+    * @return string
      */
     public function getSections(Request $request)
     {
@@ -79,7 +72,15 @@ class studentController extends Controller
     public function getPDF($student_id)
     {
         $student=Student::find($student_id);
-         return view('pdf.index',compact('student'));
+        $sg = StudentGuardian::where('student_id', '=', $student->id)->first();
+        $sr = studentRecord::where('student_id', '=', $student->id)->first();
+
+
+        $pdf = PDF::loadView('pdf.index',compact('student','sg','sr'))->setPaper('a4');
+        return $pdf->stream('myPdf.pdf');#view('pdf.pdf',compact('student'));
+
+
+        //return view('pdf.index',compact('student','sg','sr'));
     }
 
 
@@ -307,10 +308,19 @@ class studentController extends Controller
 
 
         $studnetvaccinationCopy = $request->file('studentVaccinationCopy');
-        $studentRecord->vaccinationImage = $fileName;
         $extension = $studnetvaccinationCopy->getClientOriginalExtension();
         $fileName = rand(1111, 9999) . 'vaccination' . '.' . $extension;
+        $studentRecord->vaccinationImage = $fileName;
         $studnetvaccinationCopy->move($destinationPath, $fileName);
+
+
+
+
+        $studentCertificateImage = $request->file('studentCertificateImage');
+        $extension = $studentCertificateImage->getClientOriginalExtension();
+        $fileName = rand(1111, 9999) . 'certificate' . '.' . $extension;
+        $studentRecord->certificateImage = $fileName;
+        $studentCertificateImage->move($destinationPath, $fileName);
 
 
 
@@ -352,6 +362,20 @@ class studentController extends Controller
             $extension = $studnetCnicCopy->getClientOriginalExtension();
             $fileName = rand(1111, 9999) . 'Stdcnic' . '.' . $extension;
             $studnetCnicCopy->move($destinationPath, $fileName);
+        }
+
+
+
+
+        $studentCertificateImage = $request->file('studentCertificateImage');
+        if ($studentCertificateImage != null or $studentCertificateImage != "") {
+            $studentCertificateImage = $request->file('studentCertificateImage');
+            $extension = $studentCertificateImage->getClientOriginalExtension();
+            $fileName = rand(1111, 9999) . 'certificate' . '.' . $extension;
+            $studentRecord->certificateImage = $fileName;
+            $studentCertificateImage->move($destinationPath, $fileName);
+
+
         }
 
 

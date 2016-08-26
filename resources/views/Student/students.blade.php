@@ -179,7 +179,7 @@
 
 
                                     <a href="{{route('studentPDf',['student_id'=>$student->id])}}"
-                                       class="btn btn-xs green"><i class="fa fa-edit"></i> Details </a>
+                                       class="btn btn-xs green"><i class="fa fa-download"></i> PDF </a>
 
                                     <a href="{{route('EditStudents',['student_id'=>$student->id])}}" class="btn btn-xs purple"><i class="fa fa-edit"></i> Edit </a>
 

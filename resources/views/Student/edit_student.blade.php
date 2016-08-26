@@ -109,6 +109,7 @@
                                             <div class="col-md-12">
                                                 <img src="{{$student->image?'/img/'.$student->image:""}}"  id="output"
                                                      style="height: 160px;width: 160px;float: right; margin-right: 40px;"/>
+
                                                 <script>
                                                     var loadFile = function (event) {
                                                         var output = document.getElementById('output');
@@ -118,6 +119,7 @@
                                                 <div class="col-md-12">
                                                     <input type="file"  style="float: right;margin-right: -68px;
     margin-top: 10px;" name="image" accept="image/*" onchange="loadFile(event)">
+
                                                 </div>
 
                                             </div>
@@ -334,6 +336,9 @@
                                             <label class="control-label col-md-3">CNIC / Form B Copy</label>
                                             <div class="col-md-9">
                                                 <input placeholder="{{$student->cnicImage}}" value="{{$student->cnicImage}}" name="studentCnicCopy" class="form-control" type="file"/>
+                                                <a class="" download="{{$student->cnicImage}}" href="{{asset('/img/'.$student->cnicImage)}}" title="ImageName">
+                                                    Download
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -356,6 +361,7 @@
                                             <label class="control-label col-md-3">Passport Copy</label>
                                             <div class="col-md-9">
                                                 <input name="studentPassportCopy" class="form-control" type="file"/>
+                                              cnic
                                             </div>
                                         </div>
                                     </div>
@@ -585,6 +591,9 @@
                                                 <input name="guardianCnicCopy" class="form-control"
                                                        id="guardianCnicCopy"
                                                        type="file"/>
+                                                <a class="" download="{{$sg->cnicImage}}" href="{{asset('/img/'.$sg->cnicImage)}}" title="ImageName">
+                                                    Download
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -606,6 +615,9 @@
                                             <label class="control-label col-md-3">Passport Copy</label>
                                             <div class="col-md-9">
                                                 <input name="guardianPassportCopy" class="form-control" type="file"/>
+                                                <a class="" download="{{$sg->passportImage}}" href="{{asset('/img/'.$sg->passportImage)}}" title="ImageName">
+                                                    Download
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -681,8 +693,8 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-7"> Have you completed child's vaccination ?</label>
                                             <div class="col-md-5">
-                                                <label    class="radio-inline"><input onchange="updateVaccinationRadio()" type="radio"   value="1" name="vaccination">Yes</label>
-                                                <label class="radio-inline"><input onchange="updateVaccinationRadio()" type="radio"  value="0" name="vaccination" >No</label>
+                                                <label    class="radio-inline"><input  type="radio"   value="1" name="vaccination">Yes</label>
+                                                <label class="radio-inline"><input  type="radio"  value="0" name="vaccination" >No</label>
                                             </div>
                                         </div>
                                     </div>
@@ -694,6 +706,9 @@
                                             <div class="col-md-6">
                                                 <input type="file" class="form-control"
                                                        name="studentVaccinationCopy">
+                                                <a class="" download="{{$sr->vaccinationImage}}" href="{{asset('/img/'.$sg->vaccinationImage)}}" title="ImageName">
+                                                    Download
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -755,6 +770,23 @@
                                             </tbody>
                                         </table>
 
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <h3 class="form-section" style="padding-left: 20px;"><b>Attachments</b></h3>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-6">Previous School Certificate Copy</label>
+                                            <div class="col-md-6">
+                                                <input type="file" class="form-control"
+                                                       name="studentCertificateImage">
+                                                <a class="" download="{{$sr->certificateImage}}" href="{{asset('/img/'.$sg->certificateImage)}}" title="ImageName">
+                                                    Download
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 

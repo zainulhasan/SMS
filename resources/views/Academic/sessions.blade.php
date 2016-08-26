@@ -75,11 +75,17 @@
                     <div class="caption">
                         <i class="fa fa-globe"></i>Sessions
                     </div>
+
+
+
                     <div class="actions">
                         <a style="color:#fff;" href="/" class="btn purple">
                             <i class="fa  fa-arrow-left"></i> Back
                         </a>
                     </div>
+
+
+
 
                 </div>
                 <div class="portlet-body">
@@ -152,35 +158,35 @@
 
 @section('scripts')
 
-    <!--Session.blage.php-->
-    <script src="{{URL::asset('assets/plugins/select2/select2.min.js')}}"></script>
-    <script src="{{URL::asset('assets/plugins/data-tables/jquery.dataTables.min.js')}}"></script>
-    <script src="{{URL::asset('assets/plugins/data-tables/DT_bootstrap.js')}}"></script>
-    <script src="{{URL::asset('assets/scripts/app.js')}}"></script>
-    <script src="{{URL::asset('assets/scripts/table-advanced.js')}}"></script>
-    <script src="{{URL::asset('assets/plugins/bootbox/bootbox.min.js')}}"></script>
-    <script src="{{URL::asset('assets/scripts/ui-bootbox.js')}}"></script>
+        <!--Session.blage.php-->
+        <script src="{{URL::asset('assets/plugins/select2/select2.min.js')}}"></script>
+        <script src="{{URL::asset('assets/plugins/data-tables/jquery.dataTables.min.js')}}"></script>
+        <script src="{{URL::asset('assets/plugins/data-tables/DT_bootstrap.js')}}"></script>
+        <script src="{{URL::asset('assets/scripts/app.js')}}"></script>
+        <script src="{{URL::asset('assets/scripts/table-advanced.js')}}"></script>
+        <script src="{{URL::asset('assets/plugins/bootbox/bootbox.min.js')}}"></script>
+        <script src="{{URL::asset('assets/scripts/ui-bootbox.js')}}"></script>
 
-    <script src="{{URL::asset('assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js')}}"></script>
-    <script src="{{URL::asset('assets/plugins/bootstrap-modal/js/bootstrap-modal.js')}}"></script>
-    <script src="{{URL::asset('assets/scripts/ui-extended-modals.js')}}"></script>
-
-
-
-
-
-    <script>
-        jQuery(document).ready(function () {
-            App.init();
-            TableAdvanced.init();
-            UIBootbox.init();
-            UIExtendedModals.init();
-
-        });
+        <script src="{{URL::asset('assets/plugins/bootstrap-modal/js/bootstrap-modalmanager.js')}}"></script>
+        <script src="{{URL::asset('assets/plugins/bootstrap-modal/js/bootstrap-modal.js')}}"></script>
+        <script src="{{URL::asset('assets/scripts/ui-extended-modals.js')}}"></script>
 
 
 
 
-    </script>
+
+        <script>
+            jQuery(document).ready(function () {
+                App.init();
+                TableAdvanced.init();
+                UIBootbox.init();
+                UIExtendedModals.init();
+
+            });
+
+
+
+
+        </script>
 
 @stop

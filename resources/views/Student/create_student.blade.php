@@ -650,8 +650,8 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-7"> Have you completed child's vaccination ?</label>
                                             <div class="col-md-5">
-                                                <label    class="radio-inline"><input onchange="updateVaccinationRadio()" type="radio"   value="1" name="vaccination">Yes</label>
-                                                <label class="radio-inline"><input onchange="updateVaccinationRadio()" type="radio"  value="0" name="vaccination">No</label>
+                                                <label    class="radio-inline"><input  type="radio"   value="1" name="vaccination">Yes</label>
+                                                <label class="radio-inline"><input  type="radio"  value="0" name="vaccination">No</label>
                                             </div>
                                         </div>
                                     </div>
@@ -725,7 +725,19 @@
 
 
 
+                                    <div class="row">
+                                        <h3 class="form-section" style="padding-left: 20px;"><b>Attachments</b></h3>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-6">Previous School Certificate Copy</label>
+                                                <div class="col-md-6">
+                                                    <input type="file" class="form-control"
+                                                           name="studentCertificateImage">
 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 <div class="form-actions fluid">
                                     <div class="row">

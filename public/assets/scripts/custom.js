@@ -31,6 +31,7 @@ function add_session() {
 
                 } else {
 
+
                     $('#message_box').append(get_message("You have some form errors. Please check below."));
                 }
 

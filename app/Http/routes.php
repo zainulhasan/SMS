@@ -10,6 +10,7 @@ Route::group(['prefix' => 'Academic'], function () {
 
     Route::get('session', ['as' => 'sessions', 'uses' => 'AcademicsController@session']);
 
+
     Route::group(['prefix' => 'session'], function () {
 
         Route::get('/create', ['uses' => 'AcademicsController@getSession', 'as' => 'createSession']);
